@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-surface":"#131b2e","on-error":"#ffffff","on-tertiary-container":"#fffbff","primary-fixed-dim":"#62df7d","primary-container":"#00873a","surface-container-low":"#f2f3ff","secondary":"#0051d5","on-secondary-fixed-variant":"#003ea8","on-secondary-fixed":"#00174b","on-error-container":"#93000a","error-container":"#ffdad6","on-background":"#131b2e","inverse-on-surface":"#eef0ff","on-primary-fixed":"#002109","secondary-container":"#316bf3","outline":"#6e7b6c","secondary-fixed-dim":"#b4c5ff","surface-container-highest":"#dae2fd","on-tertiary-fixed":"#23005c","tertiary-container":"#8455ef","tertiary-fixed":"#e9ddff","on-secondary":"#ffffff","tertiary-fixed-dim":"#d0bcff","on-primary":"#ffffff","on-surface-variant":"#3e4a3d","secondary-fixed":"#dbe1ff","on-primary-container":"#f7fff2","tertiary":"#6b38d4","on-tertiary":"#ffffff","outline-variant":"#bdcaba","surface-tint":"#006e2d","surface-container":"#eaedff","primary-fixed":"#7ffc97","surface-bright":"#faf8ff","on-secondary-container":"#fefcff","on-tertiary-fixed-variant":"#5516be","inverse-primary":"#62df7d","surface-variant":"#dae2fd","background":"#faf8ff","error":"#ba1a1a","surface-container-lowest":"#ffffff","primary":"#006b2c","surface":"#faf8ff","surface-dim":"#d2d9f4","on-primary-fixed-variant":"#005320","inverse-surface":"#283044","surface-container-high":"#e2e7ff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.25rem","margin":"1.5rem","margin-mobile":"1rem","space-sm":"0.5rem","space-xs":"0.25rem","space-md":"0.75rem","gutter":"1.25rem","gutter-mobile":"0.75rem","space-xl":"1.75rem"},"fontFamily":{"code-mono":["JetBrains Mono"],"body-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"body-md":["Inter"],"label-sm":["Inter"],"label-xs":["Inter"],"title-md":["Plus Jakarta Sans"],"label-md":["Inter"],"body-lg":["Inter"],"headline-xl":["Plus Jakarta Sans"],"metric-display-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"metric-display":["Plus Jakarta Sans"]},"fontSize":{"code-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"600"}],"label-xs":["10px",{"lineHeight":"12px","letterSpacing":"0.04em","fontWeight":"700"}],"title-md":["15px",{"lineHeight":"20px","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"18px","fontWeight":"600"}],"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"headline-xl":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"metric-display-mobile":["24px",{"lineHeight":"30px","letterSpacing":"-0.02em","fontWeight":"800"}],"headline-lg":["22px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"700"}],"metric-display":["30px",{"lineHeight":"36px","letterSpacing":"-0.025em","fontWeight":"800"}]}}}};</script>
+<link rel="stylesheet" href="css/common.css"/>
+<link rel="stylesheet" href="css/animations.css"/>
+<link rel="stylesheet" href="css/responsive.css"/>
+
+</head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-lg flex items-start gap-space-md"><img alt="CPU Performance Explorer Logo" class="h-8 w-auto object-contain flex-shrink-0 mt-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwB2JFE2lz6MiHRzA-0OgMOgZtS6RD4TG3yl-wwapAJO8hsqWHy96SkWSsIDeYLVfz-8HFab5Whs0EGrPwf2w0_nemkOKmxSS3CFpiRo9x2gfasH83CMc_dQ-iEQtqSFplV5Yi9LgtdSStP9zMizQA2uXTsIS7awrWtkDUeFMtVJ9mPKwSyWwF8U3tC3a1RHtcyfhFByPEp0DCjl_UFoj-kEBWOQ47Gn8LbPuQ424"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate">CPU Performance Explorer</span><span class="font-label-xs text-label-xs text-on-surface-variant truncate tracking-wider uppercase mt-0.5">Analyze. Simulate. Visualize. Optimize.</span></div></div><div class="px-space-md py-space-xs"><div class="h-px bg-surface-container-high w-full"></div></div><nav class="flex flex-col gap-1 px-space-md py-space-md" data-active-classes="bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]"><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="truncate">Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="performance-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">speed</span><span class="truncate">Performance Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="pipeline-simulator" href="#"><span class="material-symbols-outlined text-[20px]">account_tree</span><span class="truncate">Pipeline Simulator</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="bottleneck-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="truncate">Bottleneck Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="cpu-comparison" href="#"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span class="truncate">CPU Comparison</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="what-if-analysis" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="truncate">What-if Analysis</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="advanced-visualizations" href="#"><span class="material-symbols-outlined text-[20px]">hub</span><span class="truncate">Advanced Visualizations</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span class="truncate">Reports &amp; Analytics</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="truncate">Settings</span></a></nav></div><div class="p-space-md"><div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between"><div class="flex flex-col"><span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Kernel Probe</span><span class="font-code-mono text-code-mono text-on-surface">v6.8.2-arch1</span></div><span class="inline-flex w-2.5 h-2.5 rounded-full bg-primary"></span></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px] pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-12 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-sm transition-all" placeholder="Search instruction sets, registers, benchmarks..." type="text"/><kbd class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-code-mono text-label-xs shadow-xs">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><button class="inline-flex items-center gap-space-xs h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-[0_2px_4px_rgba(0,107,44,0.2)] hover:bg-primary-container transition-colors"><span class="material-symbols-outlined text-[18px]">add</span><span>New Analysis</span></button><div class="relative"><button aria-label="Notifications" class="w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button></div><div class="h-6 w-px bg-surface-container-high mx-space-xs"></div><div class="flex items-center gap-space-sm pl-1"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface">Dr. Alex Vance</span><span class="font-label-xs text-label-xs text-on-surface-variant">Lead Architect</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-xs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_I9CnnJh0erE5XNT2yT4zjYIL9UjBL3gtyr8TP8A56-fnP5TFb0aLgUnID3DDyg1j0criuc7uSAHJiHNBtpEVXkfq2P5pHdRu5EyITixkZX0BmbTV1RfUjAe47eV9YrE7u8DRErCuxwiu5Hp-twFkEWQ-4fkXpVbdBzxqyFAKcuLINOOktXLfNtCoxMUKWVIO2KrL1AfzUFZDFLJK7ntm2iZOFJq6wAH1KPLQFtU"/></div></div></header><main class="w-full pt-16 bg-surface flex-1 px-space-xl py-space-xl"><div class="flex flex-col w-full gap-space-lg">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-space-xs font-code-mono text-label-xs text-on-surface-variant uppercase tracking-wider mb-1">
+<span class="inline-flex w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span>MODULE 08</span>
+<span>/</span>
+<span class="text-primary font-semibold">MICROARCHITECTURAL VISUALIZATION GALLERY</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Advanced Visualizations</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+        Interactive and in-depth CPU performance visualizations, memory topologies, and pipeline execution flows.
+      </p>
+</div>
+<div class="flex items-center gap-space-sm flex-wrap">
+<button class="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-on-surface hover:bg-surface-container shadow-sm transition-all font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span>Export CSV</span>
+</button>
+<button class="inline-flex items-center gap-1.5 h-9 px-3 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-on-surface hover:bg-surface-container shadow-sm transition-all font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">image</span>
+<span>Download High-Res SVG/PNG</span>
+</button>
+<button class="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-surface-container-lowest text-on-surface-variant hover:text-on-surface hover:bg-surface-container shadow-sm transition-all" id="fullscreen-toggle">
+<span class="material-symbols-outlined text-[20px]">fullscreen</span>
+</button>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-sm shadow-sm flex items-center justify-between flex-wrap gap-space-sm">
+<div class="flex items-center gap-1.5 overflow-x-auto py-0.5 max-w-full" id="viz-tabs">
+<button class="viz-tab-btn active px-4 py-1.5 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md shadow-sm transition-all" data-tab="heatmap">
+        Heatmap
+      </button>
+<button class="viz-tab-btn px-4 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-all" data-tab="sankey">
+        Sankey
+      </button>
+<button class="viz-tab-btn px-4 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-all" data-tab="waterfall">
+        Waterfall
+      </button>
+<button class="viz-tab-btn px-4 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-all" data-tab="treemap">
+        Treemap
+      </button>
+<button class="viz-tab-btn px-4 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-all" data-tab="cache">
+        Cache
+      </button>
+<button class="viz-tab-btn px-4 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-all" data-tab="memory">
+        Memory
+      </button>
+<button class="viz-tab-btn px-4 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md transition-all" data-tab="branch">
+        Branch
+      </button>
+</div>
+<div class="flex items-center gap-space-sm font-code-mono text-label-xs text-on-surface-variant">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container text-on-surface font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+        SAMPLING: 100ms
+      </span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-surface-container text-on-surface font-medium">
+        THREADS: 16 (AFFINITY LOCKED)
+      </span>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<div class="xl:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-start justify-between mb-space-md">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">grid_goldenratio</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">CPU Utilization Heatmap</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Per-core active workload distribution recorded across continuous 60s runtime sample</p>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-xs text-label-xs font-semibold">Live Matrix</span>
+</div>
+<div class="flex items-stretch gap-space-md my-auto">
+<div class="flex-1 flex flex-col justify-between">
+<div class="grid grid-cols-8 gap-2 text-center font-code-mono text-label-xs text-on-surface-variant pb-2">
+<span class="text-left pl-1">UNIT</span>
+<span>0s</span>
+<span>10s</span>
+<span>20s</span>
+<span>30s</span>
+<span>40s</span>
+<span>50s</span>
+<span>60s</span>
+</div>
+<div class="flex flex-col gap-2 font-code-mono text-label-xs" id="heatmap-body">
+<div class="grid grid-cols-8 gap-2 items-center">
+<span class="text-on-surface-variant font-semibold text-left pl-1">Core 1</span>
+<span class="h-8 rounded bg-[#4ade80] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">28%</span>
+<span class="h-8 rounded bg-[#22c55e] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">42%</span>
+<span class="h-8 rounded bg-[#facc15] flex items-center justify-center text-[10px] text-on-surface font-bold shadow-xs">58%</span>
+<span class="h-8 rounded bg-[#fb923c] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">74%</span>
+<span class="h-8 rounded bg-[#f87171] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">88%</span>
+<span class="h-8 rounded bg-[#ef4444] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">96%</span>
+<span class="h-8 rounded bg-[#dc2626] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">100%</span>
+</div>
+<div class="grid grid-cols-8 gap-2 items-center">
+<span class="text-on-surface-variant font-semibold text-left pl-1">Core 2</span>
+<span class="h-8 rounded bg-[#86efac] flex items-center justify-center text-[10px] text-on-surface-variant font-bold shadow-xs">18%</span>
+<span class="h-8 rounded bg-[#4ade80] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">32%</span>
+<span class="h-8 rounded bg-[#a3e635] flex items-center justify-center text-[10px] text-on-surface font-bold shadow-xs">49%</span>
+<span class="h-8 rounded bg-[#facc15] flex items-center justify-center text-[10px] text-on-surface font-bold shadow-xs">63%</span>
+<span class="h-8 rounded bg-[#fb923c] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">78%</span>
+<span class="h-8 rounded bg-[#fb923c] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">82%</span>
+<span class="h-8 rounded bg-[#f87171] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">91%</span>
+</div>
+<div class="grid grid-cols-8 gap-2 items-center">
+<span class="text-on-surface-variant font-semibold text-left pl-1">Core 3</span>
+<span class="h-8 rounded bg-[#bbf7d0] flex items-center justify-center text-[10px] text-on-surface-variant font-bold shadow-xs">12%</span>
+<span class="h-8 rounded bg-[#86efac] flex items-center justify-center text-[10px] text-on-surface-variant font-bold shadow-xs">22%</span>
+<span class="h-8 rounded bg-[#4ade80] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">36%</span>
+<span class="h-8 rounded bg-[#facc15] flex items-center justify-center text-[10px] text-on-surface font-bold shadow-xs">54%</span>
+<span class="h-8 rounded bg-[#fb923c] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">72%</span>
+<span class="h-8 rounded bg-[#f87171] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">85%</span>
+<span class="h-8 rounded bg-[#ef4444] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">94%</span>
+</div>
+<div class="grid grid-cols-8 gap-2 items-center">
+<span class="text-on-surface-variant font-semibold text-left pl-1">Core 4</span>
+<span class="h-8 rounded bg-[#4ade80] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">24%</span>
+<span class="h-8 rounded bg-[#86efac] flex items-center justify-center text-[10px] text-on-surface-variant font-bold shadow-xs">19%</span>
+<span class="h-8 rounded bg-[#22c55e] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">41%</span>
+<span class="h-8 rounded bg-[#a3e635] flex items-center justify-center text-[10px] text-on-surface font-bold shadow-xs">48%</span>
+<span class="h-8 rounded bg-[#facc15] flex items-center justify-center text-[10px] text-on-surface font-bold shadow-xs">60%</span>
+<span class="h-8 rounded bg-[#fb923c] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">76%</span>
+<span class="h-8 rounded bg-[#f87171] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">89%</span>
+</div>
+<div class="grid grid-cols-8 gap-2 items-center">
+<span class="text-on-surface-variant font-semibold text-left pl-1">Core 5</span>
+<span class="h-8 rounded bg-[#86efac] flex items-center justify-center text-[10px] text-on-surface-variant font-bold shadow-xs">15%</span>
+<span class="h-8 rounded bg-[#4ade80] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">30%</span>
+<span class="h-8 rounded bg-[#4ade80] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">38%</span>
+<span class="h-8 rounded bg-[#22c55e] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">45%</span>
+<span class="h-8 rounded bg-[#facc15] flex items-center justify-center text-[10px] text-on-surface font-bold shadow-xs">59%</span>
+<span class="h-8 rounded bg-[#facc15] flex items-center justify-center text-[10px] text-on-surface font-bold shadow-xs">65%</span>
+<span class="h-8 rounded bg-[#fb923c] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">77%</span>
+</div>
+<div class="grid grid-cols-8 gap-2 items-center">
+<span class="text-on-surface-variant font-semibold text-left pl-1">Core 6</span>
+<span class="h-8 rounded bg-[#22c55e] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">35%</span>
+<span class="h-8 rounded bg-[#22c55e] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">44%</span>
+<span class="h-8 rounded bg-[#4ade80] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">39%</span>
+<span class="h-8 rounded bg-[#a3e635] flex items-center justify-center text-[10px] text-on-surface font-bold shadow-xs">46%</span>
+<span class="h-8 rounded bg-[#4ade80] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">38%</span>
+<span class="h-8 rounded bg-[#86efac] flex items-center justify-center text-[10px] text-on-surface-variant font-bold shadow-xs">25%</span>
+<span class="h-8 rounded bg-[#86efac] flex items-center justify-center text-[10px] text-on-surface-variant font-bold shadow-xs">19%</span>
+</div>
+<div class="grid grid-cols-8 gap-2 items-center">
+<span class="text-on-surface-variant font-semibold text-left pl-1">Core 7</span>
+<span class="h-8 rounded bg-[#4ade80] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">27%</span>
+<span class="h-8 rounded bg-[#22c55e] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">40%</span>
+<span class="h-8 rounded bg-[#86efac] flex items-center justify-center text-[10px] text-on-surface-variant font-bold shadow-xs">20%</span>
+<span class="h-8 rounded bg-[#86efac] flex items-center justify-center text-[10px] text-on-surface-variant font-bold shadow-xs">15%</span>
+<span class="h-8 rounded bg-[#4ade80] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">33%</span>
+<span class="h-8 rounded bg-[#a3e635] flex items-center justify-center text-[10px] text-on-surface font-bold shadow-xs">51%</span>
+<span class="h-8 rounded bg-[#22c55e] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">44%</span>
+</div>
+<div class="grid grid-cols-8 gap-2 items-center">
+<span class="text-on-surface-variant font-semibold text-left pl-1">Core 8</span>
+<span class="h-8 rounded bg-[#facc15] flex items-center justify-center text-[10px] text-on-surface font-bold shadow-xs">55%</span>
+<span class="h-8 rounded bg-[#fb923c] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">79%</span>
+<span class="h-8 rounded bg-[#f87171] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">88%</span>
+<span class="h-8 rounded bg-[#fb923c] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">73%</span>
+<span class="h-8 rounded bg-[#facc15] flex items-center justify-center text-[10px] text-on-surface font-bold shadow-xs">62%</span>
+<span class="h-8 rounded bg-[#4ade80] flex items-center justify-center text-[10px] text-white font-bold shadow-xs">34%</span>
+<span class="h-8 rounded bg-[#86efac] flex items-center justify-center text-[10px] text-on-surface-variant font-bold shadow-xs">12%</span>
+</div>
+</div>
+</div>
+<div class="w-14 flex flex-col items-center justify-between pl-2">
+<span class="font-code-mono text-label-xs text-error font-bold">100%</span>
+<div class="w-4 flex-1 my-2 rounded-full shadow-xs bg-gradient-to-t from-[#86efac] via-[#facc15] to-[#dc2626]"></div>
+<span class="font-code-mono text-label-xs text-primary font-bold">0%</span>
+</div>
+</div>
+<div class="mt-space-md pt-space-sm flex items-center justify-between font-label-xs text-label-xs text-on-surface-variant bg-surface-container-low rounded-lg p-space-sm">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-error"></span>Core 1 Thermal Saturation Threshold reached at T+58s</span>
+<span class="font-code-mono text-on-surface">Mean Core Dev: ±14.2%</span>
+</div>
+</div>
+<div class="xl:col-span-5 flex flex-col gap-space-lg">
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-space-sm">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">CPI vs IPC Relationship</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Hyperbolic architectural reciprocal envelope (CPI = 1 / IPC)</p>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-code-mono text-label-xs font-semibold">Frontier</span>
+</div>
+<div class="relative w-full h-44 mt-2">
+<svg class="w-full h-full" fill="none" viewbox="0 0 340 150">
+<line stroke="#dae2fd" stroke-dasharray="3 3" x1="40" x2="330" y1="20" y2="20"></line>
+<line stroke="#dae2fd" stroke-dasharray="3 3" x1="40" x2="330" y1="55" y2="55"></line>
+<line stroke="#dae2fd" stroke-dasharray="3 3" x1="40" x2="330" y1="90" y2="90"></line>
+<line stroke="#dae2fd" stroke-dasharray="3 3" x1="40" x2="330" y1="125" y2="125"></line>
+<line stroke="#dae2fd" x1="40" x2="330" y1="125" y2="125"></line>
+<line stroke="#dae2fd" x1="40" x2="40" y1="15" y2="125"></line>
+<text class="fill-on-surface-variant font-code-mono text-[9px]" text-anchor="end" x="32" y="24">0.6</text>
+<text class="fill-on-surface-variant font-code-mono text-[9px]" text-anchor="end" x="32" y="59">0.5</text>
+<text class="fill-on-surface-variant font-code-mono text-[9px]" text-anchor="end" x="32" y="94">0.4</text>
+<text class="fill-on-surface-variant font-code-mono text-[9px]" text-anchor="end" x="32" y="128">0.2</text>
+<text class="fill-on-surface-variant font-code-mono text-[9px]" text-anchor="middle" x="50" y="142">0.5</text>
+<text class="fill-on-surface-variant font-code-mono text-[9px]" text-anchor="middle" x="100" y="142">1.0</text>
+<text class="fill-on-surface-variant font-code-mono text-[9px]" text-anchor="middle" x="150" y="142">1.5</text>
+<text class="fill-on-surface-variant font-code-mono text-[9px]" text-anchor="middle" x="200" y="142">2.0</text>
+<text class="fill-on-surface-variant font-code-mono text-[9px]" text-anchor="middle" x="250" y="142">2.5</text>
+<text class="fill-on-surface-variant font-code-mono text-[9px]" text-anchor="middle" x="290" y="142">3.0</text>
+<text class="fill-on-surface-variant font-code-mono text-[9px]" text-anchor="middle" x="325" y="142">3.5</text>
+<path d="M 60 25 C 100 40, 160 85, 320 120" fill="none" stroke="#8455ef" stroke-linecap="round" stroke-width="2.5"></path>
+<circle cx="95" cy="40" fill="#316bf3" r="5"></circle>
+<circle cx="150" cy="75" fill="#8455ef" r="4.5"></circle>
+<circle cx="215" cy="98" fill="#00873a" r="6"></circle>
+<circle cx="280" cy="114" fill="#ba1a1a" r="5"></circle>
+<circle cx="310" cy="119" fill="#316bf3" r="4"></circle>
+<path d="M 215 98 L 245 78" stroke="#00873a" stroke-dasharray="2 2" stroke-width="1"></path>
+<rect fill="#131b2e" height="18" rx="4" width="68" x="240" y="66"></rect>
+<text class="font-code-mono text-[9px] font-bold" fill="#ffffff" text-anchor="middle" x="274" y="79">IPC 0.40 / 2.47</text>
+</svg>
+</div>
+<div class="flex items-center justify-between text-on-surface-variant font-label-xs text-label-xs mt-2 pt-2 bg-surface-container-low rounded p-2">
+<span>Target Equilibrium: <strong class="text-on-surface font-code-mono">1.0 IPC / 1.0 CPI</strong></span>
+<span class="text-primary font-semibold">Pareto Efficiency 88.4%</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-space-sm">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Instruction Flow (Sankey Breakdown)</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Trace routing of instructions dispatched through execution pipelines</p>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-surface-container font-code-mono text-label-xs font-semibold text-on-surface">10,000 IC</span>
+</div>
+<div class="relative w-full h-44 flex items-center justify-between px-2">
+<div class="w-24 h-28 rounded-xl bg-surface-container-high p-2 flex flex-col justify-center items-center shadow-xs">
+<span class="font-code-mono text-label-xs text-on-surface-variant uppercase">Total In</span>
+<span class="font-headline-md text-headline-md text-on-surface font-extrabold my-0.5">10,000</span>
+<span class="font-label-xs text-label-xs text-primary font-bold">Instructions</span>
+</div>
+<div class="flex-1 h-full px-2">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 160 120">
+<path d="M 0 45 C 70 45, 90 20, 160 20" fill="none" stroke="#22c55e" stroke-opacity="0.35" stroke-width="26"></path>
+<path d="M 0 58 C 70 58, 90 52, 160 52" fill="none" stroke="#3b82f6" stroke-opacity="0.35" stroke-width="18"></path>
+<path d="M 0 68 C 70 68, 90 82, 160 82" fill="none" stroke="#f59e0b" stroke-opacity="0.35" stroke-width="10"></path>
+<path d="M 0 76 C 70 76, 90 106, 160 106" fill="none" stroke="#a855f7" stroke-opacity="0.35" stroke-width="14"></path>
+</svg>
+</div>
+<div class="w-36 flex flex-col gap-1.5 justify-center font-label-xs text-label-xs">
+<div class="flex items-center justify-between p-1.5 rounded-lg bg-surface-container-low">
+<span class="flex items-center gap-1 font-semibold text-[#15803d]">
+<span class="w-2 h-2 rounded-full bg-[#22c55e]"></span>ALU
+              </span>
+<span class="font-code-mono font-bold text-on-surface">4,200 (42%)</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded-lg bg-surface-container-low">
+<span class="flex items-center gap-1 font-semibold text-[#1d4ed8]">
+<span class="w-2 h-2 rounded-full bg-[#3b82f6]"></span>Memory
+              </span>
+<span class="font-code-mono font-bold text-on-surface">2,800 (28%)</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded-lg bg-surface-container-low">
+<span class="flex items-center gap-1 font-semibold text-[#b45309]">
+<span class="w-2 h-2 rounded-full bg-[#f59e0b]"></span>Branch
+              </span>
+<span class="font-code-mono font-bold text-on-surface">1,200 (12%)</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded-lg bg-surface-container-low">
+<span class="flex items-center gap-1 font-semibold text-[#7e22ce]">
+<span class="w-2 h-2 rounded-full bg-[#a855f7]"></span>Others
+              </span>
+<span class="font-code-mono font-bold text-on-surface">1,800 (18%)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+<div class="xl:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-space-md">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">waterfall_chart</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Execution Time Waterfall Chart</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Decomposition of active compute time vs. stall penalties in total cycle allocation</p>
+</div>
+<span class="font-code-mono text-label-xs px-2.5 py-1 rounded bg-surface-container text-on-surface font-bold">24,700 CYCLES TOTAL</span>
+</div>
+<div class="flex-1 flex flex-col justify-center gap-3 py-2">
+<div>
+<div class="flex justify-between items-center font-label-xs text-label-xs mb-1">
+<span class="font-semibold text-on-surface">Base Non-Stall Computation (Committed Cycles)</span>
+<span class="font-code-mono font-bold text-primary">10,000 cyc (40.5%)</span>
+</div>
+<div class="h-6 w-full rounded-md bg-surface-container overflow-hidden flex shadow-xs">
+<div class="h-full bg-primary-container rounded-md flex items-center px-2 text-on-primary font-code-mono text-label-xs font-bold" style="width: 40.5%;">
+              40.5%
+            </div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center font-label-xs text-label-xs mb-1">
+<span class="font-semibold text-on-surface">Memory Hierarchy Miss Latency (L2/L3/DRAM)</span>
+<span class="font-code-mono font-bold text-secondary">6,916 cyc (28.0%)</span>
+</div>
+<div class="h-6 w-full rounded-md bg-surface-container overflow-hidden flex shadow-xs">
+<div class="h-full bg-transparent" style="width: 40.5%;"></div>
+<div class="h-full bg-secondary-container rounded-md flex items-center px-2 text-on-secondary font-code-mono text-label-xs font-bold" style="width: 28%;">
+              +28.0%
+            </div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center font-label-xs text-label-xs mb-1">
+<span class="font-semibold text-on-surface">Data Dependency Raw Hazards (RAW / Load-Use)</span>
+<span class="font-code-mono font-bold text-tertiary">4,446 cyc (18.0%)</span>
+</div>
+<div class="h-6 w-full rounded-md bg-surface-container overflow-hidden flex shadow-xs">
+<div class="h-full bg-transparent" style="width: 68.5%;"></div>
+<div class="h-full bg-tertiary-container rounded-md flex items-center px-2 text-on-tertiary font-code-mono text-label-xs font-bold" style="width: 18%;">
+              +18.0%
+            </div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center font-label-xs text-label-xs mb-1">
+<span class="font-semibold text-on-surface">Branch Misprediction Flush Penalty</span>
+<span class="font-code-mono font-bold text-error">2,964 cyc (12.0%)</span>
+</div>
+<div class="h-6 w-full rounded-md bg-surface-container overflow-hidden flex shadow-xs">
+<div class="h-full bg-transparent" style="width: 86.5%;"></div>
+<div class="h-full bg-error rounded-md flex items-center px-2 text-on-error font-code-mono text-label-xs font-bold" style="width: 12%;">
+              +12.0%
+            </div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center font-label-xs text-label-xs mb-1">
+<span class="font-semibold text-on-surface">Structural &amp; Execution Port Contentions</span>
+<span class="font-code-mono font-bold text-on-surface-variant">374 cyc (1.5%)</span>
+</div>
+<div class="h-6 w-full rounded-md bg-surface-container overflow-hidden flex shadow-xs">
+<div class="h-full bg-transparent" style="width: 98.5%;"></div>
+<div class="h-full bg-on-surface-variant rounded-md flex items-center px-1 text-on-primary font-code-mono text-[9px] font-bold" style="width: 1.5%;">
+              1.5%
+            </div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-space-sm pt-space-sm font-label-xs text-label-xs">
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col">
+<span class="text-on-surface-variant">Potential IPC Ceiling</span>
+<span class="font-metric-display text-[18px] text-primary font-extrabold mt-0.5">1.00</span>
+<span class="text-on-surface-variant text-[10px]">Zero-stall theoretical peak</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col">
+<span class="text-on-surface-variant">Effective Real IPC</span>
+<span class="font-metric-display text-[18px] text-secondary font-extrabold mt-0.5">0.40</span>
+<span class="text-on-surface-variant text-[10px]">Actual benchmark delivery</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low flex flex-col">
+<span class="text-on-surface-variant">Loss to Architectural Stalls</span>
+<span class="font-metric-display text-[18px] text-error font-extrabold mt-0.5">59.5%</span>
+<span class="text-on-surface-variant text-[10px]">14,700 cycles recoverable</span>
+</div>
+</div>
+</div>
+<div class="xl:col-span-5 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between mb-space-sm">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary text-[20px]">layers</span>
+<h2 class="font-headline-md text-headline-md text-on-surface">Cache Hierarchy Pyramid</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Access latency penalty and capacity distribution per tier</p>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-code-mono text-label-xs font-semibold">Hierarchy</span>
+</div>
+<div class="flex flex-col items-center justify-center gap-2.5 my-auto py-2">
+<div class="w-48 h-10 rounded-lg bg-primary text-on-primary flex items-center justify-between px-3 shadow-sm transition-transform hover:scale-105 cursor-pointer">
+<div class="flex items-center gap-2">
+<span class="font-code-mono text-label-xs font-bold bg-white/20 px-1.5 py-0.5 rounded">L1$</span>
+<span class="font-label-xs font-semibold">64 KB per core</span>
+</div>
+<span class="font-code-mono text-label-xs font-extrabold">4 Cycles (~1.1ns)</span>
+</div>
+<div class="w-64 h-11 rounded-lg bg-secondary text-on-secondary flex items-center justify-between px-3 shadow-sm transition-transform hover:scale-105 cursor-pointer">
+<div class="flex items-center gap-2">
+<span class="font-code-mono text-label-xs font-bold bg-white/20 px-1.5 py-0.5 rounded">L2$</span>
+<span class="font-label-xs font-semibold">1 MB per core</span>
+</div>
+<span class="font-code-mono text-label-xs font-extrabold">14 Cycles (~3.9ns)</span>
+</div>
+<div class="w-80 h-12 rounded-lg bg-tertiary text-on-tertiary flex items-center justify-between px-3 shadow-sm transition-transform hover:scale-105 cursor-pointer">
+<div class="flex items-center gap-2">
+<span class="font-code-mono text-label-xs font-bold bg-white/20 px-1.5 py-0.5 rounded">L3$</span>
+<span class="font-label-xs font-semibold">32 MB Shared LLC</span>
+</div>
+<span class="font-code-mono text-label-xs font-extrabold">45 Cycles (~12.5ns)</span>
+</div>
+<div class="w-full h-14 rounded-lg bg-inverse-surface text-inverse-on-surface flex items-center justify-between px-4 shadow-sm transition-transform hover:scale-[1.02] cursor-pointer">
+<div class="flex items-center gap-2">
+<span class="font-code-mono text-label-xs font-bold bg-white/10 px-1.5 py-0.5 rounded">DRAM</span>
+<span class="font-label-xs font-semibold">64 GB DDR5-5600 Main Memory</span>
+</div>
+<span class="font-code-mono text-label-xs font-extrabold text-[#fca5a5]" id="pyramid-dram-latency">220 Cycles (~61.1ns)</span>
+</div>
+</div>
+<div class="flex items-center justify-between p-space-sm rounded-lg bg-surface-container-low font-label-xs text-label-xs text-on-surface-variant">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-tertiary"></span>Hit Ratio: <strong class="text-on-surface">92.4%</strong> L1+L2 Cumulative</span>
+<span class="font-code-mono text-primary font-bold">LLC Miss Cost: 55x L1</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-10 h-10 rounded-xl bg-primary-fixed text-on-primary-fixed-variant flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">terminal</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface">Instruction Flow Snapshot Telemetry</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live streaming architectural trace capture running on core matrix affinity engine</p>
+</div>
+</div>
+<div class="flex items-center gap-space-md font-code-mono text-label-xs">
+<div class="flex flex-col text-right">
+<span class="text-on-surface-variant">RECORDED WINDOW</span>
+<span class="text-on-surface font-bold">10,000 INST @ 3.60 GHz</span>
+</div>
+<button class="h-9 px-4 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md shadow-xs transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+<span>Re-Profile Trace</span>
+</button>
+</div>
+</div>
+</div>
+</main></div>
+<script src="js/common.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/visualizations.js"></script>
+
+</body></html>

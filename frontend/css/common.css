@@ -1,0 +1,171 @@
+/* CPU Performance Explorer - Common Theme & Styles */
+:root {
+  --primary: #006b2c;
+  --primary-hover: #005221;
+  --primary-light: #e6f7ec;
+  --secondary: #0051d5;
+  --secondary-light: #eff4ff;
+  --accent-purple: #6b38d4;
+  --accent-purple-light: #f5f0ff;
+  --bg-page: #faf8ff;
+  --card-bg: #ffffff;
+  --text-primary: #191c1e;
+  --text-muted: #536458;
+  --border-subtle: #ebedf2;
+  --border-card: #f0f2f5;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+  --shadow-hover: 0 10px 25px -4px rgba(0, 0, 0, 0.08), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
+}
+
+/* Custom Smooth Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Toast Notifications */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  min-width: 300px;
+  max-width: 440px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-left: 4px solid #006b2c;
+  animation: toastSlideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transition: all 0.25s ease;
+}
+
+.toast.toast-error {
+  border-left-color: #dc2626;
+}
+.toast.toast-warning {
+  border-left-color: #f59e0b;
+}
+.toast.toast-info {
+  border-left-color: #0051d5;
+}
+.toast.toast-success {
+  border-left-color: #006b2c;
+}
+
+.toast.toast-hide {
+  opacity: 0;
+  transform: translateX(30px) scale(0.95);
+}
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Modal Backdrops & Overlays */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 9990;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: 560px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.95);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-overlay.open .modal-card {
+  transform: scale(1);
+}
+
+/* Pipeline Stage Visual Tags */
+.stage-tag-if { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.stage-tag-id { background: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
+.stage-tag-ex { background: #fdf2f8; color: #be185d; border: 1px solid #fbcfe8; }
+.stage-tag-mem { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+.stage-tag-wb { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
+.stage-tag-stall { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+
+/* Pulse Indicator Dot */
+.live-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #10b981;
+  position: relative;
+}
+.live-pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 9999px;
+  border: 2px solid #10b981;
+  opacity: 0.75;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+

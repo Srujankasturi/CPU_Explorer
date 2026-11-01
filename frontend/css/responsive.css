@@ -1,0 +1,55 @@
+/* CPU Performance Explorer - Responsive Adjustments */
+
+@media (max-width: 1024px) {
+  /* On medium / small screens, sidebar can slide in as a drawer */
+  #main-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -280px;
+    z-index: 9980;
+    transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  }
+  #main-sidebar.mobile-open {
+    left: 0;
+  }
+  #sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 9970;
+  }
+  #sidebar-backdrop.active {
+    display: block;
+  }
+  .mobile-menu-toggle {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+  #sidebar-backdrop {
+    display: none !important;
+  }
+}
+
+/* Responsive Table Container */
+.responsive-table-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Touch Friendly Targets */
+@media (max-width: 640px) {
+  .btn-touch {
+    min-height: 44px;
+  }
+}
+

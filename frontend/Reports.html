@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="web_dashboard" name="shell-type"/>
+  <title>Reports & Analytics • CPU Performance Explorer</title>
+  
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="css/common.css"/>
+  <link rel="stylesheet" href="css/animations.css"/>
+  <link rel="stylesheet" href="css/responsive.css"/>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-surface":"#131b2e","on-error":"#ffffff","on-tertiary-container":"#fffbff","primary-fixed-dim":"#62df7d","primary-container":"#00873a","surface-container-low":"#f2f3ff","secondary":"#0051d5","on-secondary-fixed-variant":"#003ea8","on-secondary-fixed":"#00174b","on-error-container":"#93000a","error-container":"#ffdad6","on-background":"#131b2e","inverse-on-surface":"#eef0ff","on-primary-fixed":"#002109","secondary-container":"#316bf3","outline":"#6e7b6c","secondary-fixed-dim":"#b4c5ff","surface-container-highest":"#dae2fd","on-tertiary-fixed":"#23005c","tertiary-container":"#8455ef","tertiary-fixed":"#e9ddff","on-secondary":"#ffffff","tertiary-fixed-dim":"#d0bcff","on-primary":"#ffffff","on-surface-variant":"#3e4a3d","secondary-fixed":"#dbe1ff","on-primary-container":"#f7fff2","tertiary":"#6b38d4","on-tertiary":"#ffffff","outline-variant":"#bdcaba","surface-tint":"#006e2d","surface-container":"#eaedff","primary-fixed":"#7ffc97","surface-bright":"#faf8ff","on-secondary-container":"#fefcff","on-tertiary-fixed-variant":"#5516be","inverse-primary":"#62df7d","surface-variant":"#dae2fd","background":"#faf8ff","error":"#ba1a1a","surface-container-lowest":"#ffffff","primary":"#006b2c","surface":"#faf8ff","surface-dim":"#d2d9f4","on-primary-fixed-variant":"#005320","inverse-surface":"#283044","surface-container-high":"#e2e7ff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.25rem","margin":"1.5rem","margin-mobile":"1rem","space-sm":"0.5rem","space-xs":"0.25rem","space-md":"0.75rem","gutter":"1.25rem","gutter-mobile":"0.75rem","space-xl":"1.75rem"},"fontFamily":{"code-mono":["JetBrains Mono"],"body-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"body-md":["Inter"],"label-sm":["Inter"],"label-xs":["Inter"],"title-md":["Plus Jakarta Sans"],"label-md":["Inter"],"body-lg":["Inter"],"headline-xl":["Plus Jakarta Sans"],"metric-display-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"metric-display":["Plus Jakarta Sans"]}}}};
+  </script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+  
+  <!-- Left Main Navigation Sidebar -->
+  <aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto">
+    <div class="flex flex-col">
+      <div class="p-space-lg flex items-start gap-space-md">
+        <img alt="CPU Performance Explorer Logo" class="h-8 w-auto object-contain flex-shrink-0 mt-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwB2JFE2lz6MiHRzA-0OgMOgZtS6RD4TG3yl-wwapAJO8hsqWHy96SkWSsIDeYLVfz-8HFab5Whs0EGrPwf2w0_nemkOKmxSS3CFpiRo9x2gfasH83CMc_dQ-iEQtqSFplV5Yi9LgtdSStP9zMizQA2uXTsIS7awrWtkDUeFMtVJ9mPKwSyWwF8U3tC3a1RHtcyfhFByPEp0DCjl_UFoj-kEBWOQ47Gn8LbPuQ424"/>
+        <div class="flex flex-col min-w-0">
+          <span class="font-title-md text-title-md text-on-surface truncate">CPU Performance Explorer</span>
+          <span class="font-label-xs text-label-xs text-on-surface-variant truncate tracking-wider uppercase mt-0.5">Analyze. Simulate. Visualize. Optimize.</span>
+        </div>
+      </div>
+      <div class="px-space-md py-space-xs"><div class="h-px bg-surface-container-high w-full"></div></div>
+      <nav class="flex flex-col gap-1 px-space-md py-space-md">
+        <a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="Dahboard.html">
+          <span class="material-symbols-outlined text-[20px]">grid_view</span>
+          <span class="truncate">Dashboard</span>
+        </a>
+        
+        <a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="performance-analyzer" href="PerformanceAnalyzer.html">
+          <span class="material-symbols-outlined text-[20px]">speed</span>
+          <span class="truncate">Performance Analyzer</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="pipeline-simulator" href="PipelineSimulator.html">
+          <span class="material-symbols-outlined text-[20px]">account_tree</span>
+          <span class="truncate">Pipeline Simulator</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="bottleneck-analyzer" href="BottleneckAnalyzer.html">
+          <span class="material-symbols-outlined text-[20px]">warning</span>
+          <span class="truncate">Bottleneck Analyzer</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="cpu-comparison" href="CPUComparison.html">
+          <span class="material-symbols-outlined text-[20px]">compare_arrows</span>
+          <span class="truncate">CPU Comparison</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="what-if-analysis" href="What-if Analysis.html">
+          <span class="material-symbols-outlined text-[20px]">tune</span>
+          <span class="truncate">What-if Analysis</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="advanced-visualizations" href="AdvancedVisualizations.html">
+          <span class="material-symbols-outlined text-[20px]">hub</span>
+          <span class="truncate">Advanced Visualizations</span>
+        </a>
+        <a aria-current="page" class="flex items-center gap-space-md px-space-md py-2.5 transition-all bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]" data-path="reports-and-analytics" href="Reports.html">
+          <span class="material-symbols-outlined text-[20px]">query_stats</span>
+          <span class="truncate">Reports &amp; Analytics</span>
+        </a>
+        <a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="javascript:void(0)">
+          <span class="material-symbols-outlined text-[20px]">settings</span>
+          <span class="truncate">Settings</span>
+        </a>
+      </nav>
+    </div>
+    <div class="p-space-md">
+      <div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between">
+        <div class="flex flex-col">
+          <span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Kernel Probe</span>
+          <span class="font-code-mono text-code-mono text-on-surface">v6.8.2-arch1</span>
+        </div>
+        <span class="inline-flex w-2.5 h-2.5 rounded-full bg-primary"></span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Body Content Area -->
+  <div class="pl-72 flex flex-col min-h-screen">
+    <!-- Header Bar -->
+    <header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl">
+      <div class="flex items-center gap-space-md flex-1 max-w-md">
+        <div class="relative w-full flex items-center">
+          <span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px] pointer-events-none">search</span>
+          <input class="w-full h-10 pl-10 pr-12 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-sm transition-all" placeholder="Search saved reports, profiles, benchmarks..." type="text"/>
+          <kbd class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-code-mono text-label-xs shadow-xs">⌘K</kbd>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-md">
+        <button class="inline-flex items-center gap-space-xs h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-[0_2px_4px_rgba(0,107,44,0.2)] hover:bg-primary-container transition-colors" onclick="window.location.href='PerformanceAnalyzer.html'">
+          <span class="material-symbols-outlined text-[18px]">add</span>
+          <span>New Analysis</span>
+        </button>
+        <div class="relative">
+          <button aria-label="Notifications" class="w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors">
+            <span class="material-symbols-outlined text-[20px]">notifications</span>
+            <span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span>
+          </button>
+        </div>
+        <div class="h-6 w-px bg-surface-container-high mx-space-xs"></div>
+        <div class="flex items-center gap-space-sm pl-1">
+          <div class="flex flex-col text-right">
+            <span class="font-label-md text-label-md text-on-surface">Dr. Alex Vance</span>
+            <span class="font-label-xs text-label-xs text-on-surface-variant">Lead Architect</span>
+          </div>
+          <img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-xs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_I9CnnJh0erE5XNT2yT4zjYIL9UjBL3gtyr8TP8A56-fnP5TFb0aLgUnID3DDyg1j0criuc7uSAHJiHNBtpEVXkfq2P5pHdRu5EyITixkZX0BmbTV1RfUjAe47eV9YrE7u8DRErCuxwiu5Hp-twFkEWQ-4fkXpVbdBzxqyFAKcuLINOOktXLfNtCoxMUKWVIO2KrL1AfzUFZDFLJK7ntm2iZOFJq6wAH1KPLQFtU"/>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="w-full pt-16 bg-surface flex-1 px-space-xl py-space-xl">
+      <div class="flex flex-col w-full gap-space-lg pb-10">
+
+        <!-- Page Header & Action CTA -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-2">
+          <div>
+            <div class="flex items-center gap-2.5">
+              <span class="font-headline-lg text-headline-lg text-on-surface tracking-tight">Reports &amp; Analytics Hub</span>
+              <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-xs text-label-xs uppercase tracking-wider font-bold shadow-xs">
+                <span class="w-2 h-2 rounded-full bg-primary"></span>
+                Archived Reports
+              </span>
+            </div>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+              Generate microarchitectural audit reports, analyze multi-stage bottlenecks, and export in JSON, CSV, or formatted PDF format.
+            </p>
+          </div>
+          <button id="btn-open-generate-modal" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-md hover:bg-primary-container hover:shadow-lg transition-all active:scale-[0.98]">
+            <span class="material-symbols-outlined text-[18px]">post_add</span>
+            <span>Generate New Report</span>
+          </button>
+        </div>
+
+        <!-- 4 Bento KPI Metric Cards -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+          <!-- Card 1 -->
+          <div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center justify-between">
+              <span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Total Reports</span>
+              <div class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-primary">
+                <span class="material-symbols-outlined text-[18px]">folder</span>
+              </div>
+            </div>
+            <div class="my-2 flex items-baseline justify-between">
+              <span class="font-metric-display text-metric-display text-on-surface font-black" id="stat-total-reports">0</span>
+              <span class="font-label-xs text-on-surface-variant font-code-mono">SQLite Stored</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center justify-between">
+              <span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">High-Risk Audits</span>
+              <div class="w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
+                <span class="material-symbols-outlined text-[18px]">warning</span>
+              </div>
+            </div>
+            <div class="my-2 flex items-baseline justify-between">
+              <span class="font-metric-display text-metric-display text-error font-black" id="stat-high-risk">0</span>
+              <span class="font-label-xs text-on-surface-variant font-code-mono">&gt;60% Bottlenecks</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center justify-between">
+              <span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Latest Snapshot</span>
+              <div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary">
+                <span class="material-symbols-outlined text-[18px]">schedule</span>
+              </div>
+            </div>
+            <div class="my-2 flex items-baseline justify-between">
+              <span class="font-title-md font-bold text-on-surface truncate max-w-[170px]" id="stat-latest-report">None</span>
+              <span class="font-label-xs text-primary font-bold">Active</span>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="flex flex-col justify-between p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all">
+            <div class="flex items-center justify-between">
+              <span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">Export Engine</span>
+              <div class="w-8 h-8 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center">
+                <span class="material-symbols-outlined text-[18px]">download</span>
+              </div>
+            </div>
+            <div class="my-2 flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded bg-surface-container font-code-mono text-label-xs font-bold text-slate-700">JSON</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container font-code-mono text-label-xs font-bold text-slate-700">CSV</span>
+              <span class="px-2 py-0.5 rounded bg-surface-container font-code-mono text-label-xs font-bold text-slate-700">PDF</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Reports Filter Bar & Search -->
+        <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold mr-1">Filter:</span>
+            <button class="report-filter-pill px-3 py-1.5 rounded-xl font-label-sm text-label-sm bg-primary-container text-on-primary-container font-semibold shadow-sm transition-all cursor-pointer" data-filter="All">All Reports</button>
+            <button class="report-filter-pill px-3 py-1.5 rounded-xl font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer" data-filter="Performance">Performance</button>
+            <button class="report-filter-pill px-3 py-1.5 rounded-xl font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer" data-filter="Bottleneck">Bottlenecks</button>
+            <button class="report-filter-pill px-3 py-1.5 rounded-xl font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer" data-filter="Pipeline">Pipeline</button>
+            <button class="report-filter-pill px-3 py-1.5 rounded-xl font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer" data-filter="System">System Audit</button>
+          </div>
+          
+          <div class="relative w-full md:w-64">
+            <span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">search</span>
+            <input id="report-search-input" type="text" class="w-full h-9 pl-9 pr-3 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-xs" placeholder="Search report title..."/>
+          </div>
+        </div>
+
+        <!-- Reports Data Table -->
+        <div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden p-space-md">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left">
+              <thead>
+                <tr class="bg-surface-container-low/60 text-on-surface-variant font-label-xs text-label-xs uppercase">
+                  <th class="py-2.5 px-3 rounded-l-lg">Report Title &amp; ID</th>
+                  <th class="py-2.5 px-3">Report Type</th>
+                  <th class="py-2.5 px-3">Generated Date</th>
+                  <th class="py-2.5 px-3">Diagnostics Summary</th>
+                  <th class="py-2.5 px-3 rounded-r-lg text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="reports-table-body" class="font-body-sm text-body-sm text-on-surface divide-y divide-surface-container">
+                <!-- Dynamically populated by reports.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Generate Report Modal -->
+  <div id="generate-modal-overlay" class="modal-overlay">
+    <div class="modal-card p-6 flex flex-col gap-4">
+      <div class="flex items-center justify-between border-b border-surface-container pb-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-primary-fixed text-on-primary-fixed-variant flex items-center justify-center font-bold">
+            <span class="material-symbols-outlined text-xl">post_add</span>
+          </div>
+          <div>
+            <h3 class="text-base font-bold text-on-surface">Generate New Architecture Report</h3>
+            <p class="text-xs text-on-surface-variant">Compile live telemetry, pipeline logs, and bottleneck metrics</p>
+          </div>
+        </div>
+        <button class="text-on-surface-variant hover:text-on-surface rounded-lg p-1" onclick="closeGenerateModal()">
+          <span class="material-symbols-outlined text-lg">close</span>
+        </button>
+      </div>
+
+      <form id="generate-report-form" class="flex flex-col gap-3 text-sm">
+        <div>
+          <label class="block text-xs font-semibold text-on-surface mb-1">Report Title</label>
+          <input id="modal-report-title" type="text" required class="w-full h-10 px-3 rounded-xl bg-surface-container-low font-body-sm text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-xs" placeholder="e.g. Zen 4 Matrix Mul AVX-512 Bottleneck Audit" value="Core Array Profiling Audit"/>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-on-surface mb-1">Report Type Category</label>
+          <select id="modal-report-type" class="w-full h-10 px-3 rounded-xl bg-surface-container-low font-body-sm text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-xs appearance-none cursor-pointer">
+            <option value="Complete System Audit">Complete System Audit</option>
+            <option value="Performance Analysis Report">Performance Analysis Report</option>
+            <option value="Pipeline Bottleneck Diagnostic">Pipeline Bottleneck Diagnostic</option>
+            <option value="Architecture Comparison Report">Architecture Comparison Report</option>
+            <option value="Live Telemetry Snapshot">Live Telemetry Snapshot</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-on-surface mb-1">Summary &amp; Engineering Notes</label>
+          <textarea id="modal-report-notes" rows="3" class="w-full p-3 rounded-xl bg-surface-container-low font-body-sm text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-xs" placeholder="Observations, hardware configurations, and optimization takeaways..."></textarea>
+        </div>
+
+        <div class="flex items-center justify-end gap-2 pt-3 border-t border-surface-container">
+          <button type="button" class="px-4 py-2 rounded-xl text-on-surface-variant hover:bg-surface-container text-xs font-semibold transition-colors" onclick="closeGenerateModal()">Cancel</button>
+          <button type="submit" class="px-4 py-2 rounded-xl bg-primary text-on-primary hover:bg-primary-container text-xs font-semibold shadow-sm transition-colors">Generate &amp; Save Report</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Preview Modal -->
+  <div id="preview-modal-overlay" class="modal-overlay">
+    <div class="modal-card p-6 flex flex-col gap-4 max-w-xl">
+      <div class="flex items-center justify-between border-b border-surface-container pb-2">
+        <h3 class="text-base font-bold text-on-surface flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary text-xl">description</span>
+          <span>Report Preview</span>
+        </h3>
+        <button class="text-on-surface-variant hover:text-on-surface rounded-lg p-1" onclick="closePreviewModal()">
+          <span class="material-symbols-outlined text-lg">close</span>
+        </button>
+      </div>
+
+      <div id="preview-modal-content">
+        <!-- Dynamically injected -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Modular Scripts -->
+  <script src="js/common.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/reports.js"></script>
+</body>
+</html>

@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-surface":"#131b2e","on-error":"#ffffff","on-tertiary-container":"#fffbff","primary-fixed-dim":"#62df7d","primary-container":"#00873a","surface-container-low":"#f2f3ff","secondary":"#0051d5","on-secondary-fixed-variant":"#003ea8","on-secondary-fixed":"#00174b","on-error-container":"#93000a","error-container":"#ffdad6","on-background":"#131b2e","inverse-on-surface":"#eef0ff","on-primary-fixed":"#002109","secondary-container":"#316bf3","outline":"#6e7b6c","secondary-fixed-dim":"#b4c5ff","surface-container-highest":"#dae2fd","on-tertiary-fixed":"#23005c","tertiary-container":"#8455ef","tertiary-fixed":"#e9ddff","on-secondary":"#ffffff","tertiary-fixed-dim":"#d0bcff","on-primary":"#ffffff","on-surface-variant":"#3e4a3d","secondary-fixed":"#dbe1ff","on-primary-container":"#f7fff2","tertiary":"#6b38d4","on-tertiary":"#ffffff","outline-variant":"#bdcaba","surface-tint":"#006e2d","surface-container":"#eaedff","primary-fixed":"#7ffc97","surface-bright":"#faf8ff","on-secondary-container":"#fefcff","on-tertiary-fixed-variant":"#5516be","inverse-primary":"#62df7d","surface-variant":"#dae2fd","background":"#faf8ff","error":"#ba1a1a","surface-container-lowest":"#ffffff","primary":"#006b2c","surface":"#faf8ff","surface-dim":"#d2d9f4","on-primary-fixed-variant":"#005320","inverse-surface":"#283044","surface-container-high":"#e2e7ff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-lg":"1.25rem","margin":"1.5rem","margin-mobile":"1rem","space-sm":"0.5rem","space-xs":"0.25rem","space-md":"0.75rem","gutter":"1.25rem","gutter-mobile":"0.75rem","space-xl":"1.75rem"},"fontFamily":{"code-mono":["JetBrains Mono"],"body-sm":["Inter"],"headline-md":["Plus Jakarta Sans"],"body-md":["Inter"],"label-sm":["Inter"],"label-xs":["Inter"],"title-md":["Plus Jakarta Sans"],"label-md":["Inter"],"body-lg":["Inter"],"headline-xl":["Plus Jakarta Sans"],"metric-display-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"metric-display":["Plus Jakarta Sans"]},"fontSize":{"code-mono":["12px",{"lineHeight":"16px","letterSpacing":"0.02em","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"headline-md":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["13px",{"lineHeight":"18px","fontWeight":"400"}],"label-sm":["11px",{"lineHeight":"14px","letterSpacing":"0.03em","fontWeight":"600"}],"label-xs":["10px",{"lineHeight":"12px","letterSpacing":"0.04em","fontWeight":"700"}],"title-md":["15px",{"lineHeight":"20px","fontWeight":"600"}],"label-md":["13px",{"lineHeight":"18px","fontWeight":"600"}],"body-lg":["15px",{"lineHeight":"22px","fontWeight":"400"}],"headline-xl":["28px",{"lineHeight":"36px","letterSpacing":"-0.02em","fontWeight":"700"}],"metric-display-mobile":["24px",{"lineHeight":"30px","letterSpacing":"-0.02em","fontWeight":"800"}],"headline-lg":["22px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"700"}],"metric-display":["30px",{"lineHeight":"36px","letterSpacing":"-0.025em","fontWeight":"800"}]}}}};</script>
+<link rel="stylesheet" href="css/common.css"/>
+<link rel="stylesheet" href="css/animations.css"/>
+<link rel="stylesheet" href="css/responsive.css"/>
+
+</head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-lg flex items-start gap-space-md"><img alt="CPU Performance Explorer Logo" class="h-8 w-auto object-contain flex-shrink-0 mt-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwB2JFE2lz6MiHRzA-0OgMOgZtS6RD4TG3yl-wwapAJO8hsqWHy96SkWSsIDeYLVfz-8HFab5Whs0EGrPwf2w0_nemkOKmxSS3CFpiRo9x2gfasH83CMc_dQ-iEQtqSFplV5Yi9LgtdSStP9zMizQA2uXTsIS7awrWtkDUeFMtVJ9mPKwSyWwF8U3tC3a1RHtcyfhFByPEp0DCjl_UFoj-kEBWOQ47Gn8LbPuQ424"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate">CPU Performance Explorer</span><span class="font-label-xs text-label-xs text-on-surface-variant truncate tracking-wider uppercase mt-0.5">Analyze. Simulate. Visualize. Optimize.</span></div></div><div class="px-space-md py-space-xs"><div class="h-px bg-surface-container-high w-full"></div></div><nav class="flex flex-col gap-1 px-space-md py-space-md" data-active-classes="bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]"><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="truncate">Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="performance-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">speed</span><span class="truncate">Performance Analyzer</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-2.5 transition-all bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]" data-path="pipeline-simulator" href="#"><span class="material-symbols-outlined text-[20px]">account_tree</span><span class="truncate">Pipeline Simulator</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="bottleneck-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="truncate">Bottleneck Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="cpu-comparison" href="#"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span class="truncate">CPU Comparison</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="what-if-analysis" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="truncate">What-if Analysis</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="advanced-visualizations" href="#"><span class="material-symbols-outlined text-[20px]">hub</span><span class="truncate">Advanced Visualizations</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span class="truncate">Reports &amp; Analytics</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="truncate">Settings</span></a></nav></div><div class="p-space-md"><div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between"><div class="flex flex-col"><span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Kernel Probe</span><span class="font-code-mono text-code-mono text-on-surface">v6.8.2-arch1</span></div><span class="inline-flex w-2.5 h-2.5 rounded-full bg-primary"></span></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px] pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-12 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-sm transition-all" placeholder="Search instruction sets, registers, benchmarks..." type="text"/><kbd class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-code-mono text-label-xs shadow-xs">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><button class="inline-flex items-center gap-space-xs h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-[0_2px_4px_rgba(0,107,44,0.2)] hover:bg-primary-container transition-colors"><span class="material-symbols-outlined text-[18px]">add</span><span>New Analysis</span></button><div class="relative"><button aria-label="Notifications" class="w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button></div><div class="h-6 w-px bg-surface-container-high mx-space-xs"></div><div class="flex items-center gap-space-sm pl-1"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface">Dr. Alex Vance</span><span class="font-label-xs text-label-xs text-on-surface-variant">Lead Architect</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-xs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_I9CnnJh0erE5XNT2yT4zjYIL9UjBL3gtyr8TP8A56-fnP5TFb0aLgUnID3DDyg1j0criuc7uSAHJiHNBtpEVXkfq2P5pHdRu5EyITixkZX0BmbTV1RfUjAe47eV9YrE7u8DRErCuxwiu5Hp-twFkEWQ-4fkXpVbdBzxqyFAKcuLINOOktXLfNtCoxMUKWVIO2KrL1AfzUFZDFLJK7ntm2iZOFJq6wAH1KPLQFtU"/></div></div></header><main class="w-full pt-16 bg-surface flex-1 px-space-xl py-space-xl"><div class="flex flex-col w-full">
+<!-- Section Title & Meta Bar -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div>
+<div class="flex items-center gap-space-sm mb-1">
+<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-xs text-label-xs uppercase tracking-wide">Diagnostic Canvas</span>
+<span class="text-on-surface-variant font-code-mono text-code-mono">ARCH: RISC-V 5-STAGE INT</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Pipeline Simulator</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Visualize instruction execution sequence, identify microarchitectural hazards, and step through machine cycles.</p>
+</div>
+<!-- Active Step Counter Badge -->
+<div class="flex items-center gap-space-md self-start md:self-auto bg-surface-container-lowest px-space-md py-2 rounded-xl shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase tracking-wider">Current Cycle</span>
+<span class="font-metric-display text-headline-md text-primary font-bold" id="cycle-readout">Cycle 07</span>
+</div>
+<div class="h-8 w-px bg-surface-container-high mx-1"></div>
+<div class="flex items-center gap-2">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Active Simulation</span>
+</div>
+</div>
+</div>
+<!-- Simulation Control Toolbar -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md mb-space-lg flex flex-wrap items-center justify-between gap-space-md">
+<!-- Playback Core Buttons -->
+<div class="flex items-center gap-space-xs">
+<button class="inline-flex items-center gap-1.5 h-10 px-space-lg rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary-container transition-colors" id="btn-run">
+<span class="material-symbols-outlined text-[18px]">play_arrow</span>
+<span>Run</span>
+</button>
+<button class="inline-flex items-center gap-1.5 h-10 px-space-md rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md" id="btn-pause">
+<span class="material-symbols-outlined text-[18px]">pause</span>
+<span>Pause</span>
+</button>
+<button class="inline-flex items-center gap-1.5 h-10 px-space-md rounded-lg bg-surface-container-low text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-md text-label-md" id="btn-reset">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+<span>Reset</span>
+</button>
+<div class="h-6 w-px bg-surface-container-high mx-2"></div>
+<!-- Step Stepper -->
+<button class="inline-flex items-center gap-1 h-10 px-3 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm" id="btn-prev">
+<span class="material-symbols-outlined text-[18px]">skip_previous</span>
+<span>Prev Cycle</span>
+</button>
+<button class="inline-flex items-center gap-1 h-10 px-3 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm" id="btn-next">
+<span>Next Cycle</span>
+<span class="material-symbols-outlined text-[18px]">skip_next</span>
+</button>
+</div>
+<!-- Parameter Selectors -->
+<div class="flex items-center flex-wrap gap-space-md">
+<!-- Speed selector -->
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Speed:</span>
+<div class="inline-flex rounded-lg bg-surface-container-low p-0.5">
+<button class="px-2.5 py-1 text-label-xs font-label-xs rounded bg-surface-container-lowest text-primary font-bold shadow-xs">1.0x</button>
+<button class="px-2.5 py-1 text-label-xs font-label-xs rounded text-on-surface-variant hover:text-on-surface">2.0x</button>
+<button class="px-2.5 py-1 text-label-xs font-label-xs rounded text-on-surface-variant hover:text-on-surface">0.5x</button>
+</div>
+</div>
+<!-- Instruction Count Dropdown -->
+<div class="flex items-center gap-2">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Instructions:</span>
+<div class="relative">
+<select id="instruction-count-select" class="appearance-none bg-surface-container-low text-on-surface font-code-mono text-code-mono rounded-lg h-9 pl-3 pr-8 focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer">
+<option value="6" selected>6 Instructions</option>
+<option value="8">8 Instructions</option>
+<option value="12">12 Instructions</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-2 top-2 text-[18px] text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<!-- Hazard Forwarding Flag -->
+<div id="forwarding-toggle-btn" class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all" title="Click to toggle forwarding">
+<span id="forwarding-indicator-dot" class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-xs text-label-xs text-on-surface font-medium">Forwarding Unit: <strong id="forwarding-status-text" class="text-secondary font-semibold">Enabled</strong></span>
+</div>
+</div>
+</div>
+<!-- Primary Interactive Canvas & Side Legend Split Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg mb-space-lg">
+<!-- Main Interactive 5-Stage Pipeline Matrix (Columns 1-9) -->
+<div class="xl:col-span-9 bg-surface-container-lowest rounded-xl shadow-sm p-space-lg flex flex-col">
+<div class="flex items-center justify-between pb-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">view_timeline</span>
+<h2 class="font-title-md text-title-md text-on-surface">Pipeline Timing Diagram</h2>
+<span class="font-code-mono text-code-mono text-on-surface-variant bg-surface-container-low px-2 py-0.5 rounded">Cycles 1-12</span>
+</div>
+<div class="flex items-center gap-3 text-label-xs font-label-xs text-on-surface-variant">
+<span class="inline-flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded bg-primary-fixed"></span> Fetch/Decode
+          </span>
+<span class="inline-flex items-center gap-1">
+<span class="w-2.5 h-2.5 rounded bg-error-container"></span> Bubble (Stall)
+          </span>
+</div>
+</div>
+<!-- Scrollable Pipeline Grid Wrapper -->
+<div class="w-full overflow-x-auto pb-2">
+<div class="min-w-[780px] select-none" id="pipeline-timing-grid">
+<!-- X-Axis Header: Cycle numbers -->
+<div class="grid grid-cols-[130px_repeat(12,minmax(0,1fr))] items-center gap-1.5 pb-2 text-center">
+<div class="font-label-xs text-label-xs text-on-surface-variant font-bold text-left pl-2 uppercase tracking-wider">
+              Inst \ Cycle →
+            </div>
+<div class="font-code-mono text-code-mono text-on-surface-variant font-semibold py-1 rounded bg-surface-container-low">1</div>
+<div class="font-code-mono text-code-mono text-on-surface-variant font-semibold py-1 rounded bg-surface-container-low">2</div>
+<div class="font-code-mono text-code-mono text-on-surface-variant font-semibold py-1 rounded bg-surface-container-low">3</div>
+<div class="font-code-mono text-code-mono text-on-surface-variant font-semibold py-1 rounded bg-surface-container-low">4</div>
+<div class="font-code-mono text-code-mono text-on-surface-variant font-semibold py-1 rounded bg-surface-container-low">5</div>
+<div class="font-code-mono text-code-mono text-on-surface-variant font-semibold py-1 rounded bg-surface-container-low">6</div>
+<div class="font-code-mono text-code-mono text-primary font-bold py-1 rounded bg-primary-fixed shadow-xs">7 ★</div>
+<div class="font-code-mono text-code-mono text-on-surface-variant font-semibold py-1 rounded bg-surface-container-low">8</div>
+<div class="font-code-mono text-code-mono text-on-surface-variant font-semibold py-1 rounded bg-surface-container-low">9</div>
+<div class="font-code-mono text-code-mono text-on-surface-variant font-semibold py-1 rounded bg-surface-container-low">10</div>
+<div class="font-code-mono text-code-mono text-on-surface-variant font-semibold py-1 rounded bg-surface-container-low">11</div>
+<div class="font-code-mono text-code-mono text-on-surface-variant font-semibold py-1 rounded bg-surface-container-low">12</div>
+</div>
+<!-- Instruction Rows -->
+<div class="flex flex-col gap-2">
+<!-- I1: LW R1, 0(R2) -->
+<div class="grid grid-cols-[130px_repeat(12,minmax(0,1fr))] items-center gap-1.5 group hover:bg-surface-container-low/50 p-1 rounded-lg transition-colors">
+<div class="flex flex-col pr-2">
+<span class="font-label-md text-label-md text-on-surface font-bold flex items-center gap-1">
+                  I1 <span class="font-code-mono text-label-xs text-on-surface-variant font-normal">LW R1, 0(R2)</span>
+</span>
+<span class="font-label-xs text-label-xs text-tertiary">Memory Load</span>
+</div>
+<!-- C1 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-primary-fixed text-on-primary-fixed-variant shadow-xs">IF</div>
+<!-- C2 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-secondary-fixed text-on-secondary-fixed shadow-xs">ID</div>
+<!-- C3 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-surface-container-highest text-on-surface shadow-xs">EX</div>
+<!-- C4 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-tertiary-fixed text-on-tertiary-fixed shadow-xs ring-1 ring-tertiary">MEM</div>
+<!-- C5 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-secondary-container text-on-secondary shadow-xs">WB</div>
+<!-- C6..12 -->
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+</div>
+<!-- I2: ADD R3, R1, R4 (RAW Hazard Dependent on I1) -->
+<div class="grid grid-cols-[130px_repeat(12,minmax(0,1fr))] items-center gap-1.5 group hover:bg-surface-container-low/50 p-1 rounded-lg transition-colors">
+<div class="flex flex-col pr-2">
+<span class="font-label-md text-label-md text-on-surface font-bold flex items-center gap-1">
+                  I2 <span class="font-code-mono text-label-xs text-on-surface-variant font-normal">ADD R3, R1, R4</span>
+</span>
+<span class="font-label-xs text-label-xs text-primary">ALU Reg-Reg</span>
+</div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<!-- C2 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-primary-fixed text-on-primary-fixed-variant shadow-xs">IF</div>
+<!-- C3 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-secondary-fixed text-on-secondary-fixed shadow-xs">ID</div>
+<!-- C4 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-surface-container-highest text-on-surface shadow-xs">EX</div>
+<!-- C5 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-tertiary-fixed text-on-tertiary-fixed shadow-xs">MEM</div>
+<!-- C6 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-secondary-container text-on-secondary shadow-xs">WB</div>
+<!-- C7..12 -->
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+</div>
+<!-- I3: SUB R5, R3, R6 (Contains Structural Stall in Cycle 4) -->
+<div class="grid grid-cols-[130px_repeat(12,minmax(0,1fr))] items-center gap-1.5 group hover:bg-surface-container-low/50 p-1 rounded-lg transition-colors">
+<div class="flex flex-col pr-2">
+<span class="font-label-md text-label-md text-on-surface font-bold flex items-center gap-1">
+                  I3 <span class="font-code-mono text-label-xs text-on-surface-variant font-normal">SUB R5, R3, R6</span>
+</span>
+<span class="font-label-xs text-label-xs text-error font-semibold flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[12px]">warning</span> Stall Trigger
+                </span>
+</div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<!-- C3 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-primary-fixed text-on-primary-fixed-variant shadow-xs">IF</div>
+<!-- C4: STALL BLOCK with warning stripe badge -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-extrabold bg-error-container text-on-error-container shadow-xs animate-pulse relative overflow-hidden" title="Hardware Hazard: EX Stage Busy (Bubble inserted)">
+<div class="absolute inset-0 opacity-15 bg-gradient-to-r from-transparent via-error to-transparent"></div>
+<span class="flex items-center gap-0.5">STALL</span>
+</div>
+<!-- C5 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-secondary-fixed text-on-secondary-fixed shadow-xs">ID</div>
+<!-- C6 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-surface-container-highest text-on-surface shadow-xs">EX</div>
+<!-- C7 (ACTIVE AT STEP 7) -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-tertiary-fixed text-on-tertiary-fixed shadow-sm ring-2 ring-primary">MEM</div>
+<!-- C8 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-secondary-container text-on-secondary shadow-xs">WB</div>
+<!-- C9..12 -->
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+</div>
+<!-- I4: AND R7, R1, R2 -->
+<div class="grid grid-cols-[130px_repeat(12,minmax(0,1fr))] items-center gap-1.5 group hover:bg-surface-container-low/50 p-1 rounded-lg transition-colors">
+<div class="flex flex-col pr-2">
+<span class="font-label-md text-label-md text-on-surface font-bold flex items-center gap-1">
+                  I4 <span class="font-code-mono text-label-xs text-on-surface-variant font-normal">AND R7, R1, R2</span>
+</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Logic Mask</span>
+</div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<!-- C5 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-primary-fixed text-on-primary-fixed-variant shadow-xs">IF</div>
+<!-- C6 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-secondary-fixed text-on-secondary-fixed shadow-xs">ID</div>
+<!-- C7 (ACTIVE AT STEP 7) -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-surface-container-highest text-on-surface shadow-sm ring-2 ring-primary">EX</div>
+<!-- C8 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-tertiary-fixed text-on-tertiary-fixed shadow-xs">MEM</div>
+<!-- C9 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-secondary-container text-on-secondary shadow-xs">WB</div>
+<!-- C10..12 -->
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+</div>
+<!-- I5: OR R8, R5, R7 -->
+<div class="grid grid-cols-[130px_repeat(12,minmax(0,1fr))] items-center gap-1.5 group hover:bg-surface-container-low/50 p-1 rounded-lg transition-colors">
+<div class="flex flex-col pr-2">
+<span class="font-label-md text-label-md text-on-surface font-bold flex items-center gap-1">
+                  I5 <span class="font-code-mono text-label-xs text-on-surface-variant font-normal">OR R8, R5, R7</span>
+</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant">Logic Branch</span>
+</div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<!-- C6 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-primary-fixed text-on-primary-fixed-variant shadow-xs">IF</div>
+<!-- C7 (ACTIVE AT STEP 7) -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-secondary-fixed text-on-secondary-fixed shadow-sm ring-2 ring-primary">ID</div>
+<!-- C8 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-surface-container-highest text-on-surface shadow-xs">EX</div>
+<!-- C9 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-tertiary-fixed text-on-tertiary-fixed shadow-xs">MEM</div>
+<!-- C10 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-secondary-container text-on-secondary shadow-xs">WB</div>
+<!-- C11..12 -->
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+</div>
+<!-- I6: SW R8, 4(R2) -->
+<div class="grid grid-cols-[130px_repeat(12,minmax(0,1fr))] items-center gap-1.5 group hover:bg-surface-container-low/50 p-1 rounded-lg transition-colors">
+<div class="flex flex-col pr-2">
+<span class="font-label-md text-label-md text-on-surface font-bold flex items-center gap-1">
+                  I6 <span class="font-code-mono text-label-xs text-on-surface-variant font-normal">SW R8, 4(R2)</span>
+</span>
+<span class="font-label-xs text-label-xs text-tertiary">Memory Store</span>
+</div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+<!-- C7 (ACTIVE AT STEP 7) -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-primary-fixed text-on-primary-fixed-variant shadow-sm ring-2 ring-primary">IF</div>
+<!-- C8 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-secondary-fixed text-on-secondary-fixed shadow-xs">ID</div>
+<!-- C9 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-surface-container-highest text-on-surface shadow-xs">EX</div>
+<!-- C10 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-tertiary-fixed text-on-tertiary-fixed shadow-xs">MEM</div>
+<!-- C11 -->
+<div class="h-9 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-secondary-container text-on-secondary shadow-xs">WB</div>
+<!-- C12 -->
+<div class="h-9 rounded bg-surface-container-low/40"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Execution Playback Sub-bar -->
+<div class="mt-space-md pt-space-sm flex items-center justify-between bg-surface-container-low rounded-lg px-space-md py-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">info</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Hover over any stage capsule to inspect bus control signals and pipeline latch contents.</span>
+</div>
+<div class="flex items-center gap-4 font-code-mono text-label-xs text-on-surface-variant">
+<span>Stall cycles: <b class="text-error">1</b></span>
+<span>Useful work: <b class="text-primary">11 cycles</b></span>
+</div>
+</div>
+</div>
+<!-- Right Column: Stage Legend & Architectural Spec (Columns 10-12) -->
+<div class="xl:col-span-3 flex flex-col gap-space-md">
+<!-- Stage Legend Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm">
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Pipeline Stages</h3>
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase">5-Stage MIPS/RISC</span>
+</div>
+<div class="flex flex-col gap-2.5">
+<!-- IF -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-2">
+<span class="w-8 h-7 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-primary-fixed text-on-primary-fixed-variant shadow-xs">IF</span>
+<span class="font-label-sm text-label-sm text-on-surface">Instruction Fetch</span>
+</div>
+<span class="font-code-mono text-label-xs text-on-surface-variant">PC ← PC+4</span>
+</div>
+<!-- ID -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-2">
+<span class="w-8 h-7 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-secondary-fixed text-on-secondary-fixed shadow-xs">ID</span>
+<span class="font-label-sm text-label-sm text-on-surface">Instruction Decode</span>
+</div>
+<span class="font-code-mono text-label-xs text-on-surface-variant">Reg Read</span>
+</div>
+<!-- EX -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-2">
+<span class="w-8 h-7 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-surface-container-highest text-on-surface shadow-xs">EX</span>
+<span class="font-label-sm text-label-sm text-on-surface">Execute / Address</span>
+</div>
+<span class="font-code-mono text-label-xs text-on-surface-variant">ALU Op</span>
+</div>
+<!-- MEM -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-2">
+<span class="w-8 h-7 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-tertiary-fixed text-on-tertiary-fixed shadow-xs">MEM</span>
+<span class="font-label-sm text-label-sm text-on-surface">Memory Access</span>
+</div>
+<span class="font-code-mono text-label-xs text-on-surface-variant">D-Cache</span>
+</div>
+<!-- WB -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors">
+<div class="flex items-center gap-2">
+<span class="w-8 h-7 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-secondary-container text-on-secondary shadow-xs">WB</span>
+<span class="font-label-sm text-label-sm text-on-surface">Write Back</span>
+</div>
+<span class="font-code-mono text-label-xs text-on-surface-variant">Reg File</span>
+</div>
+<!-- Stall Block -->
+<div class="flex items-center justify-between p-2 rounded-lg bg-error-container/60 hover:bg-error-container transition-colors">
+<div class="flex items-center gap-2">
+<span class="w-8 h-7 rounded flex items-center justify-center font-code-mono text-label-xs font-bold bg-error text-on-error shadow-xs">ST</span>
+<span class="font-label-sm text-label-sm text-on-error-container font-semibold">Pipeline Stall</span>
+</div>
+<span class="font-code-mono text-label-xs text-on-error-container">NOP (Bubble)</span>
+</div>
+</div>
+</div>
+<!-- Live Core Photo Placeholder Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Active Die Topography</span>
+<span class="font-code-mono text-label-xs text-primary">L1-I / L1-D</span>
+</div>
+<img class="w-full h-32 object-cover rounded-lg" data-alt="Microscopic silicon integrated circuit die photograph of an advanced multi-stage RISC processor core showing arithmetic logic execution blocks, cache matrix, and gleaming microarchitectural copper routing traces in sharp crisp studio light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZXnzunhOc5zd9ZM7Nt0lBp1yeqkSOskOwhvErL8npstrnCmzNBIL-yURIYbfENP0BlpjoB9TY4iIGBNrSQxpFkp3Fd_dairZLsw8nLz0b54_UvERkMBKaSTnX1mQw1wgZRJ02m8cKfcrIDBBNvcGxMG0pBFHD16AALVj3cV94ddD6bqenvwh0MXobZuv2BACL8bZYZKt17hYulUrK7tJoKPppM7AUJfH-3wWTyuQ"/>
+</div>
+</div>
+</div>
+<!-- Bottom Metric Summary Cards -->
+<div class="grid grid-cols-2 md:grid-cols-5 gap-space-md mb-space-lg">
+<!-- Total Cycles -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Total Cycles</span>
+<span class="material-symbols-outlined text-primary text-[18px]">timelapse</span>
+</div>
+<div class="my-2">
+<span class="font-metric-display text-metric-display text-on-surface font-extrabold tracking-tight" id="metric-total-cycles">12</span>
+</div>
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="inline-flex items-center text-primary font-bold">
+<span class="material-symbols-outlined text-[14px]">check</span>Optimal
+        </span>
+<span>for 6 inst</span>
+</div>
+</div>
+<!-- Pipeline Stalls -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Pipeline Stalls</span>
+<span class="material-symbols-outlined text-error text-[18px]">hourglass_disabled</span>
+</div>
+<div class="my-2">
+<span class="font-metric-display text-metric-display text-error font-extrabold tracking-tight" id="metric-pipeline-stalls">1</span>
+</div>
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="inline-flex items-center text-error font-bold font-code-mono text-label-xs">
+          8.3%
+        </span>
+<span>penalty rate</span>
+</div>
+</div>
+<!-- CPI -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">CPI (Cycles/Inst)</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">speed</span>
+</div>
+<div class="my-2">
+<span class="font-metric-display text-metric-display text-on-surface font-extrabold tracking-tight" id="metric-sim-cpi">2.00</span>
+</div>
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="text-on-surface-variant">Baseline ideal: 1.00</span>
+</div>
+</div>
+<!-- IPC -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">IPC (Inst/Cycle)</span>
+<span class="material-symbols-outlined text-primary text-[18px]">bolt</span>
+</div>
+<div class="my-2">
+<span class="font-metric-display text-metric-display text-primary font-extrabold tracking-tight" id="metric-sim-ipc">0.50</span>
+</div>
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="inline-flex items-center text-primary font-semibold">
+<span class="material-symbols-outlined text-[14px]">north</span> 12%
+        </span>
+<span>vs no bypass</span>
+</div>
+</div>
+<!-- Throughput -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-md flex flex-col justify-between col-span-2 md:col-span-1">
+<div class="flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Throughput</span>
+<span class="material-symbols-outlined text-tertiary text-[18px]">flowchart</span>
+</div>
+<div class="my-2">
+<div class="flex items-baseline gap-1">
+<span class="font-metric-display text-metric-display text-on-surface font-extrabold tracking-tight" id="metric-pipeline-throughput">0.50</span>
+<span class="font-code-mono text-label-xs text-on-surface-variant">inst/cyc</span>
+</div>
+</div>
+<div class="flex items-center gap-1 font-body-sm text-body-sm text-on-surface-variant">
+<span class="text-primary font-medium">Forwarding active</span>
+</div>
+</div>
+</div>
+<!-- Hazard Detector Panel: Highlights Data Hazards & Hardware Forwarding Paths -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg mb-space-lg">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm pb-space-md mb-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">troubleshoot</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Microarchitectural Hazard Detector &amp; Forwarding Resolution</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Hardware interlock diagnostic analysis for RAW (Read-After-Write) dependencies</p>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-xs text-label-xs font-semibold">
+        1 Hazard Detected • 1 Bypassed
+      </span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
+<!-- Hazard Card 1: Data Dependency -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded font-code-mono text-label-xs font-bold bg-error-container text-on-error-container">
+              RAW Hazard Detected
+            </span>
+<span class="font-code-mono text-label-xs text-on-surface-variant">Cycle 3-4</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-semibold mb-1">I2 depends on register $R1 produced by I1</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Instruction <span class="font-code-mono text-label-xs font-bold text-on-surface">ADD R3, R1, R4</span> reads register <span class="font-code-mono text-label-xs text-primary">$R1</span> before writeback of <span class="font-code-mono text-label-xs font-bold text-on-surface">LW R1, 0(R2)</span> has finished.
+          </p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Resolution Type</span>
+<span class="font-label-sm text-label-sm text-tertiary font-bold">1 Cycle Load-Use Stall</span>
+</div>
+</div>
+<!-- Hazard Card 2: Bypassing Mechanism -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="px-2 py-0.5 rounded font-code-mono text-label-xs font-bold bg-primary-fixed text-on-primary-fixed-variant">
+              Forwarding Path Active
+            </span>
+<span class="font-code-mono text-label-xs text-on-surface-variant">MEM/WB → EX</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface font-semibold mb-1">ALU Forwarding Multiplexer Engaged</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Forwarding unit routes <span class="font-code-mono text-label-xs text-tertiary">MEM stage latch</span> directly into the ALU operand input for instruction <span class="font-code-mono text-label-xs font-bold text-on-surface">I2</span>, eliminating 2 additional wait cycles.
+          </p>
+</div>
+<div class="mt-space-md pt-space-xs flex items-center justify-between">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Hardware Savings</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">+2.0 Cycles Recovered</span>
+</div>
+</div>
+<!-- Hazard Card 3: Visual Bypassing Diagram -->
+<div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Forwarding Bus State</span>
+<span class="flex items-center gap-1 font-label-xs text-label-xs text-primary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> LOCKED
+          </span>
+</div>
+<!-- Inline schematic SVG representation of forwarding -->
+<div class="h-24 w-full flex items-center justify-center bg-surface-container-lowest rounded-lg p-2">
+<svg class="w-full h-full text-on-surface" viewbox="0 0 260 70">
+<!-- Stage boxes -->
+<rect fill="currentColor" fill-opacity="0.08" height="28" rx="4" stroke="currentColor" stroke-opacity="0.2" width="40" x="10" y="20"></rect>
+<text class="font-code-mono text-[10px] font-bold" fill="currentColor" text-anchor="middle" x="30" y="38">ID</text>
+<line stroke="currentColor" stroke-opacity="0.4" stroke-width="2" x1="50" x2="70" y1="34" y2="34"></line>
+<rect fill="currentColor" fill-opacity="0.08" height="28" rx="4" stroke="currentColor" stroke-opacity="0.2" width="40" x="70" y="20"></rect>
+<text class="font-code-mono text-[10px] font-bold" fill="currentColor" text-anchor="middle" x="90" y="38">EX</text>
+<line stroke="currentColor" stroke-opacity="0.4" stroke-width="2" x1="110" x2="130" y1="34" y2="34"></line>
+<rect class="fill-tertiary-fixed text-on-tertiary-fixed" height="28" rx="4" width="45" x="130" y="20"></rect>
+<text class="font-code-mono text-[10px] font-bold fill-tertiary" text-anchor="middle" x="152" y="38">MEM</text>
+<line stroke="currentColor" stroke-opacity="0.4" stroke-width="2" x1="175" x2="195" y1="34" y2="34"></line>
+<rect fill="currentColor" fill-opacity="0.08" height="28" rx="4" stroke="currentColor" stroke-opacity="0.2" width="45" x="195" y="20"></rect>
+<text class="font-code-mono text-[10px] font-bold" fill="currentColor" text-anchor="middle" x="217" y="38">WB</text>
+<!-- Bypassing curved wire -->
+<path d="M 152 20 C 152 5, 90 5, 90 20" fill="none" stroke="#00873a" stroke-dasharray="3 2" stroke-width="2.5"></path>
+<polygon fill="#00873a" points="90,20 86,13 94,13"></polygon>
+</svg>
+</div>
+<div class="mt-2 flex items-center justify-between text-label-xs font-label-xs text-on-surface-variant">
+<span>Source: <strong class="text-on-surface">MEM/WB Latch</strong></span>
+<span>Target: <strong class="text-on-surface">ALU Input A</strong></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Instruction Assembly Disassembly Table -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg mb-space-lg">
+<div class="flex items-center justify-between pb-space-md mb-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[20px] text-on-surface-variant">terminal</span>
+<h3 class="font-title-md text-title-md text-on-surface font-bold">Execution Trace &amp; Instruction Pipeline Latency</h3>
+</div>
+<button class="inline-flex items-center gap-1 font-label-xs text-label-xs text-primary hover:underline font-semibold">
+<span class="material-symbols-outlined text-[16px]">download</span> Export Trace Log
+      </button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-sm text-body-sm">
+<thead class="bg-surface-container-low text-on-surface-variant font-label-xs text-label-xs uppercase">
+<tr>
+<th class="py-2.5 px-space-md rounded-l-lg">Inst #</th>
+<th class="py-2.5 px-space-md">Disassembly</th>
+<th class="py-2.5 px-space-md">Opcode / Type</th>
+<th class="py-2.5 px-space-md">Fetched At</th>
+<th class="py-2.5 px-space-md">Completed At</th>
+<th class="py-2.5 px-space-md">Latency</th>
+<th class="py-2.5 px-space-md rounded-r-lg">Status</th>
+</tr>
+</thead>
+<tbody id="pipeline-trace-body" class="divide-y divide-surface-container-low">
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-md font-code-mono font-bold text-on-surface">I1</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface">lw x1, 0(x2)</td>
+<td class="py-3 px-space-md"><span class="px-2 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed text-label-xs font-semibold">I-Type (LOAD)</span></td>
+<td class="py-3 px-space-md font-code-mono text-on-surface-variant">Cycle 1</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface-variant">Cycle 5</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface">5 cycles</td>
+<td class="py-3 px-space-md"><span class="inline-flex items-center gap-1 text-primary font-label-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Retired</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-md font-code-mono font-bold text-on-surface">I2</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface">add x3, x1, x4</td>
+<td class="py-3 px-space-md"><span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface text-label-xs font-semibold">R-Type (ALU)</span></td>
+<td class="py-3 px-space-md font-code-mono text-on-surface-variant">Cycle 2</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface-variant">Cycle 6</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface">5 cycles</td>
+<td class="py-3 px-space-md"><span class="inline-flex items-center gap-1 text-primary font-label-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>Retired</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors bg-error-container/10">
+<td class="py-3 px-space-md font-code-mono font-bold text-on-surface">I3</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface">sub x5, x3, x6</td>
+<td class="py-3 px-space-md"><span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface text-label-xs font-semibold">R-Type (ALU)</span></td>
+<td class="py-3 px-space-md font-code-mono text-on-surface-variant">Cycle 3</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface-variant">Cycle 8</td>
+<td class="py-3 px-space-md font-code-mono text-error font-bold">6 cycles (+1 Bubble)</td>
+<td class="py-3 px-space-md"><span class="inline-flex items-center gap-1 text-secondary font-label-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>In-Flight (MEM)</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-md font-code-mono font-bold text-on-surface">I4</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface">and x7, x1, x2</td>
+<td class="py-3 px-space-md"><span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface text-label-xs font-semibold">R-Type (LOGIC)</span></td>
+<td class="py-3 px-space-md font-code-mono text-on-surface-variant">Cycle 5</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface-variant">Cycle 9</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface">5 cycles</td>
+<td class="py-3 px-space-md"><span class="inline-flex items-center gap-1 text-secondary font-label-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>In-Flight (EX)</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-md font-code-mono font-bold text-on-surface">I5</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface">or x8, x5, x7</td>
+<td class="py-3 px-space-md"><span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface text-label-xs font-semibold">R-Type (LOGIC)</span></td>
+<td class="py-3 px-space-md font-code-mono text-on-surface-variant">Cycle 6</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface-variant">Cycle 10</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface">5 cycles</td>
+<td class="py-3 px-space-md"><span class="inline-flex items-center gap-1 text-secondary font-label-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>In-Flight (ID)</span></td>
+</tr>
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3 px-space-md font-code-mono font-bold text-on-surface">I6</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface">sw x8, 4(x2)</td>
+<td class="py-3 px-space-md"><span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed text-label-xs font-semibold">S-Type (STORE)</span></td>
+<td class="py-3 px-space-md font-code-mono text-on-surface-variant">Cycle 7</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface-variant">Cycle 11</td>
+<td class="py-3 px-space-md font-code-mono text-on-surface">5 cycles</td>
+<td class="py-3 px-space-md"><span class="inline-flex items-center gap-1 text-primary-fixed-dim font-label-xs font-semibold"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span>In-Flight (IF)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</main></div>
+<script src="js/common.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/pipeline-simulator.js"></script>
+
+</body></html>

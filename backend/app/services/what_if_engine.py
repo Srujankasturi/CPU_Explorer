@@ -57,7 +57,6 @@ class WhatIfService:
         baseline_exec_time_sec = (instruction_count * baseline_effective_cpi) / (cls.BASELINE_FREQ * 1e9)
         baseline_exec_time_ms = baseline_exec_time_sec * 1000.0
 
-        # Speedup percentage relative to baseline
         # Positive means faster execution (lower latency)
         if execution_time_ms > 0:
             speedup_pct = ((baseline_exec_time_ms - execution_time_ms) / baseline_exec_time_ms) * 100.0
@@ -85,7 +84,6 @@ class WhatIfService:
             "cpi_components": cpi_components,
             "sensitivity_analysis": {
                 "frequencies": sweep_freqs,
-                "latencies_ms": sweep_times
+                "execution_times": sweep_times
             }
         }
-

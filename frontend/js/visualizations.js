@@ -91,6 +91,16 @@
   }
 
   function setupTabs() {
+    const tabTargetMap = {
+      heatmap: 'viz-card-heatmap',
+      sankey: 'viz-card-sankey',
+      waterfall: 'viz-card-waterfall',
+      treemap: 'viz-card-equilibrium',
+      cache: 'viz-card-cache',
+      memory: 'viz-card-cache',
+      branch: 'viz-card-waterfall'
+    };
+
     const tabs = document.querySelectorAll('.viz-tab-btn');
     tabs.forEach(btn => {
       btn.addEventListener('click', function () {
@@ -100,14 +110,39 @@
         this.className = 'viz-tab-btn px-4 py-1.5 rounded-lg bg-primary-container text-on-primary-container font-label-md text-label-md font-semibold shadow-sm transition-all';
 
         activeTab = this.getAttribute('data-tab');
+        const targetId = tabTargetMap[activeTab];
+        if (targetId) {
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            targetEl.classList.add('ring-2', 'ring-primary');
+            setTimeout(() => targetEl.classList.remove('ring-2', 'ring-primary'), 1600);
+          }
+        }
+
         if (window.showToast) {
-          window.showToast(`Active View: ${this.textContent.trim()} Topology`, 'info');
+          window.showToast(`Switched view to ${this.textContent.trim()} component`, 'info');
         }
       });
     });
   }
 
   function setupControls() {
+    // Reprofile Trace button
+    const reprofileBtn = document.getElementById('btn-reprofile-trace');
+    if (reprofileBtn) {
+      reprofileBtn.addEventListener('click', async () => {
+        const icon = reprofileBtn.querySelector('.material-symbols-outlined');
+        if (icon) icon.classList.add('animate-spin');
+        vizData = null;
+        await loadVisualizations();
+        setTimeout(() => {
+          if (icon) icon.classList.remove('animate-spin');
+        }, 500);
+        if (window.showToast) window.showToast('Re-profiled microarchitectural telemetry stream', 'success');
+      });
+    }
+
     // Fullscreen toggle
     const fullScreenBtn = document.getElementById('fullscreen-toggle');
     if (fullScreenBtn) {

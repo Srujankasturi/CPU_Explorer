@@ -73,8 +73,8 @@
 
       row.innerHTML = `
         <td class="py-3 px-3">
-          <div class="font-semibold text-on-surface">${escapeHtml(r.title)}</div>
-          <div class="text-xs text-on-surface-variant font-code-mono">ID #${r.id}</div>
+          <div class="font-body-md text-body-md font-semibold text-on-surface">${escapeHtml(r.title)}</div>
+          <div class="font-code-mono text-label-xs text-on-surface-variant">ID #${r.id}</div>
         </td>
         <td class="py-3 px-3">
           <span class="px-2.5 py-1 rounded-full font-label-xs text-label-xs font-bold ${typeBadge}">
@@ -84,7 +84,7 @@
         <td class="py-3 px-3 font-code-mono text-label-xs text-on-surface-variant">
           ${createdDate}
         </td>
-        <td class="py-3 px-3 text-body-sm text-on-surface max-w-xs truncate" title="${escapeHtml(summaryText)}">
+        <td class="py-3 px-3 font-body-sm text-body-sm text-on-surface-variant max-w-xs truncate" title="${escapeHtml(summaryText)}">
           ${escapeHtml(summaryText)}
         </td>
         <td class="py-3 px-3 text-right">
@@ -160,26 +160,26 @@
         contentEl.innerHTML = `
           <div class="flex flex-col gap-4">
             <div class="border-b border-surface-container pb-3">
-              <div class="text-xs uppercase font-bold text-primary tracking-wider">${escapeHtml(report.report_type)}</div>
-              <h2 class="text-xl font-bold text-on-surface mt-1">${escapeHtml(report.title)}</h2>
-              <div class="text-xs text-on-surface-variant font-code-mono mt-1">Generated: ${new Date(report.created_at).toLocaleString()} · ID #${report.id}</div>
+              <div class="font-label-xs text-label-xs uppercase font-bold text-primary tracking-wider">${escapeHtml(report.report_type)}</div>
+              <h2 class="font-headline-md text-headline-md font-bold text-on-surface mt-1">${escapeHtml(report.title)}</h2>
+              <div class="font-code-mono text-label-xs text-on-surface-variant mt-1">Generated: ${new Date(report.created_at).toLocaleString()} · ID #${report.id}</div>
             </div>
             
             <div class="p-3 bg-surface-container-low rounded-xl">
-              <div class="text-xs font-bold text-on-surface-variant uppercase mb-1">Executive Summary</div>
-              <p class="text-sm text-on-surface font-semibold">${escapeHtml(summaryText)}</p>
+              <div class="font-label-xs text-label-xs font-bold text-on-surface-variant uppercase mb-1">Executive Summary</div>
+              <p class="font-body-md text-body-md text-on-surface font-semibold">${escapeHtml(summaryText)}</p>
             </div>
 
             <div>
-              <div class="text-xs font-bold text-on-surface-variant uppercase mb-2">Diagnostic Data Payload</div>
-              <pre class="bg-surface-container-high/60 p-3 rounded-xl font-code-mono text-xs overflow-x-auto text-on-surface max-h-56">${JSON.stringify(contentPayload, null, 2)}</pre>
+              <div class="font-label-xs text-label-xs font-bold text-on-surface-variant uppercase mb-2">Diagnostic Data Payload</div>
+              <pre class="bg-surface-container-high/60 p-3 rounded-xl font-code-mono text-label-xs overflow-x-auto text-on-surface max-h-56">${JSON.stringify(contentPayload, null, 2)}</pre>
             </div>
 
             <div class="flex items-center justify-end gap-2 pt-2 border-t border-surface-container">
-              <button class="px-3.5 py-1.5 rounded-xl border border-surface-container text-xs font-semibold hover:bg-surface-container" onclick="window.print()">
-                <span class="material-symbols-outlined text-sm align-middle mr-1">print</span>Print / PDF
+              <button class="px-3.5 py-1.5 rounded-xl border border-surface-container font-label-md text-label-md font-semibold text-on-surface hover:bg-surface-container transition-colors" onclick="window.print()">
+                <span class="material-symbols-outlined text-[16px] align-middle mr-1">print</span>Print / PDF
               </button>
-              <button class="px-3.5 py-1.5 rounded-xl bg-primary text-white text-xs font-semibold hover:bg-primary-container" onclick="exportReportJson(${report.id})">
+              <button class="px-3.5 py-1.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-colors shadow-xs" onclick="exportReportJson(${report.id})">
                 Export JSON
               </button>
             </div>
@@ -232,7 +232,7 @@
     pills.forEach(pill => {
       pill.addEventListener('click', function () {
         pills.forEach(p => {
-          p.className = 'report-filter-pill px-3 py-1.5 rounded-xl font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container transition-all cursor-pointer';
+          p.className = 'report-filter-pill px-3 py-1.5 rounded-xl font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all cursor-pointer';
         });
         this.className = 'report-filter-pill px-3 py-1.5 rounded-xl font-label-sm text-label-sm bg-primary-container text-on-primary-container font-semibold shadow-sm transition-all cursor-pointer';
         currentFilter = this.getAttribute('data-filter') || 'All';

@@ -7,15 +7,22 @@
 <link rel="stylesheet" href="css/animations.css"/>
 <link rel="stylesheet" href="css/responsive.css"/>
 
-</head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-lg flex items-start gap-space-md"><img alt="CPU Performance Explorer Logo" class="h-8 w-auto object-contain flex-shrink-0 mt-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwB2JFE2lz6MiHRzA-0OgMOgZtS6RD4TG3yl-wwapAJO8hsqWHy96SkWSsIDeYLVfz-8HFab5Whs0EGrPwf2w0_nemkOKmxSS3CFpiRo9x2gfasH83CMc_dQ-iEQtqSFplV5Yi9LgtdSStP9zMizQA2uXTsIS7awrWtkDUeFMtVJ9mPKwSyWwF8U3tC3a1RHtcyfhFByPEp0DCjl_UFoj-kEBWOQ47Gn8LbPuQ424"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate">CPU Performance Explorer</span><span class="font-label-xs text-label-xs text-on-surface-variant truncate tracking-wider uppercase mt-0.5">Analyze. Simulate. Visualize. Optimize.</span></div></div><div class="px-space-md py-space-xs"><div class="h-px bg-surface-container-high w-full"></div></div><nav class="flex flex-col gap-1 px-space-md py-space-md" data-active-classes="bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]"><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="truncate">Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="performance-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">speed</span><span class="truncate">Performance Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="pipeline-simulator" href="#"><span class="material-symbols-outlined text-[20px]">account_tree</span><span class="truncate">Pipeline Simulator</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="bottleneck-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="truncate">Bottleneck Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="cpu-comparison" href="#"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span class="truncate">CPU Comparison</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="what-if-analysis" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="truncate">What-if Analysis</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="advanced-visualizations" href="#"><span class="material-symbols-outlined text-[20px]">hub</span><span class="truncate">Advanced Visualizations</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span class="truncate">Reports &amp; Analytics</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="truncate">Settings</span></a></nav></div><div class="p-space-md"><div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between"><div class="flex flex-col"><span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Kernel Probe</span><span class="font-code-mono text-code-mono text-on-surface">v6.8.2-arch1</span></div><span class="inline-flex w-2.5 h-2.5 rounded-full bg-primary"></span></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px] pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-12 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-sm transition-all" placeholder="Search instruction sets, registers, benchmarks..." type="text"/><kbd class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-code-mono text-label-xs shadow-xs">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><button class="inline-flex items-center gap-space-xs h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-[0_2px_4px_rgba(0,107,44,0.2)] hover:bg-primary-container transition-colors"><span class="material-symbols-outlined text-[18px]">add</span><span>New Analysis</span></button><div class="relative"><button aria-label="Notifications" class="w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button></div><div class="h-6 w-px bg-surface-container-high mx-space-xs"></div><div class="flex items-center gap-space-sm pl-1"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface">Dr. Alex Vance</span><span class="font-label-xs text-label-xs text-on-surface-variant">Lead Architect</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-xs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_I9CnnJh0erE5XNT2yT4zjYIL9UjBL3gtyr8TP8A56-fnP5TFb0aLgUnID3DDyg1j0criuc7uSAHJiHNBtpEVXkfq2P5pHdRu5EyITixkZX0BmbTV1RfUjAe47eV9YrE7u8DRErCuxwiu5Hp-twFkEWQ-4fkXpVbdBzxqyFAKcuLINOOktXLfNtCoxMUKWVIO2KrL1AfzUFZDFLJK7ntm2iZOFJq6wAH1KPLQFtU"/></div></div></header><main class="w-full pt-16 bg-surface flex-1 px-space-xl py-space-xl"><div class="flex flex-col w-full gap-space-lg">
+</head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-lg flex items-start gap-space-md"><img alt="CPU Performance Explorer Logo" class="h-8 w-auto object-contain flex-shrink-0 mt-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwB2JFE2lz6MiHRzA-0OgMOgZtS6RD4TG3yl-wwapAJO8hsqWHy96SkWSsIDeYLVfz-8HFab5Whs0EGrPwf2w0_nemkOKmxSS3CFpiRo9x2gfasH83CMc_dQ-iEQtqSFplV5Yi9LgtdSStP9zMizQA2uXTsIS7awrWtkDUeFMtVJ9mPKwSyWwF8U3tC3a1RHtcyfhFByPEp0DCjl_UFoj-kEBWOQ47Gn8LbPuQ424"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate">CPU Performance Explorer</span><span class="font-label-xs text-label-xs text-on-surface-variant truncate tracking-wider uppercase mt-0.5">Analyze. Simulate. Visualize. Optimize.</span></div></div><div class="px-space-md py-space-xs"><div class="h-px bg-surface-container-high w-full"></div></div><nav class="flex flex-col gap-1 px-space-md py-space-md" data-active-classes="bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]"><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="truncate">Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="performance-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">speed</span><span class="truncate">Performance Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="pipeline-simulator" href="#"><span class="material-symbols-outlined text-[20px]">account_tree</span><span class="truncate">Pipeline Simulator</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="bottleneck-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="truncate">Bottleneck Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="cpu-comparison" href="#"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span class="truncate">CPU Comparison</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="what-if-analysis" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="truncate">What-if Analysis</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="advanced-visualizations" href="#"><span class="material-symbols-outlined text-[20px]">hub</span><span class="truncate">Advanced Visualizations</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span class="truncate">Reports &amp; Analytics</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="truncate">Settings</span></a></nav></div><div class="p-space-md"><div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between">
+        <div class="flex flex-col min-w-0 pr-2">
+          <span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-medium tracking-wide">Kernel Probe</span>
+          <span id="kernel-probe-val" class="font-code-mono text-label-xs text-on-surface font-semibold truncate" title="Live Host Kernel">Probing...</span>
+        </div>
+        <span id="kernel-probe-dot" class="w-2.5 h-2.5 rounded-full bg-primary shrink-0 animate-pulse block" title="Probe Active"></span>
+      </div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px] pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-12 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-sm transition-all" placeholder="Search instruction sets, registers, benchmarks..." type="text"/><kbd class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-code-mono text-label-xs shadow-xs">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><button class="inline-flex items-center gap-space-xs h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-[0_2px_4px_rgba(0,107,44,0.2)] hover:bg-primary-container transition-colors"><span class="material-symbols-outlined text-[18px]">add</span><span>New Analysis</span></button><div class="relative"><button aria-label="Notifications" class="w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button></div></div></header><main class="w-full pt-16 bg-surface flex-1 px-space-xl py-space-xl"><div class="flex flex-col w-full gap-space-lg">
 <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
 <div class="flex flex-col">
-<div class="flex items-center gap-space-xs font-code-mono text-label-xs text-on-surface-variant uppercase tracking-wider mb-1">
-<span class="inline-flex w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-<span>MODULE 08</span>
-<span>/</span>
-<span class="text-primary font-semibold">MICROARCHITECTURAL VISUALIZATION GALLERY</span>
-</div>
+<div class="flex items-center gap-2 mb-1">
+          <span class="font-code-mono text-code-mono text-on-surface-variant uppercase tracking-wider font-semibold">MODULE 07</span>
+          <span class="text-outline-variant font-body-sm text-body-sm">/</span>
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-label-xs text-label-xs font-bold shadow-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> MICROARCHITECTURAL VISUALIZATION GALLERY
+          </span>
+        </div>
 <h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Advanced Visualizations</h1>
 <p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
         Interactive and in-depth CPU performance visualizations, memory topologies, and pipeline execution flows.
@@ -70,7 +77,7 @@
 </div>
 </div>
 <div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
-<div class="xl:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div id="viz-card-heatmap" class="xl:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between transition-all">
 <div class="flex items-start justify-between mb-space-md">
 <div>
 <div class="flex items-center gap-2">
@@ -188,7 +195,7 @@
 </div>
 </div>
 <div class="xl:col-span-5 flex flex-col gap-space-lg">
-<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col">
+<div id="viz-card-equilibrium" class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col transition-all">
 <div class="flex items-center justify-between mb-space-sm">
 <div>
 <h2 class="font-headline-md text-headline-md text-on-surface">CPI vs IPC Relationship</h2>
@@ -231,7 +238,7 @@
 <span class="text-primary font-semibold">Pareto Efficiency 88.4%</span>
 </div>
 </div>
-<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col">
+<div id="viz-card-sankey" class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col transition-all">
 <div class="flex items-center justify-between mb-space-sm">
 <div>
 <h2 class="font-headline-md text-headline-md text-on-surface">Instruction Flow (Sankey Breakdown)</h2>
@@ -284,7 +291,7 @@
 </div>
 </div>
 <div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
-<div class="xl:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col">
+<div id="viz-card-waterfall" class="xl:col-span-7 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col transition-all">
 <div class="flex items-center justify-between mb-space-md">
 <div>
 <div class="flex items-center gap-2">
@@ -374,7 +381,7 @@
 </div>
 </div>
 </div>
-<div class="xl:col-span-5 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between">
+<div id="viz-card-cache" class="xl:col-span-5 bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col justify-between transition-all">
 <div class="flex items-center justify-between mb-space-sm">
 <div>
 <div class="flex items-center gap-2">
@@ -391,21 +398,21 @@
 <span class="font-code-mono text-label-xs font-bold bg-white/20 px-1.5 py-0.5 rounded">L1$</span>
 <span class="font-label-xs font-semibold">64 KB per core</span>
 </div>
-<span class="font-code-mono text-label-xs font-extrabold">4 Cycles (~1.1ns)</span>
+<span class="font-code-mono text-label-xs font-extrabold" id="pyramid-l1-latency">4 Cycles (~1.1ns)</span>
 </div>
 <div class="w-64 h-11 rounded-lg bg-secondary text-on-secondary flex items-center justify-between px-3 shadow-sm transition-transform hover:scale-105 cursor-pointer">
 <div class="flex items-center gap-2">
 <span class="font-code-mono text-label-xs font-bold bg-white/20 px-1.5 py-0.5 rounded">L2$</span>
 <span class="font-label-xs font-semibold">1 MB per core</span>
 </div>
-<span class="font-code-mono text-label-xs font-extrabold">14 Cycles (~3.9ns)</span>
+<span class="font-code-mono text-label-xs font-extrabold" id="pyramid-l2-latency">14 Cycles (~3.9ns)</span>
 </div>
 <div class="w-80 h-12 rounded-lg bg-tertiary text-on-tertiary flex items-center justify-between px-3 shadow-sm transition-transform hover:scale-105 cursor-pointer">
 <div class="flex items-center gap-2">
 <span class="font-code-mono text-label-xs font-bold bg-white/20 px-1.5 py-0.5 rounded">L3$</span>
 <span class="font-label-xs font-semibold">32 MB Shared LLC</span>
 </div>
-<span class="font-code-mono text-label-xs font-extrabold">45 Cycles (~12.5ns)</span>
+<span class="font-code-mono text-label-xs font-extrabold" id="pyramid-l3-latency">45 Cycles (~12.5ns)</span>
 </div>
 <div class="w-full h-14 rounded-lg bg-inverse-surface text-inverse-on-surface flex items-center justify-between px-4 shadow-sm transition-transform hover:scale-[1.02] cursor-pointer">
 <div class="flex items-center gap-2">
@@ -436,7 +443,7 @@
 <span class="text-on-surface-variant">RECORDED WINDOW</span>
 <span class="text-on-surface font-bold">10,000 INST @ 3.60 GHz</span>
 </div>
-<button class="h-9 px-4 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md shadow-xs transition-colors flex items-center gap-1">
+<button id="btn-reprofile-trace" class="h-9 px-4 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md shadow-xs transition-colors flex items-center gap-1">
 <span class="material-symbols-outlined text-[18px]">replay</span>
 <span>Re-Profile Trace</span>
 </button>

@@ -68,9 +68,12 @@ class InstructionSetAnalysisResponse(BaseModel):
 # Pipeline Simulation
 class PipelineSimulateRequest(BaseModel):
     program_name: Optional[str] = "Default RISC Program"
-    instruction_count: Optional[int] = Field(default=6, ge=1, le=12)
+    instruction_count: Optional[int] = Field(default=6, ge=1, le=2000)
     forwarding_enabled: Optional[bool] = True
     custom_instructions: Optional[List[str]] = None
+    execution_mode: Optional[str] = Field(default="in_order", description="'in_order' or 'out_of_order'")
+    issue_width: Optional[int] = Field(default=2, ge=1, le=4, description="Superscalar issue width (1, 2, or 4)")
+    rob_size: Optional[int] = Field(default=16, ge=4, le=64, description="Reorder Buffer capacity")
 
 class PipelineCell(BaseModel):
     instruction_id: str
@@ -92,9 +95,17 @@ class PipelineSimulateResponse(BaseModel):
     ipc: float
     efficiency_pct: float
     grid: List[List[str]]
-    instructions: List[Dict[str, str]]
+    instructions: List[Dict[str, Any]]
     cycle_headers: List[str]
     hazards_detected: List[Dict[str, Any]]
+    execution_mode: Optional[str] = "in_order"
+    issue_width: Optional[int] = 1
+    rob_size: Optional[int] = 16
+    rob_snapshots: Optional[List[Dict[str, Any]]] = None
+    reservation_stations: Optional[List[Dict[str, Any]]] = None
+    rat_table: Optional[Dict[str, str]] = None
+    speedup_vs_inorder: Optional[float] = None
+    virtualization_meta: Optional[Dict[str, Any]] = None
 
 
 # Bottleneck Analysis
@@ -188,7 +199,7 @@ class WhatIfAnalyzeResponse(BaseModel):
 class ReportCreateRequest(BaseModel):
     title: str
     report_type: str = "Performance Analysis"
-    author: Optional[str] = "Dr. Alex Vance"
+    author: Optional[str] = "Lead Architect"
     summary: Optional[str] = None
     data: Optional[Dict[str, Any]] = None
 
@@ -225,6 +236,7 @@ class DeviceSpecsResponse(BaseModel):
     os_name: str
     platform: str
     python_version: str
+    kernel_version: Optional[str] = None
 
 class DeviceLiveResponse(BaseModel):
     timestamp: str
@@ -239,4 +251,24 @@ class DeviceLiveResponse(BaseModel):
     net_io_mbps: float
     estimated_temp_c: float
     top_processes: List[ProcessInfo]
+
+class HardwarePMUResponse(BaseModel):
+    timestamp: str
+    is_elevated: bool
+    probe_mode: str
+    llc_miss_rate: float
+    branch_mispredict_rate: float
+    ipc_live: float
+    retired_instructions_sec: float
+    pipeline_stall_pct: float
+    core_temperature_c: float
+    active_cores: int
+    etw_active: bool
+    diagnostics: Dict[str, Any]
+    cpu_model: Optional[str] = None
+    frequency_ghz: Optional[float] = None
+    source: Optional[str] = None
+    physical_cores: Optional[int] = None
+    live_ipc: Optional[float] = None
+    instructions_per_sec: Optional[float] = None
 

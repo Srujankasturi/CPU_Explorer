@@ -81,7 +81,7 @@ class SavedReport(Base):
     title = Column(String(200), nullable=False)
     report_type = Column(String(100), default="Performance Analysis")
     status = Column(String(50), default="Complete")
-    author = Column(String(100), default="Dr. Alex Vance")
+    author = Column(String(100), default="Lead Architect")
     metrics_summary = Column(String(255), default="")
     full_content_json = Column(Text, default="{}")
 

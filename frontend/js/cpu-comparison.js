@@ -7,6 +7,7 @@
 (function () {
   let presetsData = [];
   let currentActiveTab = 'metric';
+  let lastComparisonData = null;
 
   const state = {
     cpuA: {
@@ -69,6 +70,7 @@
       });
 
       if (res) {
+        lastComparisonData = res;
         updateUI(res);
       }
     } catch (e) {
@@ -157,6 +159,9 @@
 
     // 6. Metrics Comparison Table
     renderMetricsTable(cpuA, cpuB, speedFactor);
+
+    // 7. Radar Chart Points Update
+    updateRadarChart(cpuA, cpuB);
   }
 
   function renderClusteredBars(cpuA, cpuB) {
@@ -320,6 +325,71 @@
     `).join('');
   }
 
+  function updateRadarChart(cpuA, cpuB) {
+    const polyA = document.getElementById('radar-poly-a');
+    const polyB = document.getElementById('radar-poly-b');
+    if (!polyA || !polyB) return;
+
+    const maxF = Math.max(cpuA.frequency_ghz || 1, cpuB.frequency_ghz || 1, 4.0);
+    const maxIPC = Math.max(cpuA.ipc || 1, cpuB.ipc || 1, 3.0);
+    const minCPI = Math.min(cpuA.cpi || 1, cpuB.cpi || 1, 0.8);
+    const minTime = Math.min(cpuA.execution_time_ms || 1, cpuB.execution_time_ms || 1, 1);
+    const maxMIPS = Math.max(cpuA.mips || 1, cpuB.mips || 1, 100);
+
+    const normA = [
+      Math.min(0.95, Math.max(0.2, (cpuA.frequency_ghz || 1) / maxF)),
+      Math.min(0.95, Math.max(0.2, (cpuA.ipc || 1) / maxIPC)),
+      Math.min(0.95, Math.max(0.2, minCPI / (cpuA.cpi || 1))),
+      Math.min(0.95, Math.max(0.2, minTime / (cpuA.execution_time_ms || 1))),
+      Math.min(0.95, Math.max(0.2, (cpuA.mips || 1) / maxMIPS)),
+      Math.min(0.95, Math.max(0.2, 0.8 * ((cpuA.ipc || 1) / (cpuA.cpi || 1))))
+    ];
+
+    const normB = [
+      Math.min(0.95, Math.max(0.2, (cpuB.frequency_ghz || 1) / maxF)),
+      Math.min(0.95, Math.max(0.2, (cpuB.ipc || 1) / maxIPC)),
+      Math.min(0.95, Math.max(0.2, minCPI / (cpuB.cpi || 1))),
+      Math.min(0.95, Math.max(0.2, minTime / (cpuB.execution_time_ms || 1))),
+      Math.min(0.95, Math.max(0.2, (cpuB.mips || 1) / maxMIPS)),
+      Math.min(0.95, Math.max(0.2, 0.8 * ((cpuB.ipc || 1) / (cpuB.cpi || 1))))
+    ];
+
+    const cx = 100, cy = 100, maxR = 80;
+    const getPts = (norms) => norms.map((val, i) => {
+      const angle = (-90 + i * 60) * (Math.PI / 180);
+      const r = val * maxR;
+      const x = Math.round(cx + r * Math.cos(angle));
+      const y = Math.round(cy + r * Math.sin(angle));
+      return `${x},${y}`;
+    }).join(' ');
+
+    polyA.setAttribute('points', getPts(normA));
+    polyB.setAttribute('points', getPts(normB));
+  }
+
+  function openEditCpuModal() {
+    const modal = document.getElementById('edit-cpus-modal');
+    if (!modal) return;
+    const setVal = (id, val) => {
+      const el = document.getElementById(id);
+      if (el && val !== undefined) el.value = val;
+    };
+    setVal('custom-name-a', state.cpuA.name);
+    setVal('custom-freq-a', state.cpuA.frequency_ghz);
+    setVal('custom-cpi-a', state.cpuA.cpi);
+    setVal('custom-ic-a', state.cpuA.instruction_count);
+    setVal('custom-name-b', state.cpuB.name);
+    setVal('custom-freq-b', state.cpuB.frequency_ghz);
+    setVal('custom-cpi-b', state.cpuB.cpi);
+    setVal('custom-ic-b', state.cpuB.instruction_count);
+    modal.classList.add('open');
+  }
+
+  function closeEditCpuModal() {
+    const modal = document.getElementById('edit-cpus-modal');
+    if (modal) modal.classList.remove('open');
+  }
+
   function switchViewTab(tab) {
     currentActiveTab = tab;
     const tabMetric = document.getElementById('tab-metric');
@@ -353,10 +423,70 @@
     if (window.showToast) window.showToast('Processors swapped (Base ↔ Target)', 'info');
   }
 
+  function setupComparisonControls() {
+    const btnSave = document.getElementById('btn-save-custom-cpus');
+    if (btnSave) {
+      btnSave.addEventListener('click', () => {
+        state.cpuA = {
+          name: document.getElementById('custom-name-a')?.value || 'CPU A',
+          frequency_ghz: parseFloat(document.getElementById('custom-freq-a')?.value) || 2.5,
+          cpi: parseFloat(document.getElementById('custom-cpi-a')?.value) || 3.0,
+          instruction_count: parseInt(document.getElementById('custom-ic-a')?.value) || 10000
+        };
+        state.cpuB = {
+          name: document.getElementById('custom-name-b')?.value || 'CPU B',
+          frequency_ghz: parseFloat(document.getElementById('custom-freq-b')?.value) || 3.0,
+          cpi: parseFloat(document.getElementById('custom-cpi-b')?.value) || 2.0,
+          instruction_count: parseInt(document.getElementById('custom-ic-b')?.value) || 10000
+        };
+        closeEditCpuModal();
+        runComparison();
+        if (window.showToast) window.showToast('Custom CPU configurations applied and recalculated', 'success');
+      });
+    }
+
+    const btnExportCsv = document.getElementById('btn-export-comparison-csv');
+    if (btnExportCsv) {
+      btnExportCsv.addEventListener('click', () => {
+        if (!lastComparisonData) {
+          if (window.showToast) window.showToast('No comparison data available to export', 'error');
+          return;
+        }
+        const a = lastComparisonData.cpu_a;
+        const b = lastComparisonData.cpu_b;
+        const speedup = lastComparisonData.speedup_factor ?? 1.0;
+        const pct = lastComparisonData.speedup_pct ?? 0;
+
+        let csv = 'Metric,CPU A (' + (a.name || 'Base') + '),CPU B (' + (b.name || 'Target') + '),Delta,Advantage\n';
+        csv += `Clock Frequency (GHz),${a.frequency_ghz},${b.frequency_ghz},${(b.frequency_ghz - a.frequency_ghz).toFixed(2)},${b.frequency_ghz >= a.frequency_ghz ? 'CPU B' : 'CPU A'}\n`;
+        csv += `Cycles Per Instruction (CPI),${a.cpi},${b.cpi},${(b.cpi - a.cpi).toFixed(2)},${b.cpi <= a.cpi ? 'CPU B' : 'CPU A'}\n`;
+        csv += `Instructions Per Cycle (IPC),${a.ipc},${b.ipc},${(b.ipc - a.ipc).toFixed(2)},${b.ipc >= a.ipc ? 'CPU B' : 'CPU A'}\n`;
+        csv += `Instruction Count,${a.instruction_count},${b.instruction_count},${b.instruction_count - a.instruction_count},Identical\n`;
+        csv += `Total Clock Cycles,${a.total_cycles},${b.total_cycles},${b.total_cycles - a.total_cycles},${b.total_cycles <= a.total_cycles ? 'CPU B' : 'CPU A'}\n`;
+        csv += `Execution Time (ms),${a.execution_time_ms},${b.execution_time_ms},${(b.execution_time_ms - a.execution_time_ms).toFixed(2)},${b.execution_time_ms <= a.execution_time_ms ? 'CPU B' : 'CPU A'}\n`;
+        csv += `MIPS,${a.mips},${b.mips},${(b.mips - a.mips).toFixed(1)},${b.mips >= a.mips ? 'CPU B' : 'CPU A'}\n`;
+        csv += `Speedup Factor,${speedup}x,,,\n`;
+        csv += `Speedup Percentage,${pct}%,,,\n`;
+
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `cpu_comparison_${Date.now()}.csv`;
+        link.click();
+        URL.revokeObjectURL(url);
+        if (window.showToast) window.showToast('Downloaded Comparison CSV Specsheet', 'success');
+      });
+    }
+  }
+
   window.switchViewTab = switchViewTab;
   window.swapProcessors = swapProcessors;
+  window.openEditCpuModal = openEditCpuModal;
+  window.closeEditCpuModal = closeEditCpuModal;
 
   function init() {
+    setupComparisonControls();
     loadPresets();
     runComparison();
   }

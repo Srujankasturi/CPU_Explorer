@@ -49,9 +49,44 @@ def root_redirect():
     # Redirect to the main Dashboard page
     return RedirectResponse(url="/Dahboard.html")
 
+@app.get("/Dashboard.html", include_in_schema=False)
+@app.get("/dashboard", include_in_schema=False)
+def dashboard_alias_redirect():
+    return RedirectResponse(url="/Dahboard.html")
+
 @app.get("/CurrentDevice.html", include_in_schema=False)
 def current_device_redirect():
     return RedirectResponse(url="/Dahboard.html")
+
+@app.get("/what-if-analysis.html", include_in_schema=False)
+@app.get("/WhatIfAnalysis.html", include_in_schema=False)
+@app.get("/what-if-analysis", include_in_schema=False)
+def what_if_alias_redirect():
+    return RedirectResponse(url="/What-if%20Analysis.html")
+
+@app.get("/performance-analyzer", include_in_schema=False)
+def performance_alias():
+    return RedirectResponse(url="/PerformanceAnalyzer.html")
+
+@app.get("/pipeline-simulator", include_in_schema=False)
+def pipeline_alias():
+    return RedirectResponse(url="/PipelineSimulator.html")
+
+@app.get("/bottleneck-analyzer", include_in_schema=False)
+def bottleneck_alias():
+    return RedirectResponse(url="/BottleneckAnalyzer.html")
+
+@app.get("/cpu-comparison", include_in_schema=False)
+def comparison_alias():
+    return RedirectResponse(url="/CPUComparison.html")
+
+@app.get("/advanced-visualizations", include_in_schema=False)
+def visualizations_alias():
+    return RedirectResponse(url="/AdvancedVisualizations.html")
+
+@app.get("/reports", include_in_schema=False)
+def reports_alias():
+    return RedirectResponse(url="/Reports.html")
 
 # Serve frontend HTML directly from frontend directory
 if os.path.exists(FRONTEND_DIR):

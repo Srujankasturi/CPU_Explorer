@@ -16,14 +16,26 @@
   };
 
   const REVERSE_PATH_MAP = {
+    '': 'dashboard',
+    'dashboard': 'dashboard',
     'dahboard.html': 'dashboard',
+    'dashboard.html': 'dashboard',
+    'performance-analyzer': 'performance-analyzer',
     'performanceanalyzer.html': 'performance-analyzer',
+    'pipeline-simulator': 'pipeline-simulator',
     'pipelinesimulator.html': 'pipeline-simulator',
+    'bottleneck-analyzer': 'bottleneck-analyzer',
     'bottleneckanalyzer.html': 'bottleneck-analyzer',
+    'cpu-comparison': 'cpu-comparison',
     'cpucomparison.html': 'cpu-comparison',
+    'what-if-analysis': 'what-if-analysis',
     'what-if analysis.html': 'what-if-analysis',
     'what-if-analysis.html': 'what-if-analysis',
+    'whatifanalysis.html': 'what-if-analysis',
+    'advanced-visualizations': 'advanced-visualizations',
     'advancedvisualizations.html': 'advanced-visualizations',
+    'reports': 'reports-and-analytics',
+    'reports-and-analytics': 'reports-and-analytics',
     'reports.html': 'reports-and-analytics'
   };
 
@@ -127,12 +139,25 @@
           else if (val.includes('bottle') || val.includes('stall')) window.location.href = PATH_MAP['bottleneck-analyzer'];
           else if (val.includes('compare') || val.includes('bench')) window.location.href = PATH_MAP['cpu-comparison'];
           else if (val.includes('what') || val.includes('tune')) window.location.href = PATH_MAP['what-if-analysis'];
-          else if (val.includes('heat') || val.includes('vis')) window.location.href = PATH_MAP['advanced-visualizations'];
-          else if (val.includes('report') || val.includes('export')) window.location.href = PATH_MAP['reports-and-analytics'];
-          else if (val.includes('cpi') || val.includes('single')) window.location.href = PATH_MAP['performance-analyzer'];
+          else if (val.includes('heat') || val.includes('vis') || val.includes('pyramid')) window.location.href = PATH_MAP['advanced-visualizations'];
+          else if (val.includes('report') || val.includes('export') || val.includes('analytic')) window.location.href = PATH_MAP['reports-and-analytics'];
+          else if (val.includes('cpi') || val.includes('single') || val.includes('perf') || val.includes('isa')) window.location.href = PATH_MAP['performance-analyzer'];
+          else if (val.includes('dash') || val.includes('home') || val.includes('tele')) window.location.href = PATH_MAP['dashboard'];
+          else if (window.showToast) {
+            window.showToast(`No module match for "${val}". Try: pipeline, cpi, bottleneck, compare, what-if, or reports.`, 'info');
+          }
         }
       });
     }
+
+    // Wire Notification bell buttons
+    document.querySelectorAll('button[aria-label="Notifications"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (window.showToast) {
+          window.showToast('Diagnostics Active: Real-time telemetry probe and simulation engines running nominal.', 'info');
+        }
+      });
+    });
 
     // Wire "New Analysis" CTA buttons using standard DOM selection
     document.querySelectorAll('button').forEach(btn => {
@@ -142,6 +167,24 @@
         };
       }
     });
+
+    // Dynamically update Kernel Probe badge in sidebar with actual platform info
+    updateKernelProbe();
+  }
+
+  async function updateKernelProbe() {
+    try {
+      const specs = await apiFetch('/api/device/specifications');
+      if (specs) {
+        const kernelVal = specs.kernel_version || specs.os_name || 'Active Probe';
+        document.querySelectorAll('#kernel-probe-val, [data-kernel-probe]').forEach(el => {
+          el.textContent = kernelVal;
+          el.setAttribute('title', `Genuine Host OS Kernel: ${kernelVal}`);
+        });
+      }
+    } catch (e) {
+      console.warn('Kernel probe dynamic fetch warning:', e);
+    }
   }
 
   // Interactive Settings Modal

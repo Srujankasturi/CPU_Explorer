@@ -97,7 +97,7 @@ def generate_report(req: ReportCreateRequest, db: Session = Depends(get_db)):
         title=req.title,
         report_type=req.report_type,
         status="Complete",
-        author=req.author or "Dr. Alex Vance",
+        author=req.author or "Lead Architect",
         metrics_summary=summary,
         full_content_json=json.dumps(data)
     )

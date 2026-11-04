@@ -42,6 +42,16 @@ class DeviceMonitorService:
         physical_cores = psutil.cpu_count(logical=False) or 8
         logical_cores = psutil.cpu_count(logical=True) or 16
 
+        sys_name = platform.system()
+        if sys_name == "Windows":
+            kernel_version = f"Windows NT {platform.version()}"
+        elif sys_name == "Linux":
+            kernel_version = f"Linux {platform.release()}"
+        elif sys_name == "Darwin":
+            kernel_version = f"Darwin {platform.release()}"
+        else:
+            kernel_version = f"{sys_name} {platform.release()}"
+
         return {
             "device_name": platform.node() or "Local Workstation",
             "processor_name": platform.processor() or "AMD Ryzen 7 / Intel Core Architecture",
@@ -53,7 +63,8 @@ class DeviceMonitorService:
             "total_disk_gb": total_disk_gb,
             "os_name": f"{platform.system()} {platform.release()}",
             "platform": platform.platform(),
-            "python_version": platform.python_version()
+            "python_version": platform.python_version(),
+            "kernel_version": kernel_version
         }
 
     @classmethod

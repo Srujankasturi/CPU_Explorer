@@ -6,14 +6,23 @@
 <link rel="stylesheet" href="css/animations.css"/>
 <link rel="stylesheet" href="css/responsive.css"/>
 
-</head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-lg flex items-start gap-space-md"><img alt="CPU Performance Explorer Logo" class="h-8 w-auto object-contain flex-shrink-0 mt-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwB2JFE2lz6MiHRzA-0OgMOgZtS6RD4TG3yl-wwapAJO8hsqWHy96SkWSsIDeYLVfz-8HFab5Whs0EGrPwf2w0_nemkOKmxSS3CFpiRo9x2gfasH83CMc_dQ-iEQtqSFplV5Yi9LgtdSStP9zMizQA2uXTsIS7awrWtkDUeFMtVJ9mPKwSyWwF8U3tC3a1RHtcyfhFByPEp0DCjl_UFoj-kEBWOQ47Gn8LbPuQ424"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate">CPU Performance Explorer</span><span class="font-label-xs text-label-xs text-on-surface-variant truncate tracking-wider uppercase mt-0.5">Analyze. Simulate. Visualize. Optimize.</span></div></div><div class="px-space-md py-space-xs"><div class="h-px bg-surface-container-high w-full"></div></div><nav class="flex flex-col gap-1 px-space-md py-space-md" data-active-classes="bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]"><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="truncate">Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="performance-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">speed</span><span class="truncate">Performance Analyzer</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-2.5 transition-all bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]" data-path="pipeline-simulator" href="#"><span class="material-symbols-outlined text-[20px]">account_tree</span><span class="truncate">Pipeline Simulator</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="bottleneck-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="truncate">Bottleneck Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="cpu-comparison" href="#"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span class="truncate">CPU Comparison</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="what-if-analysis" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="truncate">What-if Analysis</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="advanced-visualizations" href="#"><span class="material-symbols-outlined text-[20px]">hub</span><span class="truncate">Advanced Visualizations</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span class="truncate">Reports &amp; Analytics</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="truncate">Settings</span></a></nav></div><div class="p-space-md"><div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between"><div class="flex flex-col"><span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Kernel Probe</span><span class="font-code-mono text-code-mono text-on-surface">v6.8.2-arch1</span></div><span class="inline-flex w-2.5 h-2.5 rounded-full bg-primary"></span></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px] pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-12 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-sm transition-all" placeholder="Search instruction sets, registers, benchmarks..." type="text"/><kbd class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-code-mono text-label-xs shadow-xs">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><button class="inline-flex items-center gap-space-xs h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-[0_2px_4px_rgba(0,107,44,0.2)] hover:bg-primary-container transition-colors"><span class="material-symbols-outlined text-[18px]">add</span><span>New Analysis</span></button><div class="relative"><button aria-label="Notifications" class="w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button></div><div class="h-6 w-px bg-surface-container-high mx-space-xs"></div><div class="flex items-center gap-space-sm pl-1"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface">Dr. Alex Vance</span><span class="font-label-xs text-label-xs text-on-surface-variant">Lead Architect</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-xs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_I9CnnJh0erE5XNT2yT4zjYIL9UjBL3gtyr8TP8A56-fnP5TFb0aLgUnID3DDyg1j0criuc7uSAHJiHNBtpEVXkfq2P5pHdRu5EyITixkZX0BmbTV1RfUjAe47eV9YrE7u8DRErCuxwiu5Hp-twFkEWQ-4fkXpVbdBzxqyFAKcuLINOOktXLfNtCoxMUKWVIO2KrL1AfzUFZDFLJK7ntm2iZOFJq6wAH1KPLQFtU"/></div></div></header><main class="w-full pt-16 bg-surface flex-1 px-space-xl py-space-xl"><div class="flex flex-col w-full">
+</head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-lg flex items-start gap-space-md"><img alt="CPU Performance Explorer Logo" class="h-8 w-auto object-contain flex-shrink-0 mt-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwB2JFE2lz6MiHRzA-0OgMOgZtS6RD4TG3yl-wwapAJO8hsqWHy96SkWSsIDeYLVfz-8HFab5Whs0EGrPwf2w0_nemkOKmxSS3CFpiRo9x2gfasH83CMc_dQ-iEQtqSFplV5Yi9LgtdSStP9zMizQA2uXTsIS7awrWtkDUeFMtVJ9mPKwSyWwF8U3tC3a1RHtcyfhFByPEp0DCjl_UFoj-kEBWOQ47Gn8LbPuQ424"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate">CPU Performance Explorer</span><span class="font-label-xs text-label-xs text-on-surface-variant truncate tracking-wider uppercase mt-0.5">Analyze. Simulate. Visualize. Optimize.</span></div></div><div class="px-space-md py-space-xs"><div class="h-px bg-surface-container-high w-full"></div></div><nav class="flex flex-col gap-1 px-space-md py-space-md" data-active-classes="bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]"><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="truncate">Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="performance-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">speed</span><span class="truncate">Performance Analyzer</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-2.5 transition-all bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]" data-path="pipeline-simulator" href="#"><span class="material-symbols-outlined text-[20px]">account_tree</span><span class="truncate">Pipeline Simulator</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="bottleneck-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="truncate">Bottleneck Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="cpu-comparison" href="#"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span class="truncate">CPU Comparison</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="what-if-analysis" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="truncate">What-if Analysis</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="advanced-visualizations" href="#"><span class="material-symbols-outlined text-[20px]">hub</span><span class="truncate">Advanced Visualizations</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span class="truncate">Reports &amp; Analytics</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="truncate">Settings</span></a></nav></div><div class="p-space-md"><div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between">
+        <div class="flex flex-col min-w-0 pr-2">
+          <span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-medium tracking-wide">Kernel Probe</span>
+          <span id="kernel-probe-val" class="font-code-mono text-label-xs text-on-surface font-semibold truncate" title="Live Host Kernel">Probing...</span>
+        </div>
+        <span id="kernel-probe-dot" class="w-2.5 h-2.5 rounded-full bg-primary shrink-0 animate-pulse block" title="Probe Active"></span>
+      </div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px] pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-12 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-sm transition-all" placeholder="Search instruction sets, registers, benchmarks..." type="text"/><kbd class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-code-mono text-label-xs shadow-xs">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><button class="inline-flex items-center gap-space-xs h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-[0_2px_4px_rgba(0,107,44,0.2)] hover:bg-primary-container transition-colors"><span class="material-symbols-outlined text-[18px]">add</span><span>New Analysis</span></button><div class="relative"><button aria-label="Notifications" class="w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button></div></div></header><main class="w-full pt-16 bg-surface flex-1 px-space-xl py-space-xl"><div class="flex flex-col w-full">
 <!-- Section Title & Meta Bar -->
 <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
 <div>
-<div class="flex items-center gap-space-sm mb-1">
-<span class="px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed font-label-xs text-label-xs uppercase tracking-wide">Diagnostic Canvas</span>
-<span class="text-on-surface-variant font-code-mono text-code-mono">ARCH: RISC-V 5-STAGE INT</span>
-</div>
+<div class="flex items-center gap-2 mb-1">
+          <span class="font-code-mono text-code-mono text-on-surface-variant uppercase tracking-wider font-semibold">MODULE 03</span>
+          <span class="text-outline-variant font-body-sm text-body-sm">/</span>
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-label-xs text-label-xs font-bold shadow-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> RISC-V 5-STAGE CYCLE SIMULATION
+          </span>
+        </div>
 <h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Pipeline Simulator</h1>
 <p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Visualize instruction execution sequence, identify microarchitectural hazards, and step through machine cycles.</p>
 </div>
@@ -62,6 +71,33 @@
 </div>
 <!-- Parameter Selectors -->
 <div class="flex items-center flex-wrap gap-space-md">
+<!-- Architecture Execution Mode Toggle (In-Order vs Superscalar Tomasulo OoO) -->
+<div class="flex items-center gap-1.5">
+  <span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Mode:</span>
+  <div class="inline-flex rounded-lg bg-surface-container-low p-0.5 border border-surface-container">
+    <button id="mode-btn-inorder" class="px-2.5 py-1 text-label-xs font-label-xs rounded bg-surface-container-lowest text-primary font-bold shadow-xs transition-all">5-Stage In-Order</button>
+    <button id="mode-btn-ooo" class="px-2.5 py-1 text-label-xs font-label-xs rounded text-on-surface-variant hover:text-on-surface font-semibold transition-all">Superscalar OoO (Tomasulo)</button>
+  </div>
+</div>
+<!-- Superscalar Configuration (Issue Width & ROB Capacity) -->
+<div id="ooo-controls-group" class="hidden items-center gap-space-sm bg-surface-container-low px-2 py-1 rounded-lg border border-surface-container">
+  <div class="flex items-center gap-1">
+    <span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Width:</span>
+    <select id="issue-width-select" class="appearance-none bg-surface-container-lowest text-on-surface font-code-mono text-label-xs rounded h-7 pl-2 pr-6 focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer border border-surface-container">
+      <option value="2" selected>2-Wide</option>
+      <option value="4">4-Wide</option>
+      <option value="1">1-Wide</option>
+    </select>
+  </div>
+  <div class="flex items-center gap-1">
+    <span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">ROB:</span>
+    <select id="rob-size-select" class="appearance-none bg-surface-container-lowest text-on-surface font-code-mono text-label-xs rounded h-7 pl-2 pr-6 focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer border border-surface-container">
+      <option value="16" selected>16 Ent</option>
+      <option value="32">32 Ent</option>
+      <option value="64">64 Ent</option>
+    </select>
+  </div>
+</div>
 <!-- Speed selector -->
 <div class="flex items-center gap-2">
 <span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Speed:</span>
@@ -71,14 +107,17 @@
 <button class="px-2.5 py-1 text-label-xs font-label-xs rounded text-on-surface-variant hover:text-on-surface">0.5x</button>
 </div>
 </div>
-<!-- Instruction Count Dropdown -->
+<!-- Instruction Count Dropdown with large workloads -->
 <div class="flex items-center gap-2">
-<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Instructions:</span>
+<span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Workload:</span>
 <div class="relative">
 <select id="instruction-count-select" class="appearance-none bg-surface-container-low text-on-surface font-code-mono text-code-mono rounded-lg h-9 pl-3 pr-8 focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer">
-<option value="6" selected>6 Instructions</option>
-<option value="8">8 Instructions</option>
-<option value="12">12 Instructions</option>
+<option value="6" selected>6 Instructions (Baseline)</option>
+<option value="8">8 Instructions (RAW Hazard)</option>
+<option value="12">12 Instructions (Mixed Compute)</option>
+<option value="64">64 Instructions (Loop Unroll)</option>
+<option value="144">144 Instructions (DSP Kernel)</option>
+<option value="500">500 Instructions (Large Dump)</option>
 </select>
 <span class="material-symbols-outlined pointer-events-none absolute right-2 top-2 text-[18px] text-on-surface-variant">expand_more</span>
 </div>
@@ -88,6 +127,17 @@
 <span id="forwarding-indicator-dot" class="w-2 h-2 rounded-full bg-secondary"></span>
 <span class="font-label-xs text-label-xs text-on-surface font-medium">Forwarding Unit: <strong id="forwarding-status-text" class="text-secondary font-semibold">Enabled</strong></span>
 </div>
+<!-- Upload Assembly Dump (500+ Instructions) -->
+<input type="file" id="assembly-file-input" accept=".s,.asm,.txt" class="hidden" />
+<button id="btn-upload-file" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container text-label-xs font-semibold border border-surface-container transition-all" title="Upload RISC-V assembly file (.s, .asm, .txt)">
+<span class="material-symbols-outlined text-[16px] text-tertiary">upload_file</span>
+<span>Upload Dump</span>
+</button>
+<!-- Custom Program Trigger -->
+<button id="btn-custom-program" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container text-label-xs font-semibold border border-surface-container transition-all" title="Enter custom assembly program">
+<span class="material-symbols-outlined text-[16px] text-primary">code</span>
+<span>Custom Program</span>
+</button>
 </div>
 </div>
 <!-- Primary Interactive Canvas & Side Legend Split Layout -->
@@ -476,11 +526,11 @@
 <p class="font-body-sm text-body-sm text-on-surface-variant">Hardware interlock diagnostic analysis for RAW (Read-After-Write) dependencies</p>
 </div>
 </div>
-<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-xs text-label-xs font-semibold">
-        1 Hazard Detected • 1 Bypassed
+<span id="hazard-summary-badge" class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-xs text-label-xs font-semibold">
+        1 Hazard Detected &bull; 1 Bypassed
       </span>
 </div>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
+<div id="hazard-cards-container" class="grid grid-cols-1 lg:grid-cols-3 gap-space-md">
 <!-- Hazard Card 1: Data Dependency -->
 <div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between">
 <div>
@@ -554,31 +604,146 @@
 </div>
 </div>
 </div>
-<!-- Instruction Assembly Disassembly Table -->
+<!-- Tomasulo Superscalar Out-of-Order Engine Panel -->
+<div id="tomasulo-dashboard-panel" class="hidden bg-surface-container-lowest rounded-xl shadow-sm p-space-lg mb-space-lg border-2 border-primary/20">
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm pb-space-md mb-space-md border-b border-surface-container-high/60">
+    <div class="flex items-center gap-space-sm">
+      <div class="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold">
+        <span class="material-symbols-outlined text-[22px]">developer_board</span>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h3 class="font-title-md text-title-md text-on-surface font-bold">Tomasulo Superscalar Out-of-Order Microarchitecture</h3>
+          <span class="px-2 py-0.5 rounded-full bg-primary/15 text-primary font-code-mono text-label-xs font-bold">Dynamic Execution</span>
+        </div>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Hardware register renaming (RAT), Reservation Stations (RS), and Reorder Buffer (ROB) in-order retirement</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-space-sm flex-wrap">
+      <span id="ooo-speedup-badge" class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-xs text-label-xs font-bold shadow-xs">
+        <span class="material-symbols-outlined text-[14px]">bolt</span> +2.85x Speedup vs In-Order
+      </span>
+      <span id="ooo-ipc-badge" class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-xs text-label-xs font-bold shadow-xs">
+        <span class="material-symbols-outlined text-[14px]">speed</span> Peak IPC: 2.89
+      </span>
+      <span id="ooo-rob-badge" class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-label-xs text-label-xs font-semibold">
+        <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> CDB Broadcast Ready
+      </span>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg">
+    <!-- Reorder Buffer (ROB) Table (Columns 1-5) -->
+    <div class="xl:col-span-5 bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between">
+      <div class="flex items-center justify-between pb-2 mb-2 border-b border-surface-container">
+        <div class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-primary text-[18px]">queue</span>
+          <span class="font-label-sm text-label-sm text-on-surface font-bold">Reorder Buffer (ROB)</span>
+        </div>
+        <span class="font-code-mono text-label-xs text-on-surface-variant">Circular In-Order Commit</span>
+      </div>
+      <div class="max-h-64 overflow-y-auto pr-1">
+        <table class="w-full text-left font-body-sm text-body-sm">
+          <thead class="text-on-surface-variant font-label-xs text-label-xs uppercase">
+            <tr>
+              <th class="py-1 px-2">Tag</th>
+              <th class="py-1 px-2">Inst</th>
+              <th class="py-1 px-2">Dest</th>
+              <th class="py-1 px-2">State</th>
+              <th class="py-1 px-2 text-right">Commit</th>
+            </tr>
+          </thead>
+          <tbody id="rob-table-body" class="divide-y divide-surface-container font-code-mono text-label-xs">
+            <!-- Dynamic ROB entries inserted here -->
+          </tbody>
+        </table>
+      </div>
+      <div class="pt-2 mt-2 border-t border-surface-container flex items-center justify-between text-label-xs text-on-surface-variant">
+        <span>Head Pointer: <strong id="rob-head-ptr" class="text-primary font-bold">#1</strong></span>
+        <span>Tail Pointer: <strong id="rob-tail-ptr" class="text-secondary font-bold">#6</strong></span>
+      </div>
+    </div>
+
+    <!-- Reservation Stations (RS) Pool (Columns 6-9) -->
+    <div class="xl:col-span-4 bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between">
+      <div class="flex items-center justify-between pb-2 mb-2 border-b border-surface-container">
+        <div class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-secondary text-[18px]">memory</span>
+          <span class="font-label-sm text-label-sm text-on-surface font-bold">Reservation Stations (RS)</span>
+        </div>
+        <span class="font-code-mono text-label-xs text-on-surface-variant">Execution Queue</span>
+      </div>
+      <div id="rs-pool-container" class="grid grid-cols-2 gap-2 max-h-64 overflow-y-auto pr-1">
+        <!-- Dynamic RS Station cards inserted here -->
+      </div>
+      <div class="pt-2 mt-2 border-t border-surface-container flex items-center justify-between text-label-xs text-on-surface-variant">
+        <span>Units: <strong class="text-on-surface">ALU(4) &bull; Mult(2) &bull; LSQ(4) &bull; Branch(2)</strong></span>
+      </div>
+    </div>
+
+    <!-- Register Alias Table (RAT) & Renaming Map (Columns 10-12) -->
+    <div class="xl:col-span-3 bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between">
+      <div class="flex items-center justify-between pb-2 mb-2 border-b border-surface-container">
+        <div class="flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-tertiary text-[18px]">swap_horiz</span>
+          <span class="font-label-sm text-label-sm text-on-surface font-bold">Register Alias Table (RAT)</span>
+        </div>
+        <span class="font-code-mono text-label-xs text-tertiary font-bold">WAR/WAW Renamed</span>
+      </div>
+      <div id="rat-grid-container" class="grid grid-cols-4 gap-1.5 max-h-64 overflow-y-auto pr-1">
+        <!-- Dynamic RAT mappings inserted here -->
+      </div>
+      <div class="pt-2 mt-2 border-t border-surface-container flex items-center justify-between text-label-xs text-on-surface-variant">
+        <span>Registers: <strong class="text-on-surface">R0 &ndash; R31</strong></span>
+        <span class="text-primary font-semibold">Zero WAR stalls</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Instruction Assembly Disassembly Table with 60 FPS Virtualization -->
 <div class="bg-surface-container-lowest rounded-xl shadow-sm p-space-lg mb-space-lg">
-<div class="flex items-center justify-between pb-space-md mb-space-sm">
-<div class="flex items-center gap-space-sm">
-<span class="material-symbols-outlined text-[20px] text-on-surface-variant">terminal</span>
-<h3 class="font-title-md text-title-md text-on-surface font-bold">Execution Trace &amp; Instruction Pipeline Latency</h3>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm pb-space-md mb-space-sm border-b border-surface-container-high/60">
+  <div class="flex items-center gap-space-sm">
+    <span class="material-symbols-outlined text-[20px] text-on-surface-variant">terminal</span>
+    <h3 class="font-title-md text-title-md text-on-surface font-bold">Execution Trace &amp; Instruction Pipeline Latency</h3>
+  </div>
+  <div class="flex items-center gap-space-md flex-wrap">
+    <!-- Filter Search Input -->
+    <div class="relative w-56">
+      <span class="material-symbols-outlined absolute left-2.5 top-2 text-on-surface-variant text-[16px] pointer-events-none">search</span>
+      <input id="trace-filter-input" type="text" placeholder="Filter opcode, reg, ID..." class="w-full h-8 pl-8 pr-3 text-label-xs font-code-mono rounded-lg bg-surface-container-low border border-surface-container focus:outline-none focus:ring-1 focus:ring-primary text-on-surface placeholder:text-on-surface-variant" />
+    </div>
+    <!-- Virtualization Stats Badge -->
+    <span id="virtualization-stats-badge" class="font-code-mono text-label-xs text-on-surface-variant bg-surface-container px-2.5 py-1 rounded-lg">
+      60 FPS Viewport &bull; 6 Instructions
+    </span>
+    <button id="btn-export-trace" class="inline-flex items-center gap-1 font-label-xs text-label-xs text-primary hover:underline font-semibold">
+      <span class="material-symbols-outlined text-[16px]">download</span> Export Trace Log
+    </button>
+  </div>
 </div>
-<button class="inline-flex items-center gap-1 font-label-xs text-label-xs text-primary hover:underline font-semibold">
-<span class="material-symbols-outlined text-[16px]">download</span> Export Trace Log
-      </button>
-</div>
-<div class="overflow-x-auto">
-<table class="w-full text-left font-body-sm text-body-sm">
-<thead class="bg-surface-container-low text-on-surface-variant font-label-xs text-label-xs uppercase">
-<tr>
-<th class="py-2.5 px-space-md rounded-l-lg">Inst #</th>
-<th class="py-2.5 px-space-md">Disassembly</th>
-<th class="py-2.5 px-space-md">Opcode / Type</th>
-<th class="py-2.5 px-space-md">Fetched At</th>
-<th class="py-2.5 px-space-md">Completed At</th>
-<th class="py-2.5 px-space-md">Latency</th>
-<th class="py-2.5 px-space-md rounded-r-lg">Status</th>
-</tr>
-</thead>
-<tbody id="pipeline-trace-body" class="divide-y divide-surface-container-low">
+
+<!-- Virtualized Table Scroll Container -->
+<div id="trace-scroll-container" class="overflow-y-auto max-h-[460px] relative border border-surface-container rounded-lg" style="contain: strict;">
+  <!-- Virtual Spacer to provide realistic native scrollbar dimensions -->
+  <div id="virtual-spacer" class="w-full pointer-events-none" style="height: 300px;"></div>
+  
+  <!-- Virtual Content Pane translated dynamically to visible offset -->
+  <div id="virtual-content" class="absolute top-0 left-0 right-0 w-full">
+    <table class="w-full text-left font-body-sm text-body-sm table-fixed">
+      <thead class="sticky top-0 bg-surface-container text-on-surface-variant font-label-xs text-label-xs uppercase shadow-xs z-10">
+        <tr>
+          <th class="w-20 py-2.5 px-space-md">Inst #</th>
+          <th class="w-48 py-2.5 px-space-md">Disassembly</th>
+          <th class="w-36 py-2.5 px-space-md">Opcode / Type</th>
+          <th class="w-28 py-2.5 px-space-md">Fetched At</th>
+          <th class="w-32 py-2.5 px-space-md">Completed At</th>
+          <th class="w-44 py-2.5 px-space-md">Latency</th>
+          <th class="w-36 py-2.5 px-space-md">Status</th>
+        </tr>
+      </thead>
+      <tbody id="pipeline-trace-body" class="divide-y divide-surface-container-low bg-surface-container-lowest">
 <tr class="hover:bg-surface-container-low/40 transition-colors">
 <td class="py-3 px-space-md font-code-mono font-bold text-on-surface">I1</td>
 <td class="py-3 px-space-md font-code-mono text-on-surface">lw x1, 0(x2)</td>
@@ -637,6 +802,44 @@
 </table>
 </div>
 </div>
+</div>
+</div>
+<!-- Custom Program Assembly Editor Modal -->
+<div id="custom-program-modal" class="modal-overlay">
+  <div class="modal-card p-space-lg flex flex-col gap-4 max-w-lg">
+    <div class="flex items-center justify-between border-b border-surface-container pb-3">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[22px]">developer_mode</span>
+        <h3 class="font-headline-sm text-headline-sm text-on-surface">Custom Assembly Pipeline Simulation</h3>
+      </div>
+      <button class="text-on-surface-variant hover:text-on-surface p-1 rounded-lg" onclick="closeCustomProgramModal()">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+    </div>
+    <p class="font-body-sm text-body-sm text-on-surface-variant">
+      Enter your own 5-stage RISC instruction sequence (one per line). Supports <code>LW</code>, <code>SW</code>, <code>ADD</code>, <code>SUB</code>, <code>AND</code>, <code>OR</code>, <code>XOR</code>, <code>MULT</code>, <code>BEQ</code> with registers <code>R0</code>–<code>R31</code>.
+    </p>
+    
+    <div>
+      <div class="flex items-center justify-between mb-1.5">
+        <span class="font-label-xs text-label-xs font-bold uppercase text-on-surface-variant">Workload Presets</span>
+        <div class="flex gap-1.5">
+          <button type="button" class="px-2 py-0.5 rounded bg-surface-container text-xs font-medium hover:bg-surface-container-high" onclick="loadProgramPreset('raw')">Load-Use RAW</button>
+          <button type="button" class="px-2 py-0.5 rounded bg-surface-container text-xs font-medium hover:bg-surface-container-high" onclick="loadProgramPreset('alu')">ALU Bypass</button>
+          <button type="button" class="px-2 py-0.5 rounded bg-surface-container text-xs font-medium hover:bg-surface-container-high" onclick="loadProgramPreset('branch')">Branching</button>
+        </div>
+      </div>
+      <textarea id="custom-assembly-textarea" rows="6" class="w-full font-code-mono text-code-mono p-3 rounded-xl bg-surface-container-low border border-surface-container text-on-surface focus:outline-none focus:ring-1 focus:ring-primary" placeholder="LW R1, 0(R2)&#10;ADD R3, R1, R4&#10;SUB R5, R3, R6&#10;OR R7, R8, R9&#10;SW R7, 4(R2)"></textarea>
+    </div>
+
+    <div class="flex items-center justify-end gap-2 pt-2 border-t border-surface-container">
+      <button type="button" class="px-4 py-2 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container" onclick="closeCustomProgramModal()">Cancel</button>
+      <button type="button" id="btn-submit-custom-program" class="px-4 py-2 rounded-xl bg-primary text-on-primary text-xs font-semibold hover:bg-primary-container shadow-sm flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-[16px]">play_arrow</span>
+        Simulate Program
+      </button>
+    </div>
+  </div>
 </div>
 </main></div>
 <script src="js/common.js"></script>

@@ -35,7 +35,10 @@
     scen3Cpi: document.getElementById('scen3-cpi'),
     scen3Stalls: document.getElementById('scen3-stalls'),
     scen3Time: document.getElementById('scen3-time'),
-    scen3Gain: document.getElementById('scen3-gain')
+    scen3Gain: document.getElementById('scen3-gain'),
+
+    curveLine: document.getElementById('curveLine'),
+    curveArea: document.getElementById('curveArea')
   };
 
   function syncPair(slider, input) {
@@ -127,6 +130,32 @@
       elements.activePointLabel.setAttribute('x', Math.max(40, xPos - 35).toFixed(1));
       elements.activePointLabel.setAttribute('y', Math.max(25, yPos - 12).toFixed(1));
       elements.activePointLabel.textContent = `${execMs.toFixed(1)}ms • ${freq.toFixed(1)}G`;
+    }
+
+    // Dynamic Sensitivity Curve rendering
+    if (elements.curveLine && elements.curveArea && data.sensitivity_analysis) {
+      const freqs = data.sensitivity_analysis.frequencies || [1.0, 2.0, 3.0, 4.0, 5.0];
+      const times = data.sensitivity_analysis.latencies_ms || [];
+      if (times.length === freqs.length) {
+        const points = freqs.map((f, i) => {
+          const clampedF = Math.min(5.0, Math.max(1.0, f));
+          const px = 60 + ((clampedF - 1.0) / 4.0) * (540 - 60);
+          const clampedT = Math.min(18.0, Math.max(3.0, times[i]));
+          const py = 20 + ((18.0 - clampedT) / 15.0) * (180 - 20);
+          return { x: px, y: py };
+        });
+
+        let pathD = `M ${points[0].x.toFixed(1)},${points[0].y.toFixed(1)}`;
+        for (let i = 1; i < points.length; i++) {
+          const prev = points[i - 1];
+          const curr = points[i];
+          const cpx = (prev.x + curr.x) / 2;
+          pathD += ` C ${cpx.toFixed(1)},${prev.y.toFixed(1)} ${cpx.toFixed(1)},${curr.y.toFixed(1)} ${curr.x.toFixed(1)},${curr.y.toFixed(1)}`;
+        }
+
+        elements.curveLine.setAttribute('d', pathD);
+        elements.curveArea.setAttribute('d', `${pathD} L 540,195 L 60,195 Z`);
+      }
     }
 
     // 3. Scenario 3 (Candidate) Matrix Card

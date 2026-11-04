@@ -6,17 +6,23 @@
 <link rel="stylesheet" href="css/animations.css"/>
 <link rel="stylesheet" href="css/responsive.css"/>
 
-</head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-lg flex items-start gap-space-md"><img alt="CPU Performance Explorer Logo" class="h-8 w-auto object-contain flex-shrink-0 mt-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwB2JFE2lz6MiHRzA-0OgMOgZtS6RD4TG3yl-wwapAJO8hsqWHy96SkWSsIDeYLVfz-8HFab5Whs0EGrPwf2w0_nemkOKmxSS3CFpiRo9x2gfasH83CMc_dQ-iEQtqSFplV5Yi9LgtdSStP9zMizQA2uXTsIS7awrWtkDUeFMtVJ9mPKwSyWwF8U3tC3a1RHtcyfhFByPEp0DCjl_UFoj-kEBWOQ47Gn8LbPuQ424"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate">CPU Performance Explorer</span><span class="font-label-xs text-label-xs text-on-surface-variant truncate tracking-wider uppercase mt-0.5">Analyze. Simulate. Visualize. Optimize.</span></div></div><div class="px-space-md py-space-xs"><div class="h-px bg-surface-container-high w-full"></div></div><nav class="flex flex-col gap-1 px-space-md py-space-md" data-active-classes="bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]"><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="truncate">Dashboard</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-2.5 transition-all bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]" data-path="performance-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">speed</span><span class="truncate">Performance Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="pipeline-simulator" href="#"><span class="material-symbols-outlined text-[20px]">account_tree</span><span class="truncate">Pipeline Simulator</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="bottleneck-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="truncate">Bottleneck Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="cpu-comparison" href="#"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span class="truncate">CPU Comparison</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="what-if-analysis" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="truncate">What-if Analysis</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="advanced-visualizations" href="#"><span class="material-symbols-outlined text-[20px]">hub</span><span class="truncate">Advanced Visualizations</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span class="truncate">Reports &amp; Analytics</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="truncate">Settings</span></a></nav></div><div class="p-space-md"><div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between"><div class="flex flex-col"><span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Kernel Probe</span><span class="font-code-mono text-code-mono text-on-surface">v6.8.2-arch1</span></div><span class="inline-flex w-2.5 h-2.5 rounded-full bg-primary"></span></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px] pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-12 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-sm transition-all" placeholder="Search instruction sets, registers, benchmarks..." type="text"/><kbd class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-code-mono text-label-xs shadow-xs">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><button class="inline-flex items-center gap-space-xs h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-[0_2px_4px_rgba(0,107,44,0.2)] hover:bg-primary-container transition-colors"><span class="material-symbols-outlined text-[18px]">add</span><span>New Analysis</span></button><div class="relative"><button aria-label="Notifications" class="w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button></div><div class="h-6 w-px bg-surface-container-high mx-space-xs"></div><div class="flex items-center gap-space-sm pl-1"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface">Dr. Alex Vance</span><span class="font-label-xs text-label-xs text-on-surface-variant">Lead Architect</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-xs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_I9CnnJh0erE5XNT2yT4zjYIL9UjBL3gtyr8TP8A56-fnP5TFb0aLgUnID3DDyg1j0criuc7uSAHJiHNBtpEVXkfq2P5pHdRu5EyITixkZX0BmbTV1RfUjAe47eV9YrE7u8DRErCuxwiu5Hp-twFkEWQ-4fkXpVbdBzxqyFAKcuLINOOktXLfNtCoxMUKWVIO2KrL1AfzUFZDFLJK7ntm2iZOFJq6wAH1KPLQFtU"/></div></div></header><main class="w-full pt-16 bg-surface flex-1 px-space-xl py-space-xl"><div class="flex flex-col w-full">
+</head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-lg flex items-start gap-space-md"><img alt="CPU Performance Explorer Logo" class="h-8 w-auto object-contain flex-shrink-0 mt-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwB2JFE2lz6MiHRzA-0OgMOgZtS6RD4TG3yl-wwapAJO8hsqWHy96SkWSsIDeYLVfz-8HFab5Whs0EGrPwf2w0_nemkOKmxSS3CFpiRo9x2gfasH83CMc_dQ-iEQtqSFplV5Yi9LgtdSStP9zMizQA2uXTsIS7awrWtkDUeFMtVJ9mPKwSyWwF8U3tC3a1RHtcyfhFByPEp0DCjl_UFoj-kEBWOQ47Gn8LbPuQ424"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate">CPU Performance Explorer</span><span class="font-label-xs text-label-xs text-on-surface-variant truncate tracking-wider uppercase mt-0.5">Analyze. Simulate. Visualize. Optimize.</span></div></div><div class="px-space-md py-space-xs"><div class="h-px bg-surface-container-high w-full"></div></div><nav class="flex flex-col gap-1 px-space-md py-space-md" data-active-classes="bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]"><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="truncate">Dashboard</span></a><a aria-current="page" class="flex items-center gap-space-md px-space-md py-2.5 transition-all bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]" data-path="performance-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">speed</span><span class="truncate">Performance Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="pipeline-simulator" href="#"><span class="material-symbols-outlined text-[20px]">account_tree</span><span class="truncate">Pipeline Simulator</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="bottleneck-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="truncate">Bottleneck Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="cpu-comparison" href="#"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span class="truncate">CPU Comparison</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="what-if-analysis" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="truncate">What-if Analysis</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="advanced-visualizations" href="#"><span class="material-symbols-outlined text-[20px]">hub</span><span class="truncate">Advanced Visualizations</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span class="truncate">Reports &amp; Analytics</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="truncate">Settings</span></a></nav></div><div class="p-space-md"><div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between">
+        <div class="flex flex-col min-w-0 pr-2">
+          <span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-medium tracking-wide">Kernel Probe</span>
+          <span id="kernel-probe-val" class="font-code-mono text-label-xs text-on-surface font-semibold truncate" title="Live Host Kernel">Probing...</span>
+        </div>
+        <span id="kernel-probe-dot" class="w-2.5 h-2.5 rounded-full bg-primary shrink-0 animate-pulse block" title="Probe Active"></span>
+      </div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px] pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-12 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-sm transition-all" placeholder="Search instruction sets, registers, benchmarks..." type="text"/><kbd class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-code-mono text-label-xs shadow-xs">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><button class="inline-flex items-center gap-space-xs h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-[0_2px_4px_rgba(0,107,44,0.2)] hover:bg-primary-container transition-colors"><span class="material-symbols-outlined text-[18px]">add</span><span>New Analysis</span></button><div class="relative"><button aria-label="Notifications" class="w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button></div></div></header><main class="w-full pt-16 bg-surface flex-1 px-space-xl py-space-xl"><div class="flex flex-col w-full">
 <!-- Sub-header Breadcrumb & Mode Controls -->
 <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-lg">
 <div>
 <div class="flex items-center gap-2 mb-1">
-<span class="font-code-mono text-code-mono text-on-surface-variant uppercase tracking-wider">Module 03</span>
-<span class="text-outline-variant font-body-sm text-body-sm">/</span>
-<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container text-primary font-label-xs text-label-xs font-bold">
-<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> ISA Cycle Diagnostic
-        </span>
-</div>
+          <span class="font-code-mono text-code-mono text-on-surface-variant uppercase tracking-wider font-semibold">MODULE 02</span>
+          <span class="text-outline-variant font-body-sm text-body-sm">/</span>
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-label-xs text-label-xs font-bold shadow-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> IRON LAW & ISA CYCLE DIAGNOSTICS
+          </span>
+        </div>
 <h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Performance Analyzer</h1>
 <p class="font-body-md text-body-md text-on-surface-variant mt-0.5">Analyze CPU performance metrics, execution cycle latencies, and architectural execution distribution.</p>
 </div>
@@ -540,96 +546,7 @@
 </div>
 </div>
 </div>
-<script>
-  function runAnalysis() {
-    const ic = parseFloat(document.getElementById('input-ic').value) || 10000;
-    const cycles = parseFloat(document.getElementById('input-cycles').value) || 24700;
-    const freqGhz = parseFloat(document.getElementById('input-frequency').value) || 3.0;
-    const unitMultiplier = parseFloat(document.getElementById('input-unit').value) || 1e9;
-
-    // Actual frequency in Hz
-    const freqHz = freqGhz * unitMultiplier;
-
-    // Calculate CPI = Clock Cycles / Instruction Count
-    const cpi = cycles / ic;
-    
-    // Calculate IPC = 1 / CPI
-    const ipc = ic / cycles;
-
-    // Clock Cycle Time T = 1 / Frequency (seconds)
-    const cycleTimeSeconds = 1 / freqHz;
-    const cycleTimeNs = cycleTimeSeconds * 1e9;
-
-    // Total Execution Time = Cycles * Cycle Time (seconds) -> in ms
-    const execTimeMs = (cycles * cycleTimeSeconds) * 1000;
-
-    // MIPS = (IC / (ExecTime * 1e6)) = (Freq in MHz) / CPI
-    const freqMhz = freqHz / 1e6;
-    const mips = freqMhz / cpi;
-
-    // Update DOM
-    document.getElementById('display-cycle-time').innerText = cycleTimeNs.toFixed(2);
-    document.getElementById('metric-cpi').innerText = cpi.toFixed(2);
-    document.getElementById('metric-ipc').innerText = ipc.toFixed(2);
-    document.getElementById('metric-exectime').innerText = execTimeMs.toFixed(2);
-    document.getElementById('metric-mips').innerText = mips.toFixed(1);
-    document.getElementById('donut-total').innerText = ic.toLocaleString();
-
-    // Dynamically adjust trend badges
-    document.getElementById('trend-cpi').innerText = (cpi < 2.5 ? '12.0%' : '5.4%');
-    document.getElementById('trend-ipc').innerText = (ipc >= 0.4 ? '15.0%' : '8.2%');
-    document.getElementById('trend-exectime').innerText = (execTimeMs < 5.0 ? '10.0%' : '3.8%');
-    document.getElementById('trend-mips').innerText = (mips > 200 ? '35.9%' : '18.4%');
-  }
-
-  function resetDefaults() {
-    document.getElementById('input-ic').value = 10000;
-    document.getElementById('input-cycles').value = 24700;
-    document.getElementById('input-frequency').value = 3.0;
-    document.getElementById('input-unit').value = '1e9';
-    runAnalysis();
-  }
-
-  function loadSamplePreset(preset) {
-    if (preset === 'arm64') {
-      document.getElementById('input-ic').value = 18500;
-      document.getElementById('input-cycles').value = 29600;
-      document.getElementById('input-frequency').value = 3.5;
-      document.getElementById('input-unit').value = '1e9';
-      runAnalysis();
-    }
-  }
-
-  function setMode(mode) {
-    const singleBtn = document.getElementById('mode-single');
-    const isaBtn = document.getElementById('mode-isa');
-    if (mode === 'single') {
-      singleBtn.className = "px-space-md py-1.5 rounded-lg bg-surface-container-lowest text-primary shadow-sm font-label-md text-label-md transition-all flex items-center gap-1.5";
-      isaBtn.className = "px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all flex items-center gap-1.5";
-    } else {
-      isaBtn.className = "px-space-md py-1.5 rounded-lg bg-surface-container-lowest text-primary shadow-sm font-label-md text-label-md transition-all flex items-center gap-1.5";
-      singleBtn.className = "px-space-md py-1.5 rounded-lg text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all flex items-center gap-1.5";
-    }
-  }
-
-  function copyMetrics() {
-    const spec = {
-      instructions: document.getElementById('input-ic').value,
-      cycles: document.getElementById('input-cycles').value,
-      cpi: document.getElementById('metric-cpi').innerText,
-      ipc: document.getElementById('metric-ipc').innerText,
-      mips: document.getElementById('metric-mips').innerText,
-      execution_time_ms: document.getElementById('metric-exectime').innerText
-    };
-    navigator.clipboard?.writeText(JSON.stringify(spec, null, 2));
-  }
-
-  // Automatic calculation on input change
-  document.getElementById('input-frequency').addEventListener('input', runAnalysis);
-  document.getElementById('input-unit').addEventListener('change', runAnalysis);
-  document.getElementById('input-cycles').addEventListener('input', runAnalysis);
-  document.getElementById('input-ic').addEventListener('input', runAnalysis);
-</script></main></div>
+</main></div>
 <script src="js/common.js"></script>
 <script src="js/navigation.js"></script>
 <script src="js/performance-analyzer.js"></script>

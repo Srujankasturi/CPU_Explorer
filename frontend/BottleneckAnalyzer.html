@@ -7,15 +7,23 @@
 <link rel="stylesheet" href="css/animations.css"/>
 <link rel="stylesheet" href="css/responsive.css"/>
 
-</head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-lg flex items-start gap-space-md"><img alt="CPU Performance Explorer Logo" class="h-8 w-auto object-contain flex-shrink-0 mt-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwB2JFE2lz6MiHRzA-0OgMOgZtS6RD4TG3yl-wwapAJO8hsqWHy96SkWSsIDeYLVfz-8HFab5Whs0EGrPwf2w0_nemkOKmxSS3CFpiRo9x2gfasH83CMc_dQ-iEQtqSFplV5Yi9LgtdSStP9zMizQA2uXTsIS7awrWtkDUeFMtVJ9mPKwSyWwF8U3tC3a1RHtcyfhFByPEp0DCjl_UFoj-kEBWOQ47Gn8LbPuQ424"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate">CPU Performance Explorer</span><span class="font-label-xs text-label-xs text-on-surface-variant truncate tracking-wider uppercase mt-0.5">Analyze. Simulate. Visualize. Optimize.</span></div></div><div class="px-space-md py-space-xs"><div class="h-px bg-surface-container-high w-full"></div></div><nav class="flex flex-col gap-1 px-space-md py-space-md" data-active-classes="bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]"><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="truncate">Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="performance-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">speed</span><span class="truncate">Performance Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="pipeline-simulator" href="#"><span class="material-symbols-outlined text-[20px]">account_tree</span><span class="truncate">Pipeline Simulator</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="bottleneck-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="truncate">Bottleneck Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="cpu-comparison" href="#"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span class="truncate">CPU Comparison</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="what-if-analysis" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="truncate">What-if Analysis</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="advanced-visualizations" href="#"><span class="material-symbols-outlined text-[20px]">hub</span><span class="truncate">Advanced Visualizations</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span class="truncate">Reports &amp; Analytics</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="truncate">Settings</span></a></nav></div><div class="p-space-md"><div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between"><div class="flex flex-col"><span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Kernel Probe</span><span class="font-code-mono text-code-mono text-on-surface">v6.8.2-arch1</span></div><span class="inline-flex w-2.5 h-2.5 rounded-full bg-primary"></span></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px] pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-12 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-sm transition-all" placeholder="Search instruction sets, registers, benchmarks..." type="text"/><kbd class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-code-mono text-label-xs shadow-xs">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><button class="inline-flex items-center gap-space-xs h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-[0_2px_4px_rgba(0,107,44,0.2)] hover:bg-primary-container transition-colors"><span class="material-symbols-outlined text-[18px]">add</span><span>New Analysis</span></button><div class="relative"><button aria-label="Notifications" class="w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button></div><div class="h-6 w-px bg-surface-container-high mx-space-xs"></div><div class="flex items-center gap-space-sm pl-1"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface">Dr. Alex Vance</span><span class="font-label-xs text-label-xs text-on-surface-variant">Lead Architect</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-xs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_I9CnnJh0erE5XNT2yT4zjYIL9UjBL3gtyr8TP8A56-fnP5TFb0aLgUnID3DDyg1j0criuc7uSAHJiHNBtpEVXkfq2P5pHdRu5EyITixkZX0BmbTV1RfUjAe47eV9YrE7u8DRErCuxwiu5Hp-twFkEWQ-4fkXpVbdBzxqyFAKcuLINOOktXLfNtCoxMUKWVIO2KrL1AfzUFZDFLJK7ntm2iZOFJq6wAH1KPLQFtU"/></div></div></header><main class="w-full pt-16 bg-surface flex-1 px-space-xl py-space-xl"><div class="flex flex-col w-full gap-space-lg">
+</head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-lg flex items-start gap-space-md"><img alt="CPU Performance Explorer Logo" class="h-8 w-auto object-contain flex-shrink-0 mt-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwB2JFE2lz6MiHRzA-0OgMOgZtS6RD4TG3yl-wwapAJO8hsqWHy96SkWSsIDeYLVfz-8HFab5Whs0EGrPwf2w0_nemkOKmxSS3CFpiRo9x2gfasH83CMc_dQ-iEQtqSFplV5Yi9LgtdSStP9zMizQA2uXTsIS7awrWtkDUeFMtVJ9mPKwSyWwF8U3tC3a1RHtcyfhFByPEp0DCjl_UFoj-kEBWOQ47Gn8LbPuQ424"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate">CPU Performance Explorer</span><span class="font-label-xs text-label-xs text-on-surface-variant truncate tracking-wider uppercase mt-0.5">Analyze. Simulate. Visualize. Optimize.</span></div></div><div class="px-space-md py-space-xs"><div class="h-px bg-surface-container-high w-full"></div></div><nav class="flex flex-col gap-1 px-space-md py-space-md" data-active-classes="bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]"><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="truncate">Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="performance-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">speed</span><span class="truncate">Performance Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="pipeline-simulator" href="#"><span class="material-symbols-outlined text-[20px]">account_tree</span><span class="truncate">Pipeline Simulator</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="bottleneck-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="truncate">Bottleneck Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="cpu-comparison" href="#"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span class="truncate">CPU Comparison</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="what-if-analysis" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="truncate">What-if Analysis</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="advanced-visualizations" href="#"><span class="material-symbols-outlined text-[20px]">hub</span><span class="truncate">Advanced Visualizations</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span class="truncate">Reports &amp; Analytics</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="truncate">Settings</span></a></nav></div><div class="p-space-md"><div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between">
+        <div class="flex flex-col min-w-0 pr-2">
+          <span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-medium tracking-wide">Kernel Probe</span>
+          <span id="kernel-probe-val" class="font-code-mono text-label-xs text-on-surface font-semibold truncate" title="Live Host Kernel">Probing...</span>
+        </div>
+        <span id="kernel-probe-dot" class="w-2.5 h-2.5 rounded-full bg-primary shrink-0 animate-pulse block" title="Probe Active"></span>
+      </div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px] pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-12 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-sm transition-all" placeholder="Search instruction sets, registers, benchmarks..." type="text"/><kbd class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-code-mono text-label-xs shadow-xs">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><button class="inline-flex items-center gap-space-xs h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-[0_2px_4px_rgba(0,107,44,0.2)] hover:bg-primary-container transition-colors"><span class="material-symbols-outlined text-[18px]">add</span><span>New Analysis</span></button><div class="relative"><button aria-label="Notifications" class="w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button></div></div></header><main class="w-full pt-16 bg-surface flex-1 px-space-xl py-space-xl"><div class="flex flex-col w-full gap-space-lg">
 <!-- Top Context Header & Actions Bar -->
 <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md">
 <div class="flex flex-col gap-1">
-<div class="flex items-center gap-space-xs text-on-surface-variant font-label-xs text-label-xs uppercase tracking-wider">
-<span class="text-primary font-semibold">Diagnostic Canvas</span>
-<span>/</span>
-<span>Module 05 • Architectural Bottleneck Analysis</span>
-</div>
+<div class="flex items-center gap-2 mb-1">
+          <span class="font-code-mono text-code-mono text-on-surface-variant uppercase tracking-wider font-semibold">MODULE 04</span>
+          <span class="text-outline-variant font-body-sm text-body-sm">/</span>
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-label-xs text-label-xs font-bold shadow-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> TOP-DOWN TMA & STALL DIAGNOSTICS
+          </span>
+        </div>
 <h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">Bottleneck Analyzer</h1>
 <p class="font-body-md text-body-md text-on-surface-variant">
         Identify CPU performance bottlenecks, microarchitectural stalls, and their execution impact.
@@ -23,6 +31,11 @@
 </div>
 <!-- Right Controls -->
 <div class="flex items-center flex-wrap gap-space-sm">
+<!-- Hardware Silicon PMU Stream Toggle Button -->
+<button id="btn-toggle-pmu" class="inline-flex items-center gap-2 h-10 px-space-md rounded-xl bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-md text-label-md shadow-sm transition-all border border-surface-container" title="Stream live hardware Performance Monitoring Unit (PMU) counters from host CPU silicon">
+  <span id="pmu-pulse-indicator" class="w-2.5 h-2.5 rounded-full bg-slate-400"></span>
+  <span id="pmu-toggle-text" class="font-semibold">Host PMU Stream: Off</span>
+</button>
 <div class="flex items-center bg-surface-container-lowest shadow-sm rounded-xl px-space-md py-2 gap-space-xs text-on-surface">
 <span class="material-symbols-outlined text-[18px] text-on-surface-variant">history</span>
 <span class="font-label-sm text-label-sm text-on-surface-variant">Profile:</span>
@@ -42,6 +55,76 @@
 </button>
 </div>
 </div>
+<!-- Hardware Silicon PMU Monitor Banner (Live ETW / Linux perf telemetry) -->
+<div id="pmu-live-monitor-card" class="hidden bg-surface-container-lowest rounded-xl shadow-sm p-space-lg border-2 border-primary/30 mb-space-lg">
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm pb-space-md mb-space-md border-b border-surface-container-high/60">
+    <div class="flex items-center gap-space-sm">
+      <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold">
+        <span class="material-symbols-outlined text-[24px]">developer_board</span>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h3 class="font-title-md text-title-md text-on-surface font-bold">Live Host Hardware Silicon PMU Stream</h3>
+          <span id="pmu-elevation-badge" class="px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-code-mono text-label-xs font-bold">
+            Calibrated Host Profiler
+          </span>
+        </div>
+        <p id="pmu-cpu-model" class="font-body-sm text-body-sm text-on-surface-variant font-code-mono mt-0.5">
+          Sampling AMD / Intel Performance Monitoring Unit hardware counters
+        </p>
+      </div>
+    </div>
+    <div class="flex items-center gap-space-sm">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-primary font-label-xs text-label-xs font-bold shadow-xs">
+        <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+        STREAM ACTIVE (2s cadence)
+      </span>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-space-md">
+    <!-- Live LLC / L3 Miss Rate -->
+    <div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between">
+      <span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Live L3 Cache Miss Rate</span>
+      <div class="my-1.5 flex items-baseline gap-1">
+        <span id="pmu-llc-rate" class="font-metric-display text-headline-lg text-error font-extrabold">--</span>
+        <span class="font-code-mono text-label-xs text-on-surface-variant">LLC misses</span>
+      </div>
+      <span class="font-body-sm text-body-sm text-on-surface-variant">Hardware cacheline stalls</span>
+    </div>
+
+    <!-- Live Branch Mispredict Rate -->
+    <div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between">
+      <span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Live Branch Mispredict</span>
+      <div class="my-1.5 flex items-baseline gap-1">
+        <span id="pmu-branch-rate" class="font-metric-display text-headline-lg text-tertiary font-extrabold">--</span>
+        <span class="font-code-mono text-label-xs text-on-surface-variant">BPU flushes</span>
+      </div>
+      <span class="font-body-sm text-body-sm text-on-surface-variant">Pipeline flush penalty</span>
+    </div>
+
+    <!-- Host Silicon IPC -->
+    <div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between">
+      <span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Host Silicon IPC</span>
+      <div class="my-1.5 flex items-baseline gap-1">
+        <span id="pmu-live-ipc" class="font-metric-display text-headline-lg text-primary font-extrabold">--</span>
+        <span class="font-code-mono text-label-xs text-on-surface-variant">inst/cycle</span>
+      </div>
+      <span class="font-body-sm text-body-sm text-on-surface-variant">Live core instruction throughput</span>
+    </div>
+
+    <!-- Instruction Retirement Rate -->
+    <div class="bg-surface-container-low rounded-xl p-space-md flex flex-col justify-between">
+      <span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Retirement Rate</span>
+      <div class="my-1.5 flex items-baseline gap-1">
+        <span id="pmu-retire-rate" class="font-metric-display text-headline-lg text-secondary font-extrabold">--</span>
+        <span class="font-code-mono text-label-xs text-on-surface-variant">GIPS</span>
+      </div>
+      <span class="font-body-sm text-body-sm text-on-surface-variant">Giga-instructions retired / sec</span>
+    </div>
+  </div>
+</div>
+
 <!-- Row 1: Primary Overview Panels (Gauge + Detected Bottlenecks List) -->
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
 <!-- Bottleneck Score Gauge Card -->
@@ -56,7 +139,7 @@
 <span class="font-label-xs text-label-xs text-on-surface-variant">Aggregate Architectural Penalty Index</span>
 </div>
 </div>
-<span class="px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-xs text-label-xs font-semibold flex items-center gap-1">
+<span id="bottleneck-top-badge" class="px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-xs text-label-xs font-semibold flex items-center gap-1">
 <span class="w-1.5 h-1.5 rounded-full bg-error"></span> High Risk
         </span>
 </div>
@@ -66,11 +149,11 @@
 <!-- Background arc -->
 <path class="text-surface-container-high" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="16"></path>
 <!-- Active colored arc (67% of 180 deg) -->
-<path class="text-error" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="82.9" stroke-linecap="round" stroke-width="16"></path>
+<path id="bottleneck-arc-path" class="text-error" d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="82.9" stroke-linecap="round" stroke-width="16"></path>
 </svg>
 <div class="absolute bottom-2 flex flex-col items-center">
-<span class="font-metric-display text-metric-display text-on-surface tracking-tight leading-none">67%</span>
-<span class="font-headline-md text-headline-md text-error font-bold mt-1">High</span>
+<span id="bottleneck-score-val" class="font-metric-display text-metric-display text-on-surface tracking-tight leading-none">67%</span>
+<span id="bottleneck-risk-badge" class="font-headline-md text-headline-md text-error font-bold mt-1">High</span>
 <span class="font-label-xs text-label-xs text-on-surface-variant mt-0.5">Execution bound by memory hierarchy</span>
 </div>
 </div>
@@ -99,7 +182,7 @@
 </div>
 <span class="font-code-mono text-body-sm text-on-surface-variant bg-surface-container px-2.5 py-1 rounded-lg">4 Active Stalls</span>
 </div>
-<div class="flex flex-col gap-space-sm">
+<div id="bottleneck-items-container" class="flex flex-col gap-space-sm">
 <!-- Bottleneck Item 1: Memory -->
 <div class="flex items-center justify-between p-space-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
 <div class="flex items-center gap-space-md">
@@ -208,7 +291,7 @@
 </svg>
 <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
 <span class="font-label-xs text-label-xs text-on-surface-variant font-bold uppercase tracking-wider">Total Loss</span>
-<span class="font-metric-display-mobile text-metric-display-mobile text-on-surface font-extrabold leading-tight">32.7%</span>
+<span id="bottleneck-total-loss-val" class="font-metric-display-mobile text-metric-display-mobile text-on-surface font-extrabold leading-tight">32.7%</span>
 <span class="font-code-mono text-label-xs text-on-surface-variant">of clock cycles</span>
 </div>
 </div>
@@ -245,7 +328,7 @@
 </div>
 <span class="material-symbols-outlined text-[18px] text-on-surface-variant">bar_chart</span>
 </div>
-<div class="flex flex-col gap-4 my-auto py-2">
+<div id="bottleneck-impact-bars" class="flex flex-col gap-4 my-auto py-2">
 <!-- Memory Bar -->
 <div class="flex flex-col gap-1.5">
 <div class="flex items-center justify-between text-body-sm">
@@ -308,7 +391,7 @@
 <span class="font-label-xs text-label-xs text-on-primary-fixed-variant uppercase font-semibold">Retiring</span>
 <span class="w-2 h-2 rounded-full bg-primary"></span>
 </div>
-<span class="font-headline-md text-headline-md text-primary font-extrabold mt-1">42.0%</span>
+<span id="tma-retiring-val" class="font-headline-md text-headline-md text-primary font-extrabold mt-1">42.0%</span>
 <span class="font-body-sm text-body-sm text-on-surface-variant">Good execution work</span>
 </div>
 <!-- Bad Speculation -->
@@ -317,7 +400,7 @@
 <span class="font-label-xs text-label-xs text-on-tertiary-fixed-variant uppercase font-semibold">Bad Spec</span>
 <span class="w-2 h-2 rounded-full bg-tertiary"></span>
 </div>
-<span class="font-headline-md text-headline-md text-tertiary font-extrabold mt-1">14.6%</span>
+<span id="tma-badspec-val" class="font-headline-md text-headline-md text-tertiary font-extrabold mt-1">14.6%</span>
 <span class="font-body-sm text-body-sm text-on-surface-variant">Flushed branch slots</span>
 </div>
 <!-- Frontend Bound -->
@@ -326,7 +409,7 @@
 <span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-semibold">Front-End</span>
 <span class="w-2 h-2 rounded-full bg-secondary"></span>
 </div>
-<span class="font-headline-md text-headline-md text-secondary font-extrabold mt-1">11.4%</span>
+<span id="tma-frontend-val" class="font-headline-md text-headline-md text-secondary font-extrabold mt-1">11.4%</span>
 <span class="font-body-sm text-body-sm text-on-surface-variant">Fetch / decode stall</span>
 </div>
 <!-- Backend Bound -->
@@ -335,7 +418,7 @@
 <span class="font-label-xs text-label-xs text-on-error-container uppercase font-semibold">Back-End</span>
 <span class="w-2 h-2 rounded-full bg-error"></span>
 </div>
-<span class="font-headline-md text-headline-md text-error font-extrabold mt-1">32.0%</span>
+<span id="tma-backend-val" class="font-headline-md text-headline-md text-error font-extrabold mt-1">32.0%</span>
 <span class="font-body-sm text-body-sm text-on-surface-variant">Memory &amp; Core stall</span>
 </div>
 </div>
@@ -374,7 +457,7 @@
 </div>
 <div class="pt-space-md mt-space-md flex items-center justify-between border-t border-surface-container">
 <span class="font-code-mono text-label-xs text-on-surface-variant">0x7FFE_A940: Loop_Body</span>
-<button class="text-primary hover:text-primary-container font-label-sm text-label-sm font-semibold flex items-center gap-0.5">
+<button id="btn-patch-cache" class="text-primary hover:text-primary-container font-label-sm text-label-sm font-semibold flex items-center gap-0.5">
             Apply Patch <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
 </button>
 </div>
@@ -394,7 +477,7 @@
 </div>
 <div class="pt-space-md mt-space-md flex items-center justify-between border-t border-surface-container">
 <span class="font-code-mono text-label-xs text-on-surface-variant">0x7FFE_B118: Dispatch_Table</span>
-<button class="text-primary hover:text-primary-container font-label-sm text-label-sm font-semibold flex items-center gap-0.5">
+<button id="btn-patch-branch" class="text-primary hover:text-primary-container font-label-sm text-label-sm font-semibold flex items-center gap-0.5">
             Apply Patch <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
 </button>
 </div>
@@ -414,7 +497,7 @@
 </div>
 <div class="pt-space-md mt-space-md flex items-center justify-between border-t border-surface-container">
 <span class="font-code-mono text-label-xs text-on-surface-variant">0x7FFE_C304: Accumulate</span>
-<button class="text-primary hover:text-primary-container font-label-sm text-label-sm font-semibold flex items-center gap-0.5">
+<button id="btn-patch-hazard" class="text-primary hover:text-primary-container font-label-sm text-label-sm font-semibold flex items-center gap-0.5">
             Apply Patch <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
 </button>
 </div>
@@ -422,34 +505,7 @@
 </div>
 </div>
 </div>
-<script>
-  // Simple micro-interaction for Re-run button and active state highlighting
-  document.addEventListener('DOMContentLoaded', () => {
-    // Ensure the Bottleneck Analyzer nav item is marked active in the sidebar
-    const navItems = document.querySelectorAll('aside nav a');
-    navItems.forEach(item => {
-      if (item.getAttribute('data-path') === 'bottleneck-analyzer') {
-        item.classList.add('bg-primary-container', 'text-on-primary-container', 'font-label-md', 'shadow-[0_0_12px_rgba(0,135,58,0.25)]');
-        item.classList.remove('text-on-surface-variant');
-      } else {
-        item.classList.remove('bg-primary-container', 'text-on-primary-container', 'shadow-[0_0_12px_rgba(0,135,58,0.25)]');
-      }
-    });
-
-    const rerunBtn = document.getElementById('rerun-btn');
-    if (rerunBtn) {
-      rerunBtn.addEventListener('click', () => {
-        const icon = rerunBtn.querySelector('.material-symbols-outlined');
-        if (icon) {
-          icon.classList.add('animate-spin');
-          setTimeout(() => {
-            icon.classList.remove('animate-spin');
-          }, 1000);
-        }
-      });
-    }
-  });
-</script></main></div>
+</main></div>
 <script src="js/common.js"></script>
 <script src="js/navigation.js"></script>
 <script src="js/bottleneck-analyzer.js"></script>

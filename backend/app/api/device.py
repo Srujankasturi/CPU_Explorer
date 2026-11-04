@@ -1,7 +1,8 @@
 import asyncio
 from fastapi import APIRouter, WebSocket, WebSocketDisconnect
 from ..services.device_monitor import DeviceMonitorService
-from ..schemas.schemas import DeviceSpecsResponse, DeviceLiveResponse
+from ..services.hardware_pmu import HardwarePMUService
+from ..schemas.schemas import DeviceSpecsResponse, DeviceLiveResponse, HardwarePMUResponse
 
 router = APIRouter(prefix="/api/device", tags=["Device Monitor"])
 
@@ -27,6 +28,15 @@ def get_history():
 @router.get("/processes")
 def get_processes(limit: int = 20):
     return {"processes": DeviceMonitorService.get_top_processes(limit=limit)}
+
+@router.get("/pmu", response_model=HardwarePMUResponse)
+def get_hardware_pmu():
+    """
+    Returns real-time host hardware PMU (Performance Monitoring Unit) metrics,
+    including live L3 cache miss rate, branch mispredictions, IPC, and instruction retirement.
+    Supports Windows ETW / Linux perf elevation status.
+    """
+    return HardwarePMUService.get_live_pmu()
 
 @router.websocket("/ws")
 async def websocket_device_stream(websocket: WebSocket):

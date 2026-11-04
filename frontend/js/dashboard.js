@@ -25,7 +25,7 @@
 
   function updateDeviceBadges(data) {
     // Update live clock speed badge if element exists
-    const clockBadge = document.querySelector('.font-bold.text-secondary.leading-tight');
+    const clockBadge = document.getElementById('hero-clock-badge');
     if (clockBadge && data.cpu_percent !== undefined) {
       // Show actual CPU frequency if available or live load
       const freq = data.frequency_mhz ? (data.frequency_mhz / 1000).toFixed(2) + ' GHz' : '3.60 GHz';
@@ -33,7 +33,7 @@
     }
 
     // Update bottom hover HUD
-    const hud = document.querySelector('#hero-cpu-container .font-code-mono');
+    const hud = document.getElementById('hero-hud-text');
     if (hud) {
       hud.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping inline-block mr-1"></span> CPU Load: ${data.cpu_percent.toFixed(1)}% · RAM: ${data.memory_percent.toFixed(1)}%`;
     }

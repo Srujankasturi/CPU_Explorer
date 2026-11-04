@@ -13,7 +13,10 @@ def simulate_pipeline(req: PipelineSimulateRequest, db: Session = Depends(get_db
     result = PipelineSimulatorService.simulate(
         instruction_count=req.instruction_count or 6,
         forwarding=req.forwarding_enabled if req.forwarding_enabled is not None else True,
-        custom_instructions=req.custom_instructions
+        custom_instructions=req.custom_instructions,
+        execution_mode=req.execution_mode or "in_order",
+        issue_width=req.issue_width or 2,
+        rob_size=req.rob_size or 16
     )
 
     try:

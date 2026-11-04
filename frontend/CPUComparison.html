@@ -7,20 +7,24 @@
 <link rel="stylesheet" href="css/animations.css"/>
 <link rel="stylesheet" href="css/responsive.css"/>
 
-</head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-lg flex items-start gap-space-md"><img alt="CPU Performance Explorer Logo" class="h-8 w-auto object-contain flex-shrink-0 mt-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwB2JFE2lz6MiHRzA-0OgMOgZtS6RD4TG3yl-wwapAJO8hsqWHy96SkWSsIDeYLVfz-8HFab5Whs0EGrPwf2w0_nemkOKmxSS3CFpiRo9x2gfasH83CMc_dQ-iEQtqSFplV5Yi9LgtdSStP9zMizQA2uXTsIS7awrWtkDUeFMtVJ9mPKwSyWwF8U3tC3a1RHtcyfhFByPEp0DCjl_UFoj-kEBWOQ47Gn8LbPuQ424"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate">CPU Performance Explorer</span><span class="font-label-xs text-label-xs text-on-surface-variant truncate tracking-wider uppercase mt-0.5">Analyze. Simulate. Visualize. Optimize.</span></div></div><div class="px-space-md py-space-xs"><div class="h-px bg-surface-container-high w-full"></div></div><nav class="flex flex-col gap-1 px-space-md py-space-md" data-active-classes="bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]"><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="truncate">Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="performance-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">speed</span><span class="truncate">Performance Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="pipeline-simulator" href="#"><span class="material-symbols-outlined text-[20px]">account_tree</span><span class="truncate">Pipeline Simulator</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="bottleneck-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="truncate">Bottleneck Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="cpu-comparison" href="#"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span class="truncate">CPU Comparison</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="what-if-analysis" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="truncate">What-if Analysis</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="advanced-visualizations" href="#"><span class="material-symbols-outlined text-[20px]">hub</span><span class="truncate">Advanced Visualizations</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span class="truncate">Reports &amp; Analytics</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="truncate">Settings</span></a></nav></div><div class="p-space-md"><div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between"><div class="flex flex-col"><span class="font-label-xs text-label-xs text-on-surface-variant uppercase">Kernel Probe</span><span class="font-code-mono text-code-mono text-on-surface">v6.8.2-arch1</span></div><span class="inline-flex w-2.5 h-2.5 rounded-full bg-primary"></span></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px] pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-12 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-sm transition-all" placeholder="Search instruction sets, registers, benchmarks..." type="text"/><kbd class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-code-mono text-label-xs shadow-xs">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><button class="inline-flex items-center gap-space-xs h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-[0_2px_4px_rgba(0,107,44,0.2)] hover:bg-primary-container transition-colors"><span class="material-symbols-outlined text-[18px]">add</span><span>New Analysis</span></button><div class="relative"><button aria-label="Notifications" class="w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button></div><div class="h-6 w-px bg-surface-container-high mx-space-xs"></div><div class="flex items-center gap-space-sm pl-1"><div class="flex flex-col text-right"><span class="font-label-md text-label-md text-on-surface">Dr. Alex Vance</span><span class="font-label-xs text-label-xs text-on-surface-variant">Lead Architect</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover shadow-xs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_I9CnnJh0erE5XNT2yT4zjYIL9UjBL3gtyr8TP8A56-fnP5TFb0aLgUnID3DDyg1j0criuc7uSAHJiHNBtpEVXkfq2P5pHdRu5EyITixkZX0BmbTV1RfUjAe47eV9YrE7u8DRErCuxwiu5Hp-twFkEWQ-4fkXpVbdBzxqyFAKcuLINOOktXLfNtCoxMUKWVIO2KrL1AfzUFZDFLJK7ntm2iZOFJq6wAH1KPLQFtU"/></div></div></header><main class="w-full pt-16 bg-surface flex-1 px-space-xl py-space-xl"><div class="flex flex-col w-full">
+</head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="p-space-lg flex items-start gap-space-md"><img alt="CPU Performance Explorer Logo" class="h-8 w-auto object-contain flex-shrink-0 mt-0.5" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwB2JFE2lz6MiHRzA-0OgMOgZtS6RD4TG3yl-wwapAJO8hsqWHy96SkWSsIDeYLVfz-8HFab5Whs0EGrPwf2w0_nemkOKmxSS3CFpiRo9x2gfasH83CMc_dQ-iEQtqSFplV5Yi9LgtdSStP9zMizQA2uXTsIS7awrWtkDUeFMtVJ9mPKwSyWwF8U3tC3a1RHtcyfhFByPEp0DCjl_UFoj-kEBWOQ47Gn8LbPuQ424"/><div class="flex flex-col min-w-0"><span class="font-title-md text-title-md text-on-surface truncate">CPU Performance Explorer</span><span class="font-label-xs text-label-xs text-on-surface-variant truncate tracking-wider uppercase mt-0.5">Analyze. Simulate. Visualize. Optimize.</span></div></div><div class="px-space-md py-space-xs"><div class="h-px bg-surface-container-high w-full"></div></div><nav class="flex flex-col gap-1 px-space-md py-space-md" data-active-classes="bg-primary-container text-on-primary-container font-label-md text-label-md rounded-xl shadow-[0_0_12px_rgba(0,135,58,0.25)]"><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">grid_view</span><span class="truncate">Dashboard</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="performance-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">speed</span><span class="truncate">Performance Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="pipeline-simulator" href="#"><span class="material-symbols-outlined text-[20px]">account_tree</span><span class="truncate">Pipeline Simulator</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="bottleneck-analyzer" href="#"><span class="material-symbols-outlined text-[20px]">warning</span><span class="truncate">Bottleneck Analyzer</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="cpu-comparison" href="#"><span class="material-symbols-outlined text-[20px]">compare_arrows</span><span class="truncate">CPU Comparison</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="what-if-analysis" href="#"><span class="material-symbols-outlined text-[20px]">tune</span><span class="truncate">What-if Analysis</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="advanced-visualizations" href="#"><span class="material-symbols-outlined text-[20px]">hub</span><span class="truncate">Advanced Visualizations</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports-and-analytics" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span class="truncate">Reports &amp; Analytics</span></a><a class="flex items-center gap-space-md px-space-md py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span class="truncate">Settings</span></a></nav></div><div class="p-space-md"><div class="bg-surface-container-low rounded-xl p-space-md flex items-center justify-between">
+        <div class="flex flex-col min-w-0 pr-2">
+          <span class="font-label-xs text-label-xs text-on-surface-variant uppercase font-medium tracking-wide">Kernel Probe</span>
+          <span id="kernel-probe-val" class="font-code-mono text-label-xs text-on-surface font-semibold truncate" title="Live Host Kernel">Probing...</span>
+        </div>
+        <span id="kernel-probe-dot" class="w-2.5 h-2.5 rounded-full bg-primary shrink-0 animate-pulse block" title="Probe Active"></span>
+      </div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-space-xl"><div class="flex items-center gap-space-md flex-1 max-w-md"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-on-surface-variant text-[20px] pointer-events-none">search</span><input class="w-full h-10 pl-10 pr-12 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest focus:ring-1 focus:ring-primary shadow-sm transition-all" placeholder="Search instruction sets, registers, benchmarks..." type="text"/><kbd class="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-code-mono text-label-xs shadow-xs">⌘K</kbd></div></div><div class="flex items-center gap-space-md"><button class="inline-flex items-center gap-space-xs h-10 px-space-md rounded-xl bg-primary text-on-primary font-label-md text-label-md shadow-[0_2px_4px_rgba(0,107,44,0.2)] hover:bg-primary-container transition-colors"><span class="material-symbols-outlined text-[18px]">add</span><span>New Analysis</span></button><div class="relative"><button aria-label="Notifications" class="w-10 h-10 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface flex items-center justify-center transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2.5 right-2.5 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button></div></div></header><main class="w-full pt-16 bg-surface flex-1 px-space-xl py-space-xl"><div class="flex flex-col w-full">
 
 <!-- Module Header Bar -->
 <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md mb-space-xl">
 <div class="flex flex-col">
-<div class="flex items-center gap-space-sm mb-1">
-<span class="font-code-mono text-label-xs text-primary font-bold uppercase tracking-wider bg-surface-container px-2.5 py-0.5 rounded-full">
-          Module 06 • Architectural Benchmarking
-        </span>
-<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-label-xs text-label-xs font-semibold">
-<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
-          Direct Dual-Core Trace
-        </span>
-</div>
+<div class="flex items-center gap-2 mb-1">
+          <span class="font-code-mono text-code-mono text-on-surface-variant uppercase tracking-wider font-semibold">MODULE 05</span>
+          <span class="text-outline-variant font-body-sm text-body-sm">/</span>
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container text-primary font-label-xs text-label-xs font-bold shadow-xs">
+            <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> DUAL-CORE ARCHITECTURAL BENCHMARKING
+          </span>
+        </div>
 <h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight">CPU Comparison</h1>
 <p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
         Compare two CPU configurations, evaluate pipeline throughput, and analyze microarchitectural execution differentials.
@@ -42,7 +46,11 @@
 <span class="material-symbols-outlined text-[18px] text-secondary">swap_horiz</span>
 <span>Swap Processors</span>
 </button>
-<button class="h-10 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container flex items-center gap-1.5 transition-all">
+<button id="btn-edit-cpus" class="h-10 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container flex items-center gap-1.5 transition-all" onclick="openEditCpuModal()">
+<span class="material-symbols-outlined text-[18px] text-primary">tune</span>
+<span>Configure CPUs</span>
+</button>
+<button id="btn-export-comparison-csv" class="h-10 px-3.5 rounded-xl bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm hover:bg-surface-container flex items-center gap-1.5 transition-all">
 <span class="material-symbols-outlined text-[18px] text-on-surface-variant">file_download</span>
 <span>Export CSV</span>
 </button>
@@ -345,9 +353,9 @@
 <line stroke="#dae2fd" stroke-width="1" x1="100" x2="24" y1="100" y2="143"></line>
 <line stroke="#dae2fd" stroke-width="1" x1="100" x2="24" y1="100" y2="57"></line>
 <!-- CPU A Shape (Blue) -->
-<polygon fill="#0051d5" fill-opacity="0.25" points="100,45 140,80 135,135 100,140 55,120 60,65" stroke="#0051d5" stroke-width="2"></polygon>
+<polygon id="radar-poly-a" fill="#0051d5" fill-opacity="0.25" points="100,45 140,80 135,135 100,140 55,120 60,65" stroke="#0051d5" stroke-width="2"></polygon>
 <!-- CPU B Shape (Green) -->
-<polygon fill="#006b2c" fill-opacity="0.3" points="100,25 168,60 160,138 100,165 40,135 32,58" stroke="#006b2c" stroke-width="2"></polygon>
+<polygon id="radar-poly-b" fill="#006b2c" fill-opacity="0.3" points="100,25 168,60 160,138 100,165 40,135 32,58" stroke="#006b2c" stroke-width="2"></polygon>
 </svg>
 <div class="absolute bottom-2 text-center font-code-mono text-label-xs text-on-surface-variant">
           5-Point Microarchitecture Balance: Pipeline, Cache Hit, IPC, Energy, SIMD
@@ -554,16 +562,84 @@
 <span>Amdahl's law applies to vectorized subroutines. SIMD unit utilization accounts for 18% of IPC variance.</span>
 </div>
 <div class="flex items-center gap-2">
-<button class="h-9 px-3 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors">
+<button class="h-9 px-3 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="window.print()">
           Print Full Specsheet
         </button>
-<button class="h-9 px-3 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors">
+<button class="h-9 px-3 rounded-lg bg-primary text-on-primary font-label-md text-label-md hover:bg-primary-container transition-colors" onclick="window.location.href='PipelineSimulator.html'">
           Apply to Simulator
         </button>
 </div>
 </div>
 </div>
-</div></main></div>
+</div>
+
+<!-- Configure Custom CPUs Modal -->
+<div id="edit-cpus-modal" class="modal-overlay">
+  <div class="modal-card p-space-lg flex flex-col gap-4 max-w-lg">
+    <div class="flex items-center justify-between border-b border-surface-container pb-3">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[22px]">tune</span>
+        <h3 class="font-headline-sm text-headline-sm text-on-surface">Configure Compared Processors</h3>
+      </div>
+      <button class="text-on-surface-variant hover:text-on-surface p-1 rounded-lg" onclick="closeEditCpuModal()">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+      </button>
+    </div>
+    
+    <div class="grid grid-cols-2 gap-4">
+      <!-- CPU A Settings -->
+      <div class="p-3 bg-surface-container-low rounded-xl flex flex-col gap-2.5">
+        <span class="font-label-md text-label-md font-bold text-secondary">CPU - A (Base)</span>
+        <div>
+          <label class="block text-[11px] font-bold text-on-surface-variant uppercase">Name</label>
+          <input type="text" id="custom-name-a" class="w-full text-xs p-2 rounded-lg bg-surface-container border border-surface-container text-on-surface" value="Zen 4 (Base)">
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-on-surface-variant uppercase">Clock (GHz)</label>
+          <input type="number" step="0.1" min="0.5" max="8.0" id="custom-freq-a" class="w-full text-xs p-2 rounded-lg bg-surface-container border border-surface-container text-on-surface" value="2.5">
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-on-surface-variant uppercase">Base CPI</label>
+          <input type="number" step="0.05" min="0.2" max="10.0" id="custom-cpi-a" class="w-full text-xs p-2 rounded-lg bg-surface-container border border-surface-container text-on-surface" value="3.20">
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-on-surface-variant uppercase">Instructions</label>
+          <input type="number" step="1000" min="1000" id="custom-ic-a" class="w-full text-xs p-2 rounded-lg bg-surface-container border border-surface-container text-on-surface" value="10000">
+        </div>
+      </div>
+
+      <!-- CPU B Settings -->
+      <div class="p-3 bg-surface-container-low rounded-xl flex flex-col gap-2.5">
+        <span class="font-label-md text-label-md font-bold text-primary">CPU - B (Target)</span>
+        <div>
+          <label class="block text-[11px] font-bold text-on-surface-variant uppercase">Name</label>
+          <input type="text" id="custom-name-b" class="w-full text-xs p-2 rounded-lg bg-surface-container border border-surface-container text-on-surface" value="Raptor Lake (Opt)">
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-on-surface-variant uppercase">Clock (GHz)</label>
+          <input type="number" step="0.1" min="0.5" max="8.0" id="custom-freq-b" class="w-full text-xs p-2 rounded-lg bg-surface-container border border-surface-container text-on-surface" value="3.0">
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-on-surface-variant uppercase">Base CPI</label>
+          <input type="number" step="0.05" min="0.2" max="10.0" id="custom-cpi-b" class="w-full text-xs p-2 rounded-lg bg-surface-container border border-surface-container text-on-surface" value="2.47">
+        </div>
+        <div>
+          <label class="block text-[11px] font-bold text-on-surface-variant uppercase">Instructions</label>
+          <input type="number" step="1000" min="1000" id="custom-ic-b" class="w-full text-xs p-2 rounded-lg bg-surface-container border border-surface-container text-on-surface" value="10000">
+        </div>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-end gap-2 pt-2 border-t border-surface-container">
+      <button type="button" class="px-4 py-2 rounded-xl text-xs font-semibold text-on-surface-variant hover:bg-surface-container" onclick="closeEditCpuModal()">Cancel</button>
+      <button type="button" id="btn-save-custom-cpus" class="px-4 py-2 rounded-xl bg-primary text-on-primary text-xs font-semibold hover:bg-primary-container shadow-sm flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-[16px]">check</span>
+        Apply & Compare
+      </button>
+    </div>
+  </div>
+</div>
+</main></div>
 <script src="js/common.js"></script>
 <script src="js/navigation.js"></script>
 <script src="js/cpu-comparison.js"></script>

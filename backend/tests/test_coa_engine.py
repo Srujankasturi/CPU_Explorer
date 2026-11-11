@@ -205,5 +205,72 @@ class TestCOAEngine(unittest.TestCase):
         self.assertIn(res_low["severity"], ["Low", "Medium"])
         self.assertLess(res_low["bottleneck_score"], 40.0)
 
+    def test_tma_breakdown_sum_to_100(self):
+        from backend.app.services.bottleneck_analyzer import BottleneckAnalyzerService
+
+        test_cases = [
+            {"cpi": 2.47, "llc_miss_rate": 28.4, "branch_mispredict_rate": 8.0, "pipeline_stall_pct": 18.0},
+            {"cpi": 3.80, "llc_miss_rate": 45.0, "branch_mispredict_rate": 3.0, "pipeline_stall_pct": 10.0},
+            {"cpi": 1.25, "llc_miss_rate": 8.0, "branch_mispredict_rate": 18.0, "pipeline_stall_pct": 25.0},
+            {"cpi": 0.55, "llc_miss_rate": 5.0, "branch_mispredict_rate": 4.0, "pipeline_stall_pct": 8.0, "issue_width": 4},
+            {"cpi": 1.00, "llc_miss_rate": 2.0, "branch_mispredict_rate": 1.0, "pipeline_stall_pct": 2.0, "issue_width": 1},
+        ]
+
+        for tc in test_cases:
+            with self.subTest(case=tc):
+                res = BottleneckAnalyzerService.analyze(**tc)
+                tma = res["tma_levels"]
+                self.assertIsNotNone(tma)
+                total = tma["retiring"] + tma["bad_speculation"] + tma["frontend_bound"] + tma["backend_bound"]
+                self.assertAlmostEqual(total, 100.0, places=1, msg=f"TMA levels must sum to 100%: {tma}")
+                self.assertAlmostEqual(tma["total_loss"], round(100.0 - tma["retiring"], 1), places=1)
+
+    def test_tma_dynamic_responsiveness(self):
+        from backend.app.services.bottleneck_analyzer import BottleneckAnalyzerService
+
+        # 1. Higher branch mispredict rate increases bad_speculation
+        base = BottleneckAnalyzerService.analyze(branch_mispredict_rate=4.0)
+        high_branch = BottleneckAnalyzerService.analyze(branch_mispredict_rate=20.0)
+        self.assertGreater(high_branch["tma_levels"]["bad_speculation"], base["tma_levels"]["bad_speculation"])
+
+        # 2. Dynamic Frontend Bound responds to branch & fetch penalties
+        self.assertGreater(high_branch["tma_levels"]["frontend_bound"], base["tma_levels"]["frontend_bound"])
+
+        # 3. Higher LLC miss rate increases backend_bound
+        high_mem = BottleneckAnalyzerService.analyze(llc_miss_rate=45.0)
+        low_mem = BottleneckAnalyzerService.analyze(llc_miss_rate=5.0)
+        self.assertGreater(high_mem["tma_levels"]["backend_bound"], low_mem["tma_levels"]["backend_bound"])
+
+        # 4. Issue width parameterization: wider machine has lower retiring % for same IPC
+        res_scalar = BottleneckAnalyzerService.analyze(cpi=1.5, issue_width=1)
+        res_4wide = BottleneckAnalyzerService.analyze(cpi=1.5, issue_width=4)
+        self.assertGreater(res_scalar["tma_levels"]["retiring"], res_4wide["tma_levels"]["retiring"])
+
+    def test_pipeline_stall_grid_no_blank_cell(self):
+        from backend.app.services.pipeline_simulator import PipelineSimulatorService, DEFAULT_PROGRAM
+        res = PipelineSimulatorService.simulate_in_order(DEFAULT_PROGRAM, forwarding=True)
+        grid = res["grid"]
+
+        # Instruction 2 (ADD R3, R1, R4) has a Load-Use hazard after Instruction 1 (LW R1, 0(R2))
+        # With forwarding, I2 experiences 1 stall cycle between ID and EX
+        i2_row = grid[1]
+        id_index = i2_row.index("ID")
+        ex_index = i2_row.index("EX")
+        # Between ID and EX, there should be "STALL" and NOT blank ""
+        self.assertEqual(ex_index - id_index, 2, "Load-use stall should insert exactly 1 bubble cycle between ID and EX")
+        self.assertEqual(i2_row[id_index + 1], "STALL", "Cycle immediately after ID in load-use stall must be 'STALL', not blank")
+
+    def test_comparison_radar_not_saturated(self):
+        from backend.app.services.comparison_engine import CPUComparisonService
+        res = CPUComparisonService.compare(
+            {"name": "Ryzen 9", "frequency_ghz": 4.5, "cpi": 0.65, "instruction_count": 100000},
+            {"name": "Core i9", "frequency_ghz": 5.2, "cpi": 0.60, "instruction_count": 100000}
+        )
+        radar_a = res["radar_data"]["cpu_a"]
+        radar_b = res["radar_data"]["cpu_b"]
+        # Radar dimensions should not all be saturated at 100.0
+        self.assertTrue(any(v < 100.0 for v in radar_a), "Radar A should not be completely saturated")
+        self.assertTrue(any(v < 100.0 for v in radar_b), "Radar B should not be completely saturated")
+
 if __name__ == "__main__":
     unittest.main()

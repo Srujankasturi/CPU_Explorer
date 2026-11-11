@@ -24,6 +24,8 @@
         vizData = data;
         renderHeatmap(data.heatmap);
         renderMemoryPyramid(data.memory_pyramid);
+        renderWaterfall(data.waterfall);
+        updateTabMessages(data);
       }
     } catch (e) {
       console.warn('Visualizations fetch error:', e.message);
@@ -90,6 +92,68 @@
     if (elDram && dram) elDram.innerText = `${dram.latency_cycles} Cycles (~61.1ns)`;
   }
 
+  function renderWaterfall(waterfall) {
+    if (!Array.isArray(waterfall)) return;
+
+    const totalItem = waterfall.find(w => w.stage && w.stage.toLowerCase().includes('total'));
+    const totalCycles = totalItem ? totalItem.cycles : 15780;
+
+    const branchItem = waterfall.find(w => w.stage && w.stage.toLowerCase().includes('branch'));
+    const l1Item = waterfall.find(w => w.stage && w.stage.toLowerCase().includes('l1 cache'));
+    const memBusItem = waterfall.find(w => w.stage && w.stage.toLowerCase().includes('memory bus'));
+    const rawItem = waterfall.find(w => w.stage && w.stage.toLowerCase().includes('raw'));
+
+    const memCycles = (l1Item ? l1Item.cycles : 2400) + (memBusItem ? memBusItem.cycles : 940);
+    const branchCycles = branchItem ? branchItem.cycles : 1420;
+    const rawCycles = rawItem ? rawItem.cycles : 1840;
+
+    const memPct = ((memCycles / totalCycles) * 100).toFixed(1);
+    const branchPct = ((branchCycles / totalCycles) * 100).toFixed(1);
+    const rawPct = ((rawCycles / totalCycles) * 100).toFixed(1);
+
+    const elMemText = document.getElementById('waterfall-memory-cyc-text');
+    if (elMemText) elMemText.innerText = `${memCycles.toLocaleString()} cyc (${memPct}%)`;
+
+    const elBranchText = document.getElementById('waterfall-branch-cyc-text');
+    if (elBranchText) elBranchText.innerText = `${branchCycles.toLocaleString()} cyc (${branchPct}%)`;
+
+    const elRawText = document.getElementById('waterfall-raw-cyc-text');
+    if (elRawText) elRawText.innerText = `${rawCycles.toLocaleString()} cyc (${rawPct}%)`;
+  }
+
+  const tabMessages = {
+    branch: { msg: 'Branch Speculation: 1,420 cycles lost to branch misprediction flushes (9.0% penalty)', type: 'warning' },
+    memory: { msg: 'Memory Subsystem: 3,340 cycles lost to L1 cache misses & memory bus contention (21.2% penalty)', type: 'info' },
+    cache: { msg: 'Cache Hierarchy: L1 (4 cyc) → L2 (14 cyc) → L3 (42 cyc) → DDR5 (180 cyc)', type: 'info' },
+    heatmap: { msg: 'Multi-Core Heatmap: Live workload balancing matrix', type: 'success' },
+    sankey: { msg: 'Sankey Flow: Instruction dispatch routing from fetch to execution units', type: 'info' },
+    waterfall: { msg: 'Execution Waterfall: Detailed cycle breakdown of active compute vs stall overhead', type: 'info' },
+    treemap: { msg: 'Equilibrium Treemap: Microarchitectural resource balance & power budget', type: 'info' }
+  };
+
+  function updateTabMessages(data) {
+    if (!data) return;
+    const cores = data.logical_cores || (data.heatmap ? data.heatmap.length : 8);
+    tabMessages.heatmap.msg = `Multi-Core Heatmap: Live ${cores}-thread workload balancing matrix`;
+
+    if (Array.isArray(data.waterfall)) {
+      const totalItem = data.waterfall.find(w => w.stage && w.stage.toLowerCase().includes('total'));
+      const totalCycles = totalItem ? totalItem.cycles : 15780;
+      const branchItem = data.waterfall.find(w => w.stage && w.stage.toLowerCase().includes('branch'));
+      const l1Item = data.waterfall.find(w => w.stage && w.stage.toLowerCase().includes('l1 cache'));
+      const memBusItem = data.waterfall.find(w => w.stage && w.stage.toLowerCase().includes('memory bus'));
+
+      const memCycles = (l1Item ? l1Item.cycles : 2400) + (memBusItem ? memBusItem.cycles : 940);
+      const branchCycles = branchItem ? branchItem.cycles : 1420;
+
+      const memPct = ((memCycles / totalCycles) * 100).toFixed(1);
+      const branchPct = ((branchCycles / totalCycles) * 100).toFixed(1);
+
+      tabMessages.branch.msg = `Branch Speculation: ${branchCycles.toLocaleString()} cycles lost to branch misprediction flushes (${branchPct}% penalty)`;
+      tabMessages.memory.msg = `Memory Subsystem: ${memCycles.toLocaleString()} cycles lost to L1 cache misses & memory bus contention (${memPct}% penalty)`;
+    }
+  }
+
   function setupTabs() {
     const tabTargetMap = {
       heatmap: 'viz-card-heatmap',
@@ -99,16 +163,6 @@
       cache: 'viz-card-cache',
       memory: 'viz-card-cache',
       branch: 'viz-card-waterfall'
-    };
-
-    const tabMessages = {
-      branch: { msg: 'Branch Speculation: 2,964 cycles lost to branch misprediction flushes (12.0% penalty)', type: 'warning' },
-      memory: { msg: 'Memory Subsystem: 6,916 cycles lost to L2/L3 cache misses & DRAM latency (28.0% penalty)', type: 'info' },
-      cache: { msg: 'Cache Hierarchy: L1 (4 cyc) → L2 (14 cyc) → L3 (42 cyc) → DDR5 (180 cyc)', type: 'info' },
-      heatmap: { msg: 'Multi-Core Heatmap: Live 16-thread workload balancing matrix', type: 'success' },
-      sankey: { msg: 'Sankey Flow: Instruction dispatch routing from fetch to execution units', type: 'info' },
-      waterfall: { msg: 'Execution Waterfall: Detailed cycle breakdown of active compute vs stall overhead', type: 'info' },
-      treemap: { msg: 'Equilibrium Treemap: Microarchitectural resource balance & power budget', type: 'info' }
     };
 
     const tabs = document.querySelectorAll('.viz-tab-btn');

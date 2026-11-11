@@ -15,7 +15,8 @@ def analyze_bottlenecks(req: BottleneckAnalyzeRequest, db: Session = Depends(get
         llc_miss_rate=req.llc_miss_rate or 28.4,
         branch_mispredict_rate=req.branch_mispredict_rate or 8.0,
         pipeline_stall_pct=req.pipeline_stall_pct or 18.0,
-        dram_latency_ns=req.dram_latency_ns or 68.0
+        dram_latency_ns=req.dram_latency_ns or 68.0,
+        issue_width=req.issue_width
     )
 
     try:

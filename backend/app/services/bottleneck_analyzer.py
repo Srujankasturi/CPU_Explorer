@@ -1,12 +1,12 @@
 """
-Rule-Based Microarchitectural Bottleneck Analyzer Service.
-Classifies execution stalls using standard Top-Down Microarchitecture Analysis (TMAM):
-1. Memory Hierarchy Bound (L1/L2/L3/DRAM latency)
-2. Pipeline Hazards & Dependencies (RAW, Load-Use stalls)
-3. Bad Speculation & Branch Misprediction (Pipeline flush penalty)
-4. Structural & Execution Unit Port Contention (ALU/FMA saturation)
+Calibrated Microarchitectural Bottleneck Analyzer Service.
+Decomposes execution stalls using Top-Down Microarchitecture Analysis (calibrated TMAM Level-1):
+1. Retiring: fraction of pipeline issue slots processing useful instructions
+2. Bad Speculation: slots wasted due to branch mispredictions and recovery flushes
+3. Frontend Bound: slots starved because fetch/decode cannot deliver uops
+4. Backend Bound: slots stalled due to memory hierarchy latency and execution port contention
 """
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 
 class BottleneckAnalyzerService:
 
@@ -17,7 +17,8 @@ class BottleneckAnalyzerService:
                 pipeline_stall_pct: float = 18.0,
                 dram_latency_ns: float = 68.0,
                 instruction_count: float = 10000.0,
-                frequency_ghz: float = 3.0) -> dict:
+                frequency_ghz: float = 3.0,
+                issue_width: Optional[int] = None) -> dict:
         
         # Validation
         if cpi <= 0:
@@ -133,23 +134,44 @@ class BottleneckAnalyzerService:
         top = sorted_items[0]
         primary_culprit = f"Primary culprit: {top['name']} ({top['impact_pct']}% of stall cycles)."
 
-        # Standard Intel Top-Down Microarchitecture (TMAM) Level-1 Classification:
-        # Sum of the 4 buckets equals 100% of pipeline issue slots:
-        # 1. Retiring: fraction of issue slots that executed useful retired instructions
-        # 2. Bad Speculation: slots wasted due to branch misprediction recovery flushes
-        # 3. Frontend Bound: slots starved because the fetch/decode stages could not deliver uops
-        # 4. Backend Bound: slots stalled due to memory hierarchy (DRAM/L3) and execution port contention
-        retiring_pct = round(max(15.0, min(75.0, (1.0 / cpi) * 100.0)), 1)
-        overhead_slots = 100.0 - retiring_pct
+        # Calibrated Top-Down Microarchitecture Decomposition (TMAM Level-1):
+        # In modern microarchitectures (Ahmad Yasin, Intel TMAM), total pipeline issue slots = cycles * issue_width.
+        # Retiring fraction = IPC / issue_width = 1.0 / (CPI * issue_width).
+        # If issue_width is explicitly provided, use it.
+        # If omitted, determine effective issue width based on execution profile:
+        # - Wide superscalar execution (CPI <= 1.0 or high throughput) models an issue_width of 4.
+        # - In-order scalar execution models an issue_width of 1.
+        ipc = 1.0 / cpi if cpi > 0 else 1.0
+        if issue_width is not None and issue_width > 0:
+            effective_width = float(issue_width)
+        else:
+            effective_width = 4.0 if ipc > 1.0 else 1.0
 
-        bad_spec_raw = overhead_slots * (branch_contrib / 100.0)
-        frontend_raw = overhead_slots * 0.18
-        backend_raw = overhead_slots * ((mem_contrib + struct_contrib + (pipe_contrib * 0.5)) / 100.0)
+        retiring_pct = round(max(5.0, min(95.0, (ipc / effective_width) * 100.0)), 1)
+        overhead_slots = round(100.0 - retiring_pct, 1)
 
-        # Normalize remaining slots to match exact 100%
+        # Dynamic Frontend Bound calculation:
+        # Reflects instruction fetch latency (I-Cache misses and ITLB misses correlated with LLC miss rate),
+        # branch target buffer (BTB) fetch-bubble penalties from branch misprediction recovery,
+        # and instruction decode starvation during pipeline dependency stalls.
+        frontend_weight = (
+            0.06 +
+            (branch_mispredict_rate / 100.0) * 0.45 +
+            (llc_miss_rate / 100.0) * 0.25 +
+            (pipeline_stall_pct / 100.0) * 0.15
+        )
+        frontend_weight = max(0.05, min(0.40, frontend_weight))
+        frontend_raw = overhead_slots * frontend_weight
+
+        bad_spec_raw = overhead_slots * max(0.05, branch_contrib / 100.0)
+        backend_raw = overhead_slots * max(0.10, (mem_contrib + struct_contrib + (pipe_contrib * 0.5)) / 100.0)
+
+        # Normalize remaining slots so that:
+        # retiring + bad_speculation + frontend_bound + backend_bound == 100.0% exactly!
         rem_sum = bad_spec_raw + frontend_raw + backend_raw
         if rem_sum <= 0:
             rem_sum = 1.0
+
         bad_spec_pct = round((bad_spec_raw / rem_sum) * overhead_slots, 1)
         frontend_pct = round((frontend_raw / rem_sum) * overhead_slots, 1)
         backend_pct = round(overhead_slots - bad_spec_pct - frontend_pct, 1)

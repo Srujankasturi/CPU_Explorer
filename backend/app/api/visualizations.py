@@ -63,7 +63,12 @@ def get_visualizations_data():
     cpi_range = [0.5, 0.8, 1.0, 1.5, 2.0, 2.5, 3.0, 4.0, 5.0]
     cpi_vs_ipc = [{"cpi": c, "ipc": round(1.0 / c, 2)} for c in cpi_range]
 
+    logical_cores = live.get("logical_cores") or len(per_core) or 8
+    physical_cores = live.get("physical_cores") or 4
+
     return {
+        "logical_cores": logical_cores,
+        "physical_cores": physical_cores,
         "heatmap": heatmap_matrix,
         "sankey": sankey_data,
         "waterfall": waterfall_data,

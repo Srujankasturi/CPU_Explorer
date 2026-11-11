@@ -6,12 +6,12 @@ from backend.app.main import app
 client = TestClient(app)
 
 PAGES = [
-    "Dahboard.html",
+    "Dashboard.html",
     "PerformanceAnalyzer.html",
     "PipelineSimulator.html",
     "BottleneckAnalyzer.html",
     "CPUComparison.html",
-    "What-if Analysis.html",
+    "WhatIfAnalysis.html",
     "AdvancedVisualizations.html",
     "Reports.html"
 ]
@@ -53,6 +53,22 @@ class TestPagesAndAssets(unittest.TestCase):
             resp = client.get(f"/{page}")
             with self.subTest(page=page):
                 self.assertNotIn('href="CurrentDevice.html"', resp.text)
+
+    def test_legacy_redirects(self):
+        # /Dahboard.html redirects to /Dashboard.html
+        resp = client.get("/Dahboard.html", follow_redirects=False)
+        self.assertEqual(resp.status_code, 307)
+        self.assertEqual(resp.headers["location"], "/Dashboard.html")
+
+        # /What-if Analysis.html redirects to /WhatIfAnalysis.html
+        resp2 = client.get("/What-if Analysis.html", follow_redirects=False)
+        self.assertEqual(resp2.status_code, 307)
+        self.assertEqual(resp2.headers["location"], "/WhatIfAnalysis.html")
+
+        # Root / redirects to /Dashboard.html
+        resp3 = client.get("/", follow_redirects=False)
+        self.assertEqual(resp3.status_code, 307)
+        self.assertEqual(resp3.headers["location"], "/Dashboard.html")
 
 if __name__ == "__main__":
     unittest.main()

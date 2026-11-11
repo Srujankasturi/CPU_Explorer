@@ -7,7 +7,7 @@ import uvicorn
 
 def open_browser():
     time.sleep(1.2)
-    url = "http://127.0.0.1:8000/Dahboard.html"
+    url = "http://127.0.0.1:8000/Dashboard.html"
     print(f"\n[+] Opening CPU Performance Explorer in your browser: {url}\n")
     try:
         webbrowser.open(url)
@@ -23,7 +23,7 @@ def main():
     print("   [+] Real hardware monitoring enabled (psutil)")
     print("   [+] 5-Stage RISC Pipeline Simulator loaded")
     print("   [+] Microarchitectural TMA Engine ready")
-    print("   [+] Web App:     http://127.0.0.1:8000/Dahboard.html")
+    print("   [+] Web App:     http://127.0.0.1:8000/Dashboard.html")
     print("   [+] API Docs:    http://127.0.0.1:8000/docs")
     print("=" * 66)
 

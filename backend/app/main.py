@@ -46,23 +46,21 @@ if os.path.exists(FRONTEND_DIR):
 
 @app.get("/", include_in_schema=False)
 def root_redirect():
-    # Redirect to the main Dashboard page
-    return RedirectResponse(url="/Dahboard.html")
+    # Redirect to the canonical Dashboard page
+    return RedirectResponse(url="/Dashboard.html")
 
-@app.get("/Dashboard.html", include_in_schema=False)
+@app.get("/Dahboard.html", include_in_schema=False)
 @app.get("/dashboard", include_in_schema=False)
-def dashboard_alias_redirect():
-    return RedirectResponse(url="/Dahboard.html")
-
 @app.get("/CurrentDevice.html", include_in_schema=False)
-def current_device_redirect():
-    return RedirectResponse(url="/Dahboard.html")
+def dashboard_alias_redirect():
+    return RedirectResponse(url="/Dashboard.html")
 
 @app.get("/what-if-analysis.html", include_in_schema=False)
-@app.get("/WhatIfAnalysis.html", include_in_schema=False)
+@app.get("/What-if Analysis.html", include_in_schema=False)
+@app.get("/What-if%20Analysis.html", include_in_schema=False)
 @app.get("/what-if-analysis", include_in_schema=False)
 def what_if_alias_redirect():
-    return RedirectResponse(url="/What-if%20Analysis.html")
+    return RedirectResponse(url="/WhatIfAnalysis.html")
 
 @app.get("/performance-analyzer", include_in_schema=False)
 def performance_alias():

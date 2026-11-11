@@ -167,7 +167,7 @@ class PipelineSimulatorService:
                                     hazard_reason = f"RAW hazard without forwarding on register {prev_dest} from {prev_inst['id']}. Waiting for WB stage."
 
                 for s in range(stall_cycles_needed):
-                    stalls.append(sched["ID"] + s)
+                    stalls.append(sched["ID"] + 1 + s)
 
                 if stall_cycles_needed > 0:
                     hazards_detected.append({
@@ -237,7 +237,7 @@ class PipelineSimulatorService:
                 "forwarding_enabled": forwarding,
                 "stages": ["IF", "ID", "EX", "MEM", "WB"],
                 "hazard_mechanisms": "EX/MEM and MEM/WB bypass paths active" if forwarding else "RAW stall until WB stage completes",
-                "limitations": "Load-use hazard requires 1 stall bubble even with forwarding; branch outcomes evaluated at EX stage."
+                "limitations": "Load-use hazard requires 1 stall bubble even with forwarding. In-order pipeline models a linear instruction stream with static not-taken branch prediction; branch misprediction penalties are evaluated dynamically in the Top-Down Bottleneck Analyzer."
             },
             "virtualization_meta": {
                 "enabled": num_inst > 25,
@@ -623,7 +623,7 @@ class PipelineSimulatorService:
                 "forwarding_enabled": forwarding,
                 "stages": ["IF", "ID", "EX", "MEM", "WB"],
                 "hazard_mechanisms": "EX/MEM and MEM/WB bypass paths active" if forwarding else "RAW stall until WB stage completes",
-                "limitations": "Load-use hazard requires 1 stall bubble even with forwarding; branch outcomes evaluated at EX stage."
+                "limitations": "Load-use hazard requires 1 stall bubble even with forwarding. In-order pipeline models a linear instruction stream with static not-taken branch prediction; branch misprediction penalties are evaluated dynamically in the Top-Down Bottleneck Analyzer."
             },
             "virtualization_meta": {"is_virtualized": False, "total_instructions": 0, "total_cycles": 0, "window_size": 0}
         }

@@ -101,21 +101,28 @@ class CPUComparisonService:
             }
         ]
 
-        # Normalized radar parameters (0-100 scale)
+        # Normalized radar parameters (0-100 scale without artificial saturation)
+        max_mips_ref = max(6000.0, max(mips_a, mips_b) * 1.25)
+        max_gips_ref = max(16.0, max(ipc_a * freq_a, ipc_b * freq_b) * 1.25)
+        min_exec_ms = min(t_exec_a_ms, t_exec_b_ms)
+
+        latency_score_a = 95.0 if t_exec_a_ms <= t_exec_b_ms else round(max(5.0, 95.0 * (min_exec_ms / max(0.0001, t_exec_a_ms))), 1)
+        latency_score_b = 95.0 if t_exec_b_ms <= t_exec_a_ms else round(max(5.0, 95.0 * (min_exec_ms / max(0.0001, t_exec_b_ms))), 1)
+
         radar_categories = ["Clock Speed", "IPC Efficiency", "Compute Density", "Throughput", "Latency Efficiency"]
         radar_a = [
-            round(min(100.0, (freq_a / 6.0) * 100), 1),
-            round(min(100.0, (ipc_a / 1.0) * 100), 1),
-            round(min(100.0, (mips_a / 300.0) * 100), 1),
-            round(min(100.0, (ipc_a * (freq_a / 3.0)) * 100), 1),
-            round(max(0.0, min(100.0, (20.0 / max(0.1, t_exec_a_ms)) * 50)), 1)
+            round(min(100.0, max(5.0, (freq_a / 6.0) * 100)), 1),
+            round(min(100.0, max(5.0, (ipc_a / 4.0) * 100)), 1),
+            round(min(100.0, max(5.0, (mips_a / max_mips_ref) * 100)), 1),
+            round(min(100.0, max(5.0, ((ipc_a * freq_a) / max_gips_ref) * 100)), 1),
+            latency_score_a
         ]
         radar_b = [
-            round(min(100.0, (freq_b / 6.0) * 100), 1),
-            round(min(100.0, (ipc_b / 1.0) * 100), 1),
-            round(min(100.0, (mips_b / 300.0) * 100), 1),
-            round(min(100.0, (ipc_b * (freq_b / 3.0)) * 100), 1),
-            round(max(0.0, min(100.0, (20.0 / max(0.1, t_exec_b_ms)) * 50)), 1)
+            round(min(100.0, max(5.0, (freq_b / 6.0) * 100)), 1),
+            round(min(100.0, max(5.0, (ipc_b / 4.0) * 100)), 1),
+            round(min(100.0, max(5.0, (mips_b / max_mips_ref) * 100)), 1),
+            round(min(100.0, max(5.0, ((ipc_b * freq_b) / max_gips_ref) * 100)), 1),
+            latency_score_b
         ]
 
         return {

@@ -116,6 +116,7 @@ class BottleneckAnalyzeRequest(BaseModel):
     branch_mispredict_rate: Optional[float] = 8.0
     pipeline_stall_pct: Optional[float] = 18.0
     dram_latency_ns: Optional[float] = 68.0
+    issue_width: Optional[int] = None
 
 class BottleneckItem(BaseModel):
     name: str

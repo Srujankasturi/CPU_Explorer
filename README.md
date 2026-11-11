@@ -52,12 +52,12 @@ $$\text{Where } \text{Ideal Cycles} = N + 4 \text{ for an } N\text{-instruction 
 CPU-Performance-Explorer/
 │
 ├── frontend/                     # Web Application Pages & Assets
-│   ├── Dahboard.html             # Hero 3D CPU & Overview Telemetry
+│   ├── Dashboard.html            # Hero 3D CPU & Overview Telemetry
 │   ├── PerformanceAnalyzer.html  # Iron Law & Single / ISA Mode
 │   ├── PipelineSimulator.html    # 5-Stage RISC Simulator & Hazards
 │   ├── BottleneckAnalyzer.html   # TMA Rule-based Diagnostic Audit
 │   ├── CPUComparison.html        # Dual CPU Benchmark & Speedup
-│   ├── What-if Analysis.html     # Parameter Sensitivity Explorer
+│   ├── WhatIfAnalysis.html       # Parameter Sensitivity Explorer
 │   ├── AdvancedVisualizations.html# Heatmaps & Memory Latency Pyramid
 │   ├── Reports.html              # SQLite Reports Hub & Exports
 │   ├── css/
@@ -128,7 +128,7 @@ Double-click `start.bat` in the root folder, or run in PowerShell:
    py run.py
    ```
 3. Open your browser:
-   - **Dashboard**: [http://127.0.0.1:8000/Dahboard.html](http://127.0.0.1:8000/Dahboard.html)
+   - **Dashboard**: [http://127.0.0.1:8000/Dashboard.html](http://127.0.0.1:8000/Dashboard.html)
    - **Interactive API Documentation (Swagger)**: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
 
 ---

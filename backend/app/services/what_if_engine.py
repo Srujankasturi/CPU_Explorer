@@ -17,6 +17,27 @@ def format_time(seconds: float) -> str:
 
 class WhatIfService:
 
+    # Computer Architecture Analytical Constants (Hennessy & Patterson model):
+    # 1. Memory Penalty:
+    #    CPI_mem_penalty = MEM_ACCESS_RATIO * (cache_miss_rate / 100) * L3_MISS_PENALTY_CYCLES
+    #    Typical integer/workload mix: ~25% memory instructions (loads/stores).
+    #    Average L3/LLC miss latency to DRAM: ~48 clock cycles.
+    #    Effective weight: 0.25 * 48.0 = 12.0
+    MEM_ACCESS_RATIO = 0.25
+    L3_MISS_PENALTY_CYCLES = 48.0
+
+    # 2. Branch Penalty:
+    #    CPI_branch_penalty = BRANCH_RATIO * (branch_mispredict_rate / 100) * BRANCH_FLUSH_PENALTY_CYCLES
+    #    Typical integer mix: ~20% branch instructions.
+    #    Deep superscalar pipeline flush and re-steer penalty: ~40 clock cycles.
+    #    Effective weight: 0.20 * 40.0 = 8.0
+    BRANCH_RATIO = 0.20
+    BRANCH_FLUSH_PENALTY_CYCLES = 40.0
+
+    # 3. Pipeline Structural & RAW Stall Weight:
+    #    Fraction of stall cycles experienced per instruction for interlocks
+    PIPELINE_STALL_WEIGHT = 0.08
+
     BASELINE_FREQ = 3.0
     BASELINE_BASE_CPI = 2.47
     BASELINE_CACHE_MISS = 10.0
@@ -33,13 +54,17 @@ class WhatIfService:
                   stall_cycles: float = 2.0,
                   instruction_count: float = 10000.0) -> dict:
         
-        # Penalties:
-        # Cache penalty addition to CPI: miss_rate * miss_latency_weight
-        cache_penalty_cpi = (cache_miss_rate / 100.0) * 12.0
-        # Branch penalty addition to CPI: branch_mis * flush_penalty_weight
-        branch_penalty_cpi = (branch_mispredict_rate / 100.0) * 8.0
+        # Penalties derived from Hennessy & Patterson analytical CPI models:
+        # Cache penalty addition to CPI: mem_access_ratio * miss_rate * l3_miss_latency
+        mem_penalty_factor = cls.MEM_ACCESS_RATIO * cls.L3_MISS_PENALTY_CYCLES
+        cache_penalty_cpi = (cache_miss_rate / 100.0) * mem_penalty_factor
+
+        # Branch penalty addition to CPI: branch_ratio * mispredict_rate * flush_penalty
+        branch_penalty_factor = cls.BRANCH_RATIO * cls.BRANCH_FLUSH_PENALTY_CYCLES
+        branch_penalty_cpi = (branch_mispredict_rate / 100.0) * branch_penalty_factor
+
         # Pipeline structural / dependency stall cycles per instruction
-        stall_penalty_cpi = stall_cycles * 0.08
+        stall_penalty_cpi = stall_cycles * cls.PIPELINE_STALL_WEIGHT
 
         effective_cpi = base_cpi + cache_penalty_cpi + branch_penalty_cpi + stall_penalty_cpi
         ipc = 1.0 / effective_cpi if effective_cpi > 0 else 0
@@ -50,9 +75,9 @@ class WhatIfService:
         execution_time_ms = execution_time_sec * 1000.0
 
         # Baseline execution time
-        baseline_cache_penalty = (cls.BASELINE_CACHE_MISS / 100.0) * 12.0
-        baseline_branch_penalty = (cls.BASELINE_BRANCH_MIS / 100.0) * 8.0
-        baseline_stall_penalty = cls.BASELINE_STALLS * 0.08
+        baseline_cache_penalty = (cls.BASELINE_CACHE_MISS / 100.0) * mem_penalty_factor
+        baseline_branch_penalty = (cls.BASELINE_BRANCH_MIS / 100.0) * branch_penalty_factor
+        baseline_stall_penalty = cls.BASELINE_STALLS * cls.PIPELINE_STALL_WEIGHT
         baseline_effective_cpi = cls.BASELINE_BASE_CPI + baseline_cache_penalty + baseline_branch_penalty + baseline_stall_penalty
         baseline_exec_time_sec = (instruction_count * baseline_effective_cpi) / (cls.BASELINE_FREQ * 1e9)
         baseline_exec_time_ms = baseline_exec_time_sec * 1000.0

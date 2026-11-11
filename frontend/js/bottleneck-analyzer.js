@@ -2,7 +2,7 @@
  * CPU Performance Explorer - Bottleneck Analyzer Controller
  * Implements Intel/AMD Top-Down Microarchitecture Analysis (TMA),
  * structural stall categorization with actionable optimization recommendations,
- * and live host hardware Performance Monitoring Unit (PMU) streaming (ETW/perf).
+ * and live host hardware telemetry streaming.
  */
 
 (function () {
@@ -50,7 +50,7 @@
   }
 
   // =========================================================================
-  // Live Silicon Hardware PMU Streaming (ETW / Linux perf integration)
+  // Live Silicon Hardware PMU Streaming (Host OS Telemetry Integration)
   // =========================================================================
 
   async function togglePMUStream() {
@@ -76,7 +76,7 @@
       }
 
       if (window.showToast) {
-        window.showToast('Streaming live host hardware silicon PMU events (ETW / perf)...', 'success');
+        window.showToast('Streaming live host hardware silicon PMU events...', 'success');
       }
 
       await pollHardwarePMU();
@@ -122,10 +122,10 @@
       const elevationBadge = document.getElementById('pmu-elevation-badge');
       if (elevationBadge) {
         if (pmu.is_elevated) {
-          elevationBadge.textContent = 'Elevated ETW / Ring-0 Kernel Driver';
+          elevationBadge.textContent = 'Host Telemetry (Admin Mode)';
           elevationBadge.className = 'px-2.5 py-0.5 rounded-full bg-primary-fixed text-on-primary-fixed-variant font-code-mono text-label-xs font-bold shadow-xs';
         } else {
-          elevationBadge.textContent = 'Calibrated Host Silicon Telemetry';
+          elevationBadge.textContent = 'Host Telemetry (User Mode psutil)';
           elevationBadge.className = 'px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-code-mono text-label-xs font-semibold';
         }
       }
@@ -162,36 +162,7 @@
         renderScoreGauge(res.bottleneck_score, res.severity, res.risk_level);
         renderBottlenecksList(res.items);
         renderDistributionBars(res.distribution);
-
-        // Compute Top-Down TMA Level 1 Breakdown
-        const rawRetiring = Math.min(65.0, Math.max(25.0, (pmu.live_ipc / 4.0) * 100.0));
-        const rawBadSpec = Math.min(35.0, Math.max(8.0, pmu.branch_mispredict_rate * 1.8));
-        const rawBackend = Math.min(55.0, Math.max(20.0, pmu.llc_miss_rate * 1.2));
-        const rawFrontend = Math.max(8.0, 100.0 - (rawRetiring + rawBadSpec + rawBackend));
-
-        const sum = rawRetiring + rawBadSpec + rawBackend + rawFrontend;
-        const retiringPct = (rawRetiring / sum) * 100;
-        const badSpecPct = (rawBadSpec / sum) * 100;
-        const frontendPct = (rawFrontend / sum) * 100;
-        const backendPct = (rawBackend / sum) * 100;
-
-        const retEl = document.getElementById('tma-retiring-val');
-        if (retEl) retEl.textContent = `${retiringPct.toFixed(1)}%`;
-
-        const badEl = document.getElementById('tma-badspec-val');
-        if (badEl) badEl.textContent = `${badSpecPct.toFixed(1)}%`;
-
-        const frontEl = document.getElementById('tma-frontend-val');
-        if (frontEl) frontEl.textContent = `${frontendPct.toFixed(1)}%`;
-
-        const backEl = document.getElementById('tma-backend-val');
-        if (backEl) backEl.textContent = `${backendPct.toFixed(1)}%`;
-
-        const totalLossEl = document.getElementById('bottleneck-total-loss-val');
-        if (totalLossEl) {
-          const loss = (100.0 - retiringPct).toFixed(1);
-          totalLossEl.textContent = `${loss}%`;
-        }
+        renderTmaBreakdown(res.tma_levels, res.distribution);
       }
     } catch (e) {
       console.warn('Live PMU poll error:', e.message);
@@ -314,13 +285,14 @@
       const pipeVal = dist.Pipeline ?? 18.0;
       const branchVal = dist.Branch ?? 12.0;
       const structVal = dist.Structural ?? 9.0;
-      const retiring = Math.max(15, 100 - (memVal + pipeVal + branchVal + structVal));
+      const retiring = 40.0;
+      const loss = 60.0;
       tma = {
         retiring: retiring,
-        bad_speculation: branchVal,
+        bad_speculation: Math.round(branchVal * 0.6),
         frontend_bound: Math.round(pipeVal * 0.4),
-        backend_bound: Math.round(memVal + structVal + (pipeVal * 0.6)),
-        total_loss: Math.round(100 - retiring)
+        backend_bound: Math.round(loss - (branchVal * 0.6) - (pipeVal * 0.4)),
+        total_loss: loss
       };
     }
 
@@ -336,19 +308,28 @@
     const backEl = document.getElementById('tma-backend-val');
     if (backEl) backEl.textContent = `${tma.backend_bound.toFixed(1)}%`;
 
+    const totalLossVal = tma.total_loss !== undefined ? tma.total_loss : Math.max(0, 100.0 - tma.retiring);
     const totalLossEl = document.getElementById('bottleneck-total-loss-val');
     if (totalLossEl) {
-      totalLossEl.textContent = `${(tma.total_loss || (100 - tma.retiring)).toFixed(1)}%`;
+      totalLossEl.textContent = `${totalLossVal.toFixed(1)}%`;
     }
 
-    // Dynamic Donut SVG Circles & Legend
+    // Dynamic Donut SVG Circles & Legend:
+    // Retiring occupies tma.retiring % of total cycles.
+    // The stall components (dist) divide the remaining totalLossVal % proportionally.
     const CIRCUMFERENCE = 301.59; // 2 * PI * 48
     if (dist) {
-      const mem = dist.Memory || 28;
-      const pipe = dist.Pipeline || 18;
-      const branch = dist.Branch || 12;
-      const struct = dist.Structural || 9;
-      const retire = Math.max(0, 100 - (mem + pipe + branch + struct));
+      const memShare = dist.Memory || 28;
+      const pipeShare = dist.Pipeline || 18;
+      const branchShare = dist.Branch || 12;
+      const structShare = dist.Structural || 9;
+      const sumStallShares = (memShare + pipeShare + branchShare + structShare) || 1.0;
+
+      const mem = (memShare / sumStallShares) * totalLossVal;
+      const pipe = (pipeShare / sumStallShares) * totalLossVal;
+      const branch = (branchShare / sumStallShares) * totalLossVal;
+      const struct = (structShare / sumStallShares) * totalLossVal;
+      const retire = tma.retiring;
 
       const lenMem = (mem / 100) * CIRCUMFERENCE;
       const lenPipe = (pipe / 100) * CIRCUMFERENCE;

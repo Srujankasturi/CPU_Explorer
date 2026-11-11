@@ -4,12 +4,12 @@
 
 (function () {
   const PATH_MAP = {
-    'dashboard': 'Dahboard.html',
+    'dashboard': 'Dashboard.html',
     'performance-analyzer': 'PerformanceAnalyzer.html',
     'pipeline-simulator': 'PipelineSimulator.html',
     'bottleneck-analyzer': 'BottleneckAnalyzer.html',
     'cpu-comparison': 'CPUComparison.html',
-    'what-if-analysis': 'What-if Analysis.html',
+    'what-if-analysis': 'WhatIfAnalysis.html',
     'advanced-visualizations': 'AdvancedVisualizations.html',
     'reports-and-analytics': 'Reports.html',
     'reports': 'Reports.html'
@@ -40,7 +40,7 @@
   };
 
   function getCurrentPageKey() {
-    const rawPath = window.location.pathname.split('/').pop() || 'Dahboard.html';
+    const rawPath = window.location.pathname.split('/').pop() || 'Dashboard.html';
     const decoded = decodeURIComponent(rawPath).toLowerCase();
     return REVERSE_PATH_MAP[decoded] || 'dashboard';
   }

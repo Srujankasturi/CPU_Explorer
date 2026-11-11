@@ -37,13 +37,13 @@
   50% { opacity: 1; filter: drop-shadow(0 0 12px rgba(220, 120, 255, 0.95)); }
 }
 
-@keyframes barEq1 { 0%, 100% { height: 18%; } 50% { height: 60%; } }
-@keyframes barEq2 { 0%, 100% { height: 35%; } 50% { height: 85%; } }
-@keyframes barEq3 { 0%, 100% { height: 50%; } 50% { height: 25%; } }
-@keyframes barEq4 { 0%, 100% { height: 75%; } 50% { height: 95%; } }
-@keyframes barEq5 { 0%, 100% { height: 60%; } 50% { height: 38%; } }
-@keyframes barEq6 { 0%, 100% { height: 85%; } 50% { height: 45%; } }
-@keyframes barEq7 { 0%, 100% { height: 95%; } 50% { height: 70%; } }
+@keyframes barEq1 { 0%, 100% { height: 26px; y: 46px; } 50% { height: 38px; y: 34px; } }
+@keyframes barEq2 { 0%, 100% { height: 48px; y: 24px; } 50% { height: 32px; y: 40px; } }
+@keyframes barEq3 { 0%, 100% { height: 36px; y: 36px; } 50% { height: 50px; y: 22px; } }
+@keyframes barEq4 { 0%, 100% { height: 54px; y: 18px; } 50% { height: 38px; y: 34px; } }
+@keyframes barEq5 { 0%, 100% { height: 42px; y: 30px; } 50% { height: 52px; y: 20px; } }
+@keyframes barEq6 { 0%, 100% { height: 50px; y: 22px; } 50% { height: 28px; y: 44px; } }
+@keyframes barEq7 { 0%, 100% { height: 38px; y: 34px; } 50% { height: 48px; y: 24px; } }
 
 @keyframes spinSlow {
   from { transform: rotate(0deg); }

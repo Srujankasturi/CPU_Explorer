@@ -316,10 +316,10 @@
     document.querySelectorAll('.cycle-col-hdr').forEach(el => {
       const c = parseInt(el.getAttribute('data-cycle'), 10);
       if (c === cycle) {
-        el.className = 'font-code-mono text-code-mono text-primary font-bold py-1 rounded bg-primary-fixed shadow-xs cycle-col-hdr';
+        el.className = 'font-code-mono text-code-mono text-primary font-bold py-1 rounded bg-primary-fixed shadow-md ring-2 ring-primary cycle-col-hdr scale-105 transition-all';
         el.innerText = `${c} ★`;
       } else {
-        el.className = 'font-code-mono text-code-mono text-on-surface-variant font-semibold py-1 rounded bg-surface-container-low cycle-col-hdr';
+        el.className = 'font-code-mono text-code-mono text-on-surface-variant font-semibold py-1 rounded bg-surface-container-low cycle-col-hdr transition-all';
         el.innerText = `${c}`;
       }
     });
@@ -327,10 +327,19 @@
     // 3. Timing grid cell highlight
     document.querySelectorAll('.stage-cell').forEach(el => {
       const c = parseInt(el.getAttribute('data-cycle'), 10);
+      const isStage = el.textContent.trim().length > 0;
       if (c === cycle) {
-        el.classList.add('ring-2', 'ring-primary');
+        if (isStage) {
+          el.classList.add('ring-2', 'ring-primary', 'shadow-md', 'scale-[1.04]', 'z-10');
+          el.classList.remove('opacity-75');
+        } else {
+          el.classList.add('bg-primary-fixed/20');
+        }
       } else {
-        el.classList.remove('ring-2', 'ring-primary');
+        el.classList.remove('ring-2', 'ring-primary', 'shadow-md', 'scale-[1.04]', 'z-10', 'bg-primary-fixed/20');
+        if (isStage) {
+          el.classList.add('opacity-90');
+        }
       }
     });
 
@@ -553,14 +562,19 @@
     isPlaying = true;
     const btnRun = document.getElementById('btn-run');
     if (btnRun) {
-      btnRun.classList.add('ring-2', 'ring-primary-container');
+      btnRun.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">sync</span><span>Running...</span>`;
+      btnRun.className = "inline-flex items-center gap-1.5 h-10 px-space-lg rounded-lg bg-emerald-600 text-white font-label-md text-label-md shadow-md ring-2 ring-emerald-300 transition-all";
     }
+
     if (playTimer) clearInterval(playTimer);
     playTimer = setInterval(() => {
       if (currentCycle >= maxCycles) {
         currentCycle = 1;
+        highlightActiveCycle(currentCycle);
+      } else {
+        currentCycle++;
+        highlightActiveCycle(currentCycle);
       }
-      stepForward();
     }, stepSpeedMs);
   }
 
@@ -568,7 +582,8 @@
     isPlaying = false;
     const btnRun = document.getElementById('btn-run');
     if (btnRun) {
-      btnRun.classList.remove('ring-2', 'ring-primary-container');
+      btnRun.innerHTML = `<span class="material-symbols-outlined text-[18px]">play_arrow</span><span>Run</span>`;
+      btnRun.className = "inline-flex items-center gap-1.5 h-10 px-space-lg rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:bg-primary-container transition-colors";
     }
     if (playTimer) {
       clearInterval(playTimer);

@@ -105,6 +105,7 @@ class PipelineSimulateResponse(BaseModel):
     reservation_stations: Optional[List[Dict[str, Any]]] = None
     rat_table: Optional[Dict[str, str]] = None
     speedup_vs_inorder: Optional[float] = None
+    microarchitecture_notes: Optional[Dict[str, Any]] = None
     virtualization_meta: Optional[Dict[str, Any]] = None
 
 
@@ -135,6 +136,8 @@ class BottleneckAnalyzeResponse(BaseModel):
     summary_message: str
     items: List[BottleneckItem]
     distribution: Dict[str, float]
+    tma_levels: Optional[Dict[str, float]] = None
+    formula_explanation: Optional[str] = None
     subsystem_weights: Optional[Dict[str, float]] = None
 
 

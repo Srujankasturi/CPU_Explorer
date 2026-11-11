@@ -233,6 +233,12 @@ class PipelineSimulatorService:
             "cycle_headers": [str(c) for c in range(1, max_cycle + 1)],
             "hazards_detected": hazards_detected,
             "speedup_vs_inorder": 1.0,
+            "microarchitecture_notes": {
+                "forwarding_enabled": forwarding,
+                "stages": ["IF", "ID", "EX", "MEM", "WB"],
+                "hazard_mechanisms": "EX/MEM and MEM/WB bypass paths active" if forwarding else "RAW stall until WB stage completes",
+                "limitations": "Load-use hazard requires 1 stall bubble even with forwarding; branch outcomes evaluated at EX stage."
+            },
             "virtualization_meta": {
                 "enabled": num_inst > 25,
                 "is_virtualized": num_inst > 25,
@@ -613,5 +619,11 @@ class PipelineSimulatorService:
             "cycle_headers": [],
             "hazards_detected": [],
             "speedup_vs_inorder": 1.0,
+            "microarchitecture_notes": {
+                "forwarding_enabled": forwarding,
+                "stages": ["IF", "ID", "EX", "MEM", "WB"],
+                "hazard_mechanisms": "EX/MEM and MEM/WB bypass paths active" if forwarding else "RAW stall until WB stage completes",
+                "limitations": "Load-use hazard requires 1 stall bubble even with forwarding; branch outcomes evaluated at EX stage."
+            },
             "virtualization_meta": {"is_virtualized": False, "total_instructions": 0, "total_cycles": 0, "window_size": 0}
         }

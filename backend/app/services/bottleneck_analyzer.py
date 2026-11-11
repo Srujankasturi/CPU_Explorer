@@ -133,6 +133,35 @@ class BottleneckAnalyzerService:
         top = sorted_items[0]
         primary_culprit = f"Primary culprit: {top['name']} ({top['impact_pct']}% of stall cycles)."
 
+        # Standard Intel Top-Down Microarchitecture (TMAM) Level-1 Classification:
+        # Sum of the 4 buckets equals 100% of pipeline issue slots:
+        # 1. Retiring: fraction of issue slots that executed useful retired instructions
+        # 2. Bad Speculation: slots wasted due to branch misprediction recovery flushes
+        # 3. Frontend Bound: slots starved because the fetch/decode stages could not deliver uops
+        # 4. Backend Bound: slots stalled due to memory hierarchy (DRAM/L3) and execution port contention
+        retiring_pct = round(max(15.0, min(75.0, (1.0 / cpi) * 100.0)), 1)
+        overhead_slots = 100.0 - retiring_pct
+
+        bad_spec_raw = overhead_slots * (branch_contrib / 100.0)
+        frontend_raw = overhead_slots * 0.18
+        backend_raw = overhead_slots * ((mem_contrib + struct_contrib + (pipe_contrib * 0.5)) / 100.0)
+
+        # Normalize remaining slots to match exact 100%
+        rem_sum = bad_spec_raw + frontend_raw + backend_raw
+        if rem_sum <= 0:
+            rem_sum = 1.0
+        bad_spec_pct = round((bad_spec_raw / rem_sum) * overhead_slots, 1)
+        frontend_pct = round((frontend_raw / rem_sum) * overhead_slots, 1)
+        backend_pct = round(overhead_slots - bad_spec_pct - frontend_pct, 1)
+
+        tma_levels = {
+            "retiring": retiring_pct,
+            "bad_speculation": bad_spec_pct,
+            "frontend_bound": frontend_pct,
+            "backend_bound": backend_pct,
+            "total_loss": round(overhead_slots, 1)
+        }
+
         distribution = {
             "Memory": round(mem_contrib, 1),
             "Pipeline": round(pipe_contrib, 1),
@@ -148,6 +177,8 @@ class BottleneckAnalyzerService:
             "summary_message": f"Hardware audit diagnosed {severity} severity microarchitectural contention. {primary_culprit}",
             "items": items,
             "distribution": distribution,
+            "tma_levels": tma_levels,
+            "formula_explanation": "Bottleneck Score = (CPI Overhead × 60%) + (LLC Miss Rate × 25%) + (Branch Mispredict Rate × 15%)",
             "subsystem_weights": {
                 "cpi_overhead_weight": 0.60,
                 "llc_miss_weight": 0.25,

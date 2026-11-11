@@ -101,6 +101,16 @@
       branch: 'viz-card-waterfall'
     };
 
+    const tabMessages = {
+      branch: { msg: 'Branch Speculation: 2,964 cycles lost to branch misprediction flushes (12.0% penalty)', type: 'warning' },
+      memory: { msg: 'Memory Subsystem: 6,916 cycles lost to L2/L3 cache misses & DRAM latency (28.0% penalty)', type: 'info' },
+      cache: { msg: 'Cache Hierarchy: L1 (4 cyc) → L2 (14 cyc) → L3 (42 cyc) → DDR5 (180 cyc)', type: 'info' },
+      heatmap: { msg: 'Multi-Core Heatmap: Live 16-thread workload balancing matrix', type: 'success' },
+      sankey: { msg: 'Sankey Flow: Instruction dispatch routing from fetch to execution units', type: 'info' },
+      waterfall: { msg: 'Execution Waterfall: Detailed cycle breakdown of active compute vs stall overhead', type: 'info' },
+      treemap: { msg: 'Equilibrium Treemap: Microarchitectural resource balance & power budget', type: 'info' }
+    };
+
     const tabs = document.querySelectorAll('.viz-tab-btn');
     tabs.forEach(btn => {
       btn.addEventListener('click', function () {
@@ -120,8 +130,24 @@
           }
         }
 
+        // Specifically highlight row inside waterfall when Branch or Memory is chosen
+        if (activeTab === 'branch') {
+          const branchRow = document.getElementById('waterfall-branch-row');
+          if (branchRow) {
+            branchRow.classList.add('ring-2', 'ring-error', 'bg-error/10');
+            setTimeout(() => branchRow.classList.remove('ring-2', 'ring-error', 'bg-error/10'), 2500);
+          }
+        } else if (activeTab === 'memory') {
+          const memRow = document.getElementById('waterfall-memory-row');
+          if (memRow) {
+            memRow.classList.add('ring-2', 'ring-secondary', 'bg-secondary/10');
+            setTimeout(() => memRow.classList.remove('ring-2', 'ring-secondary', 'bg-secondary/10'), 2500);
+          }
+        }
+
         if (window.showToast) {
-          window.showToast(`Switched view to ${this.textContent.trim()} component`, 'info');
+          const info = tabMessages[activeTab] || { msg: `Viewing ${this.textContent.trim()} component`, type: 'info' };
+          window.showToast(info.msg, info.type);
         }
       });
     });

@@ -42,6 +42,7 @@
         renderScoreGauge(res.bottleneck_score, res.severity, res.risk_level);
         renderBottlenecksList(res.items);
         renderDistributionBars(res.distribution);
+        renderTmaBreakdown(res.tma_levels, res.distribution);
       }
     } catch (e) {
       console.warn('Bottleneck analysis error:', e.message);
@@ -303,6 +304,95 @@
       const structVal = dist.Structural ?? 9.0;
       bars[3].querySelector('.font-code-mono').innerText = `${structVal}%`;
       bars[3].querySelector('.h-full').style.width = `${Math.min(100, structVal)}%`;
+    }
+  }
+
+  function renderTmaBreakdown(tma, dist) {
+    if (!tma) {
+      if (!dist) return;
+      const memVal = dist.Memory ?? 28.0;
+      const pipeVal = dist.Pipeline ?? 18.0;
+      const branchVal = dist.Branch ?? 12.0;
+      const structVal = dist.Structural ?? 9.0;
+      const retiring = Math.max(15, 100 - (memVal + pipeVal + branchVal + structVal));
+      tma = {
+        retiring: retiring,
+        bad_speculation: branchVal,
+        frontend_bound: Math.round(pipeVal * 0.4),
+        backend_bound: Math.round(memVal + structVal + (pipeVal * 0.6)),
+        total_loss: Math.round(100 - retiring)
+      };
+    }
+
+    const retEl = document.getElementById('tma-retiring-val');
+    if (retEl) retEl.textContent = `${tma.retiring.toFixed(1)}%`;
+
+    const badEl = document.getElementById('tma-badspec-val');
+    if (badEl) badEl.textContent = `${tma.bad_speculation.toFixed(1)}%`;
+
+    const frontEl = document.getElementById('tma-frontend-val');
+    if (frontEl) frontEl.textContent = `${tma.frontend_bound.toFixed(1)}%`;
+
+    const backEl = document.getElementById('tma-backend-val');
+    if (backEl) backEl.textContent = `${tma.backend_bound.toFixed(1)}%`;
+
+    const totalLossEl = document.getElementById('bottleneck-total-loss-val');
+    if (totalLossEl) {
+      totalLossEl.textContent = `${(tma.total_loss || (100 - tma.retiring)).toFixed(1)}%`;
+    }
+
+    // Dynamic Donut SVG Circles & Legend
+    const CIRCUMFERENCE = 301.59; // 2 * PI * 48
+    if (dist) {
+      const mem = dist.Memory || 28;
+      const pipe = dist.Pipeline || 18;
+      const branch = dist.Branch || 12;
+      const struct = dist.Structural || 9;
+      const retire = Math.max(0, 100 - (mem + pipe + branch + struct));
+
+      const lenMem = (mem / 100) * CIRCUMFERENCE;
+      const lenPipe = (pipe / 100) * CIRCUMFERENCE;
+      const lenBranch = (branch / 100) * CIRCUMFERENCE;
+      const lenStruct = (struct / 100) * CIRCUMFERENCE;
+      const lenRetire = (retire / 100) * CIRCUMFERENCE;
+
+      const circleMem = document.getElementById('donut-circle-mem');
+      const circlePipe = document.getElementById('donut-circle-pipe');
+      const circleBranch = document.getElementById('donut-circle-branch');
+      const circleStruct = document.getElementById('donut-circle-struct');
+      const circleRetire = document.getElementById('donut-circle-retire');
+
+      if (circleMem) {
+        circleMem.style.strokeDasharray = `${lenMem} ${CIRCUMFERENCE}`;
+        circleMem.style.strokeDashoffset = '0';
+      }
+      if (circlePipe) {
+        circlePipe.style.strokeDasharray = `${lenPipe} ${CIRCUMFERENCE}`;
+        circlePipe.style.strokeDashoffset = `${-lenMem}`;
+      }
+      if (circleBranch) {
+        circleBranch.style.strokeDasharray = `${lenBranch} ${CIRCUMFERENCE}`;
+        circleBranch.style.strokeDashoffset = `${-(lenMem + lenPipe)}`;
+      }
+      if (circleStruct) {
+        circleStruct.style.strokeDasharray = `${lenStruct} ${CIRCUMFERENCE}`;
+        circleStruct.style.strokeDashoffset = `${-(lenMem + lenPipe + lenBranch)}`;
+      }
+      if (circleRetire) {
+        circleRetire.style.strokeDasharray = `${lenRetire} ${CIRCUMFERENCE}`;
+        circleRetire.style.strokeDashoffset = `${-(lenMem + lenPipe + lenBranch + lenStruct)}`;
+      }
+
+      const legMem = document.getElementById('donut-legend-mem');
+      if (legMem) legMem.textContent = `Memory (${mem.toFixed(1)}%)`;
+      const legPipe = document.getElementById('donut-legend-pipe');
+      if (legPipe) legPipe.textContent = `Pipeline (${pipe.toFixed(1)}%)`;
+      const legBranch = document.getElementById('donut-legend-branch');
+      if (legBranch) legBranch.textContent = `Branch (${branch.toFixed(1)}%)`;
+      const legStruct = document.getElementById('donut-legend-struct');
+      if (legStruct) legStruct.textContent = `Structural (${struct.toFixed(1)}%)`;
+      const legRetire = document.getElementById('donut-legend-retire');
+      if (legRetire) legRetire.textContent = `Retiring / Useful Work (${retire.toFixed(1)}%)`;
     }
   }
 

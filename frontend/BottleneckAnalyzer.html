@@ -278,16 +278,16 @@
 <svg class="w-48 h-48 -rotate-90" viewbox="0 0 120 120">
 <!-- Background track -->
 <circle class="text-surface-container-low" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-width="14"></circle>
-<!-- Memory: 28% -> dasharray 84.4, offset 0 -->
-<circle class="text-secondary" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-dasharray="84.4 217.1" stroke-dashoffset="0" stroke-width="14"></circle>
-<!-- Pipeline: 18% -> dasharray 54.3, offset -84.4 -->
-<circle class="text-error" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-dasharray="54.3 247.2" stroke-dashoffset="-84.4" stroke-width="14"></circle>
-<!-- Branch: 12% -> dasharray 36.2, offset -138.7 -->
-<circle class="text-tertiary" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-dasharray="36.2 265.3" stroke-dashoffset="-138.7" stroke-width="14"></circle>
-<!-- Structural: 9% -> dasharray 27.1, offset -174.9 -->
-<circle class="text-primary" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-dasharray="27.1 274.4" stroke-dashoffset="-174.9" stroke-width="14"></circle>
-<!-- Others: 33% -> dasharray 99.5, offset -202.0 -->
-<circle class="text-surface-container-highest" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-dasharray="99.5 202.0" stroke-dashoffset="-202.0" stroke-width="14"></circle>
+<!-- Memory -->
+<circle id="donut-circle-mem" class="text-secondary transition-all duration-500" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-dasharray="84.4 217.1" stroke-dashoffset="0" stroke-width="14"></circle>
+<!-- Pipeline -->
+<circle id="donut-circle-pipe" class="text-error transition-all duration-500" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-dasharray="54.3 247.2" stroke-dashoffset="-84.4" stroke-width="14"></circle>
+<!-- Branch -->
+<circle id="donut-circle-branch" class="text-tertiary transition-all duration-500" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-dasharray="36.2 265.3" stroke-dashoffset="-138.7" stroke-width="14"></circle>
+<!-- Structural -->
+<circle id="donut-circle-struct" class="text-primary transition-all duration-500" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-dasharray="27.1 274.4" stroke-dashoffset="-174.9" stroke-width="14"></circle>
+<!-- Others -->
+<circle id="donut-circle-retire" class="text-surface-container-highest transition-all duration-500" cx="60" cy="60" fill="none" r="48" stroke="currentColor" stroke-dasharray="99.5 202.0" stroke-dashoffset="-202.0" stroke-width="14"></circle>
 </svg>
 <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
 <span class="font-label-xs text-label-xs text-on-surface-variant font-bold uppercase tracking-wider">Total Loss</span>
@@ -299,23 +299,23 @@
 <div class="grid grid-cols-2 gap-y-2 gap-x-3 pt-2 text-on-surface">
 <div class="flex items-center gap-2">
 <span class="w-2.5 h-2.5 rounded-full bg-secondary flex-shrink-0"></span>
-<span class="font-body-sm text-body-sm text-on-surface truncate">Memory (28%)</span>
+<span id="donut-legend-mem" class="font-body-sm text-body-sm text-on-surface truncate">Memory (28%)</span>
 </div>
 <div class="flex items-center gap-2">
 <span class="w-2.5 h-2.5 rounded-full bg-error flex-shrink-0"></span>
-<span class="font-body-sm text-body-sm text-on-surface truncate">Pipeline (18%)</span>
+<span id="donut-legend-pipe" class="font-body-sm text-body-sm text-on-surface truncate">Pipeline (18%)</span>
 </div>
 <div class="flex items-center gap-2">
 <span class="w-2.5 h-2.5 rounded-full bg-tertiary flex-shrink-0"></span>
-<span class="font-body-sm text-body-sm text-on-surface truncate">Branch (12%)</span>
+<span id="donut-legend-branch" class="font-body-sm text-body-sm text-on-surface truncate">Branch (12%)</span>
 </div>
 <div class="flex items-center gap-2">
 <span class="w-2.5 h-2.5 rounded-full bg-primary flex-shrink-0"></span>
-<span class="font-body-sm text-body-sm text-on-surface truncate">Structural (9%)</span>
+<span id="donut-legend-struct" class="font-body-sm text-body-sm text-on-surface truncate">Structural (9%)</span>
 </div>
 <div class="col-span-2 flex items-center gap-2 pt-1 border-t border-surface-container">
 <span class="w-2.5 h-2.5 rounded-full bg-surface-container-highest flex-shrink-0"></span>
-<span class="font-body-sm text-body-sm text-on-surface-variant truncate">Retiring / Useful Work (33%)</span>
+<span id="donut-legend-retire" class="font-body-sm text-body-sm text-on-surface-variant truncate">Retiring / Useful Work (33%)</span>
 </div>
 </div>
 </div>

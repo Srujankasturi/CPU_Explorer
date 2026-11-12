@@ -1,4 +1,13 @@
+import sys
 import os
+
+# Safe fallback if Windows Application Control blocks optional native C-extensions
+for _mod in ("ujson", "orjson"):
+    try:
+        __import__(_mod)
+    except Exception:
+        sys.modules[_mod] = None
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
